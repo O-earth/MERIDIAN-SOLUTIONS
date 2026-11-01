@@ -173,7 +173,7 @@ window.MNG_DATA = {
       "status": "ACTIVE",
       "name": "Milo",
       "nameHidden": false,
-      "teaser": true,
+      "teaser": false,
       "kind": "asset",
       "assetNo": "EQ-2207",
       "acquisition": "잉여 군수 자산 인수",
@@ -233,7 +233,7 @@ window.MNG_DATA = {
       "fields": [],
       "id": "op-lamb",
       "createdAt": 1793313600000,
-      "updatedAt": 1793530898141,
+      "updatedAt": 1793543553496,
       "photo": "assets/agents/op-lamb-1793530898142.jpg"
     }
   ],
