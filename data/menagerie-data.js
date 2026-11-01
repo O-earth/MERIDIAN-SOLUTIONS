@@ -83,8 +83,8 @@ window.MNG_DATA = {
       ],
       "id": "op-kakapo",
       "createdAt": 1793140800000,
-      "updatedAt": 1793530276189,
-      "photo": "assets/agents/op-kakapo-1793529274206.jpg"
+      "updatedAt": 1793530297391,
+      "photo": "assets/agents/op-kakapo-1793530297391.jpg"
     },
     {
       "id": "op-sloth",
