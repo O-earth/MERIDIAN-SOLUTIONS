@@ -3,28 +3,67 @@ window.MNG_DATA = {
   "settings": {},
   "agents": [
     {
-      "id": "op-kakapo",
       "callsign": "KAKAPO",
-      "no": "MNG-0117",
+      "no": "",
       "team": 2,
       "status": "ACTIVE",
       "name": "Joaquín Ramón Cabrera Osuna",
       "nameHidden": false,
+      "teaser": false,
+      "kind": "personnel",
+      "assetNo": "",
+      "acquisition": "",
+      "assetStatus": "",
       "age": "32세",
-      "birthday": "",
-      "height": "",
+      "birthday": "2월 6일",
+      "height": "196cm",
+      "medAlert": "",
+      "kin": "",
       "weapon": "",
-      "quote": "",
+      "quote": "내 섹시한 얼굴에 뽀뽀라도 해줘야 하는 거 아니야, 응?",
       "keywords": "",
       "combat": "",
       "reputation": "",
       "remarks": "",
       "manager": "",
+      "trailer": "",
+      "cases": "",
+      "highrisk": "",
+      "discipline": "",
       "bio": "",
-      "photo": "",
       "photoPos": "30%",
       "links": [],
-      "stats": [],
+      "stats": [
+        {
+          "k": "화력",
+          "v": 8
+        },
+        {
+          "k": "근접",
+          "v": 12
+        },
+        {
+          "k": "통제",
+          "v": 7
+        },
+        {
+          "k": "기동력",
+          "v": 6
+        },
+        {
+          "k": "생존",
+          "v": 13
+        },
+        {
+          "k": "단독",
+          "v": 8
+        },
+        {
+          "k": "전술",
+          "v": 7
+        }
+      ],
+      "rels": [],
       "fields": [
         {
           "k": "출신",
@@ -35,8 +74,10 @@ window.MNG_DATA = {
           "v": "브리처"
         }
       ],
-      "createdAt": 1793140800000.0,
-      "rels": []
+      "id": "op-kakapo",
+      "createdAt": 1793140800000,
+      "updatedAt": 1793528661843,
+      "photo": ""
     },
     {
       "id": "op-sloth",
@@ -61,7 +102,7 @@ window.MNG_DATA = {
           "v": "호주"
         }
       ],
-      "createdAt": 1793227200000.0,
+      "createdAt": 1793227200000,
       "rels": []
     },
     {
@@ -82,7 +123,7 @@ window.MNG_DATA = {
       "links": [],
       "stats": [],
       "fields": [],
-      "createdAt": 1793313600000.0,
+      "createdAt": 1793313600000,
       "rels": [],
       "kind": "asset",
       "assetNo": "EQ-2207",
