@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meridian Solutions | Private Military Company</title>
+<meta name="description" content="Meridian Solutions 공식 웹사이트. 위험지역 경호·시설 보호·인원 철수·수색 회수 전문 민간군사기업.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meridian Solutions | Private Military Company">
+<meta property="og:description" content="다른 곳이 받지 않는 의뢰를 끝까지 수행합니다.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0E0F0B">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preload" href="assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Pretendard Variable";src:url(assets/fonts/PretendardVariable.woff2) format("woff2");font-weight:45 920;font-display:swap}</style>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<details class="gov">
+  <summary><div class="wrap bar"><span class="flag" aria-hidden="true"></span><span>Meridian Solutions의 공식 웹사이트입니다.</span><span class="how">확인 방법</span></div></summary>
+  <div class="wrap body">
+    <div><span class="ico">MS</span><span><b>의뢰와 채용은 공식 창구로만 받습니다</b>당사는 메신저나 개인 연락처로 계약을 제안하거나 채용 연락을 하지 않습니다. 당사 명의의 다른 연락은 사칭일 수 있습니다.</span></div>
+    <div><span class="ico">ID</span><span><b>소속 인력의 신상을 확인해 드리지 않습니다</b>당사는 전화나 메일로 오퍼레이터의 실명, 출신, 거점 위치를 확인해 주지 않습니다. 이를 묻는 연락에 응하지 마십시오.</span></div>
+  </div>
+</details>
+
+<header class="mast">
+  <div class="wrap">
+    <button class="brand" data-go="home" aria-label="Meridian Solutions 홈">
+      <span class="lg" role="img" aria-label="Meridian Solutions"></span>
+      <span class="divider"></span>
+      <span class="txt"><b>Meridian Solutions</b><span>Private Military Company</span></span>
+    </button>
+    <div class="mast-act">
+      <button class="btn inv staff-login" id="headLogin">직원 로그인</button>
+      <span class="staff-chip"><i></i>STAFF</span>
+      <button class="btn inv admin-only" id="tokenDel">토큰 삭제</button>
+      <button class="btn inv admin-only" id="logout">로그아웃</button>
+    </div>
+  </div>
+</header>
+<nav class="main" aria-label="주 메뉴"><div class="wrap">
+  <button data-go="home" data-sec="about" aria-current="page">회사소개</button>
+  <button data-go="home" data-sec="anomaly">인력 구성</button>
+  <button data-go="home" data-sec="org">조직</button>
+  <button data-go="roster">오퍼레이터 명부</button>
+  <button data-go="recruit">채용</button>
+  <button data-go="home" data-sec="news">공지</button>
+</div></nav>
+
+<main id="viewHome">
+  <div class="notice"><div class="wrap"><b>안내</b><span>당사는 거점 위치를 공개하지 않습니다. 거점으로 추정되는 장소에 접근하거나 촬영하지 마십시오.</span></div></div>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="label">Meridian Solutions · Private Military Contractor</div>
+          <h1>다른 곳이 받지 않는 의뢰를<br><b>끝까지 수행합니다.</b></h1>
+          <p>Meridian Solutions는 분쟁 지역과 고위험 환경의 작전을 수행하는 민간군사기업입니다. 대형 PMC가 편성하지 않는 인외·개조인간·반인간 인력을 중심으로 운영됩니다.</p>
+          <div class="ctas"><button class="btn solid" data-go="home" data-sec="about">회사 소개</button><button class="btn inv" data-go="roster">오퍼레이터 명부</button></div>
+        </div>
+        <dl class="facts" aria-label="운영 현황">
+          <div><dt>Headquarters</dt><dd>비공개 · 단일 거점</dd></div>
+          <div><dt>Operations clock</dt><dd class="num" id="hqTime">--:--</dd></div>
+          <div><dt>Area of operations</dt><dd>전 세계 분쟁 지역</dd></div>
+          <div><dt>Deployment</dt><dd class="live"><span class="pulse"></span>파견 운영 중</dd></div>
+          <div><dt>Field operators</dt><dd class="num" id="heroCount">—</dd></div>
+        </dl>
+      </div>
+      <figure class="hero-fig" id="heroFig"></figure>
+    </div>
+  </section>
+
+  <div class="quick"><div class="wrap">
+    <button data-go="recruit"><small>CAREERS</small><b>오퍼레이터 채용</b><span>분류 · 국적 · 시민권 무관</span></button>
+    <button data-go="home" data-sec="anomaly"><small>CONTRACTS</small><b>주요 작전 영역</b><span>분쟁 지역 · 기업 간 분쟁 · 비공식 개입</span></button>
+    <button data-go="roster"><small>PERSONNEL</small><b>오퍼레이터 명부</b><span>인외 · 개조인간 · 반인간 · 인간</span></button>
+  </div></div>
+
+  <section class="blk" id="sec-about">
+    <div class="wrap sec-grid">
+      <div class="side"><span class="label">About</span><span class="sn">회사소개</span></div>
+      <div>
+        <h2 class="h2"><b>규격 밖의 위험</b>에는 규격 밖의 인력으로.</h2>
+        <p class="lead">Meridian Solutions는 정규군이 공식적으로 나설 수 없는 현장을 맡는 중견 민간군사기업입니다. 주요 PMC와의 협력 계약을 통해 작전에 참여하며, 표준 편제에 들어가지 않는 인력을 받아들여 왔습니다.</p>
+        <div class="timeline">
+          <div class="tl"><small>BACKGROUND</small><div><h3 class="h3">전면전 이후의 세계</h3><p>핵 억지력이 작동하면서 국가 간 전면전은 사라졌습니다. 그 자리를 대리전과 기업 간 무력 충돌, 자원 분쟁이 채웠고, 정규군이 직접 들어가기 어려운 현장은 민간군사기업이 맡게 되었습니다.</p></div></div>
+          <div class="tl"><small>DEMAND</small><div><h3 class="h3">사람에게로 옮겨간 군비 경쟁</h3><p>각국의 군사 투자는 인체 개조, 유전자 편집, 생체 강화로 옮겨갔습니다. 그 결과 태어난 비표준 인력은 군사적 가치를 인정받았지만, 대부분의 국가에서 법적 지위가 불안정합니다.</p></div></div>
+          <div class="tl on"><small>FOUNDING</small><div><h3 class="h3">Meridian Solutions</h3><p>당사는 서류상 위험지역 보안 컨설팅 업체로 등록되어 있습니다. 비표준 인력을 단일 거점에 두고, 계약에 따라 분쟁 지역으로 파견합니다.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="sec-anomaly">
+    <div class="wrap two">
+      <div>
+        <span class="label">Our personnel</span>
+        <h2 class="h2">비표준 인력이란<br><b>무엇입니까</b></h2>
+        <p class="lead">인체 개조나 유전자 설계 등으로 인간 규격을 벗어난 사람을 국제적으로 비표준 인류(Non-Standard Humans)라 부릅니다. 군사적 가치가 입증된 뒤로 PMC가 이들의 최대 고용주가 되었고, 당사 현장 인력의 다수도 여기에 속합니다.</p>
+        <dl class="terms">
+          <dt>OFFICIAL</dt><dd><b>비표준 인류</b> · 국제 공식 분류</dd>
+          <dt>IN-HOUSE</dt><dd><b>오퍼레이터</b> · 당사 현장 인력의 통칭</dd>
+          <dt>CLASS</dt><dd>인외, 개조인간, 반인간, 인간</dd>
+          <dt>ORIGIN</dt><dd>개체마다 다르며, 채용 과정에서 확인하지 않습니다</dd>
+          <dt>STATUS</dt><dd>시민권과 법적 지위는 국가마다 다릅니다</dd>
+        </dl>
+      </div>
+      <div>
+        <span class="label">Contracts</span>
+        <h2 class="h2">주요 <b>작전 영역</b></h2>
+        <p class="lead">정규군이 공식적으로 개입할 수 없는 현장이 늘면서, 그 공백을 민간군사기업이 맡고 있습니다. 당사가 수행하는 계약은 주로 다음과 같습니다.</p>
+        <dl class="terms">
+          <dt>DISPUTED</dt><dd><b>분쟁 지역 작전</b> · 국경과 영유권이 다투어지는 지역</dd>
+          <dt>CORPORATE</dt><dd><b>기업 간 분쟁</b> · 자원 채굴지, 생산 시설, 물류 거점</dd>
+          <dt>UNOFFICIAL</dt><dd><b>비공식 개입</b> · 국가가 직접 나설 수 없는 분쟁</dd>
+          <dt>HIGH-VALUE</dt><dd><b>특정 표적 작전</b> · 세부 내용은 공개하지 않습니다</dd>
+        </dl>
+        <div id="levels" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="sec-org">
+    <div class="wrap sec-grid">
+      <div class="side"><span class="label">Organization</span><span class="sn">운영 방식</span></div>
+      <div>
+        <h2 class="h2">Meridian Solutions의 <b>조직</b></h2>
+        <p class="lead">당사의 현장 인력은 모두 오퍼레이터로 불립니다. 모두가 서로의 얼굴을 아는 규모이며, 고정된 계급 없이 임무마다 팀을 꾸립니다.</p>
+
+        <div class="org-sru">
+          <div class="row">
+            <div><span class="label">Field Operators</span><h2 class="h2" style="margin-top:8px">Not an army. <b>A contract.</b></h2></div>
+            <span class="tag">오퍼레이터 · 현장 인력</span>
+          </div>
+          <p class="lead">오퍼레이터는 분류와 관계없이 같은 임무를 맡습니다. 계약은 본사에서 암호화된 브리핑으로 내려오며, 오퍼레이터는 수 주에서 수 개월 단위로 파견된 뒤 교대로 복귀합니다.</p>
+          <div class="team-row" id="teamTiles"></div>
+          <div class="facts-list">
+            <div><b>고정 계급이 없습니다</b>계급 대신 회사가 개인에게 지휘 자격을 부여합니다. 분류는 신체 특성에 따른 구분일 뿐, 업무나 보수 기준에는 차이가 없습니다.</div>
+            <div><b>임무별 팀 편성</b>계약마다 팀을 새로 꾸리고, 지휘 자격을 가진 오퍼레이터 한 명이 팀장을 맡습니다. 팀장의 권한은 임무 기간 동안 절대적이며, 거점 복귀와 함께 끝납니다.</div>
+            <div><b>파견과 교대</b>오퍼레이터는 수 주에서 수 개월 동안 파견되었다가 교대로 돌아옵니다. 거점이 전원으로 차는 일은 없습니다.</div>
+            <div><b>콜사인</b>오퍼레이터의 콜사인은 모두 동물 이름이며, 대개 팀에서 정해집니다. 임무 중에는 콜사인을, 거점에서는 이름을 씁니다.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="sec-careers">
+    <div class="wrap two">
+      <div>
+        <span class="label">Careers</span>
+        <h2 class="h2">출신보다<br><b>현장 능력</b></h2>
+        <p class="lead">당사는 분류, 국적, 시민권과 관계없이 인력을 채용합니다. 출신과 이전 이력을 묻지 않으며, 면접과 실기 평가로만 판단합니다.</p>
+        <div class="paths"><span>상시채용</span><span>경력채용</span><span>특별채용</span><span>추천채용</span></div>
+        <p class="fine">거점 위치와 작전에 관한 정보는 계약 이후 안내됩니다.</p>
+        <div style="margin-top:24px"><button class="btn primary" data-go="recruit">채용 공고 보기</button></div>
+      </div>
+      <div>
+        <span class="label">For Operators</span>
+        <h2 class="h2">오퍼레이터 <b>처우</b></h2>
+        <div class="benefits">
+          <div class="bf"><i>01</i><div><b>건별 정산</b><span>파견 계약 건별로 보수를 정산합니다.</span></div></div>
+          <div class="bf"><i>02</i><div><b>거점 내 1인 트레일러</b><span>모든 오퍼레이터에게 거점 안 1인 트레일러 숙소를 제공합니다.</span></div></div>
+          <div class="bf"><i>03</i><div><b>유지 약물 지급</b><span>개조 인력에게 필요한 거부반응 억제제, 신경 안정제, 나노머신 유지제를 회사가 지급합니다.</span></div></div>
+          <div class="bf"><i>04</i><div><b>의무실 이용</b><span>부상 치료와 의체·개조 부위 정비를 거점 의무실에서 받을 수 있습니다.</span></div></div>
+          <div class="bf"><i>05</i><div><b>신상 보호</b><span>업무에는 콜사인만 사용하며, 실명과 출신은 업무상 필요한 인원에게만 공유됩니다.</span></div></div>
+          <div class="bf"><i>06</i><div><b>후생시설</b><span>식당, 훈련장, 실내 사격장을 이용할 수 있습니다.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="sec-news">
+    <div class="wrap sec-grid">
+      <div class="side"><span class="label">Notices</span><span class="sn">공지</span></div>
+      <div>
+        <h2 class="h2"><b>공지</b></h2>
+        <div class="news">
+          <div class="news-row"><span class="cat w">주의</span><b>Meridian Solutions 사칭 채용 연락 주의 안내</b><time class="num">2049.10.27</time></div>
+          <div class="news-row"><span class="cat">채용</span><b>2049년 하반기 오퍼레이터 상시채용 안내</b><time class="num">2049.10.02</time></div>
+          <div class="news-row"><span class="cat">안내</span><b>거점 위치와 소속 인력의 신상에 관한 문의에는 답변하지 않습니다</b><time class="num">2049.09.14</time></div>
+          <div class="news-row"><span class="cat">보도</span><b>당사 인력 관련 일부 언론 보도에 대한 입장</b><time class="num">2049.08.30</time></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<main id="viewRoster" hidden>
+  <section class="reg-top">
+    <div class="wrap">
+      <span class="label">Field Operators · Personnel Register</span>
+      <h1>오퍼레이터 <b>명부</b></h1>
+      <p>오퍼레이터는 콜사인으로 등재됩니다. 실명과 출신은 보호되며, 공개 범위는 당사의 판단에 따릅니다.</p>
+      <div class="tabs" role="tablist" id="tabs"></div>
+    </div>
+  </section>
+  <section class="reg-body">
+    <div class="wrap">
+      <div class="toolbar">
+        <label class="search"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#879092" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="#879092" stroke-width="1.6"/></svg><input id="q" type="search" placeholder="콜사인으로 찾기" autocomplete="off"></label>
+        <div class="filters">
+          <div class="chips" id="platChips" role="group" aria-label="플랫폼">
+            <button data-plat="all" aria-pressed="true">전체</button><button data-plat="케이브덕">케이브덕</button><button data-plat="티팟">티팟</button>
+          </div>
+          <select id="sortSel" class="inp sort" aria-label="정렬" hidden><option value="new" selected>최근 등재순</option></select>
+          <span class="count num" id="rCount"></span>
+        </div>
+      </div>
+      <p class="team-note" id="teamNote"></p>
+      <div class="badges" id="badges"></div>
+
+      <div class="assets">
+        <div class="as-head">
+          <div><span class="label">Equipment &amp; Non-Standard Assets</span><h2 class="h2" style="margin-top:8px">장비 및 <b>자산 등록부</b></h2></div>
+          <div class="as-act"><span class="count num" id="assetCount"></span><button class="btn sm" id="assetAdd" hidden>+ 자산 등록</button></div>
+        </div>
+        <div class="as-table">
+          <div class="as-row as-hd"><span></span><span>자산 번호</span><span>지정명</span><span>분류</span><span>취득 경위</span><span>상태</span></div>
+          <div id="assetRows"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="viewBoard" hidden aria-hidden="true">
+  <section class="reg-top">
+    <div class="wrap">
+      <span class="label">Client &amp; Public Inquiries</span>
+      <h1>문의 <b>게시판</b></h1>
+      <p>의뢰, 채용, 그 밖의 문의를 남길 수 있습니다. 거점 위치와 소속 인력의 신상에 관한 질문에는 답변하지 않습니다.</p>
+      <div class="board-cta"><button class="btn solid" id="openTip">문의하기</button><button class="btn inv" id="addPost" hidden>게시물 작성</button></div>
+    </div>
+  </section>
+  <section class="reg-body">
+    <div class="wrap">
+      <div class="chips bcats" id="bCats" role="group" aria-label="분류"></div>
+      <div class="board-head"><span>번호</span><span>분류</span><span>제목</span><span>작성자</span><span>날짜</span><span>상태</span></div>
+      <div id="bList"></div>
+      
+    </div>
+  </section>
+</main>
+
+<main id="viewRecruit" hidden>
+  <section class="reg-top">
+    <div class="wrap">
+      <span class="label">Careers · 2049 Recruitment</span>
+      <h1>Meridian Solutions <b>오퍼레이터 채용</b></h1>
+      <p>출신은 묻지 않습니다. 다른 곳이 받지 않는 현장에서 함께 일할 인력을 찾습니다.</p>
+      <div class="board-cta"><button class="btn solid" id="openIdGen">ID 카드 발급</button></div>
+    </div>
+  </section>
+  <section class="reg-body">
+    <div class="wrap sec-grid">
+      <div class="side"><span class="label">Job Posting</span><span class="sn">모집 공고</span></div>
+      <div>
+        <dl class="terms" style="margin-top:0">
+          <dt>모집 분야</dt><dd><b>현장 오퍼레이터</b> · 분류 무관</dd>
+          <dt>근무지</dt><dd>당사 거점 상주. 위치는 계약 이후 개별 안내합니다. 의뢰에 따라 전 세계로 파견됩니다.</dd>
+          <dt>지원 자격</dt><dd>분류, 국적, 시민권 무관. 현장 경력 보유자를 우대합니다.</dd>
+          <dt>채용 경로</dt><dd>상시채용 · 경력채용 · 특별채용 · 추천채용</dd>
+          <dt>처우</dt><dd>건별 정산, 거점 내 1인 트레일러, 유지 약물 지급, 의무실 이용, 신상 보호, 후생시설</dd>
+          <dt>전형</dt><dd>면접과 실기 평가. 출신과 이전 이력을 증빙할 서류는 요구하지 않습니다.</dd>
+        </dl>
+        <p class="fine">작전과 배치에 관한 정보는 보안상 계약 이후 단계적으로 안내됩니다.</p>
+        <div class="idgen-cta">
+          <div><b>이미 계약하셨습니까?</b><span>사진과 정보를 넣어 오퍼레이터 ID 카드를 만들 수 있습니다.<br>입력한 내용은 저장되지 않고, 이미지로만 내려받습니다.</span></div>
+          <button class="btn primary" data-open-id>ID 카드 발급</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-top">
+      <span class="lg" role="img" aria-label="Meridian Solutions" style="width:150px"></span>
+      <p>Meridian Solutions, Private Military Company. 본 사이트의 의뢰·인력 정보는 공개 가능한 범위로 제한되며, 소속 인력의 신상과 거점 정보는 제공되지 않습니다.</p>
+    </div>
+    <div class="f-links"><button>개인정보처리방침</button><button>이용약관</button><button>윤리강령</button><button>협력사</button><button id="footLogin">직원 전용</button></div>
+    <div class="f-bot"><span>© 2049 MERIDIAN SOLUTIONS</span><span>OFFICIAL SITE</span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="fileScrim" hidden><div class="modal" id="fileModal" role="dialog" aria-modal="true" aria-label="인사기록"></div></div>
+<div class="scrim" id="editScrim" hidden><div class="modal" id="editModal" role="dialog" aria-modal="true" aria-label="오퍼레이터 등록"></div></div>
+<div class="scrim" id="loginScrim" hidden>
+  <div class="modal narrow login" role="dialog" aria-modal="true" aria-label="직원 인증">
+    <button class="x" data-close="loginScrim" aria-label="닫기">×</button>
+    <div class="inner">
+      <span class="lg" aria-hidden="true"></span>
+      <div id="loginStep">
+        <h3>직원 인증</h3>
+        <p>Meridian Solutions 내부망은 인가된 계정으로만 접근할 수 있습니다.</p>
+        <form id="loginForm" autocomplete="off">
+          <label class="f">STAFF ID<input id="lgId" autocomplete="username" spellcheck="false"></label>
+          <label class="f">PASSCODE<input id="lgPw" type="password" autocomplete="current-password"></label>
+          <button class="btn go" type="submit">인증</button>
+        </form>
+      </div>
+      <div id="ghStep" hidden>
+        <h3>저장소 연결</h3>
+        <p>저장하려면 이 브라우저에 GitHub 토큰을 한 번 등록해야 합니다.</p>
+        <form id="ghForm" autocomplete="off">
+          <label class="f">GITHUB TOKEN<input id="ghTok" type="password" placeholder="github_pat_…" spellcheck="false"></label>
+          <button class="btn go" type="submit">연결</button>
+        </form>
+        <div class="gh">
+          <b>토큰 만드는 법</b>
+          <ol>
+            <li>GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b></li>
+            <li>Repository access: 이 사이트 저장소 하나만 선택</li>
+            <li>Permissions → Contents: <code>Read and write</code></li>
+          </ol>
+          <p style="text-align:left;margin-top:10px">토큰은 이 브라우저에만 저장되고 사이트 파일에는 들어가지 않습니다. 저장소 이름: <code id="repoName">—</code></p>
+          <button type="button" class="btn inv sm" id="ghSkip" style="margin-top:12px">나중에 연결 (보기만)</button>
+        </div>
+      </div>
+      <div class="result" id="lgResult"></div>
+    </div>
+  </div>
+</div>
+<div class="scrim" id="postScrim" hidden><div class="modal" id="postModal" role="dialog" aria-modal="true" aria-label="게시물"></div></div>
+<div class="scrim" id="tipScrim" hidden>
+  <div class="modal narrow" role="dialog" aria-modal="true" aria-label="문의하기">
+    <button class="x" data-close="tipScrim" aria-label="닫기">×</button>
+    <div class="m-head"><span>CONTRACT DESK · 문의 접수</span></div>
+    <form id="tipForm" class="tip"><div class="fgrid" style="grid-template-columns:1fr">
+      <label class="f">분류<select id="tCat"><option>의뢰 문의</option><option>채용 문의</option><option>기타 문의</option></select></label>
+      <label class="f">작전 지역<input id="tPlace" maxlength="80" placeholder="국가·도시 단위로"></label>
+      <label class="f">희망 일정<input id="tWhen" maxlength="40" placeholder="예: 다음 달 초, 2주간"></label>
+      <label class="f">내용<textarea id="tBody" maxlength="1500" placeholder="대상 인원, 목표, 예상되는 위협"></textarea></label>
+      <button class="btn primary" type="submit">접수</button>
+      <p class="hint" style="margin:0">창작 세계관 사이트입니다. 입력한 내용은 어디에도 저장되거나 전송되지 않습니다.</p>
+    </div></form>
+    <div id="tipDone" class="tip-done" hidden>
+      <small>RECEIPT</small>
+      <b class="num" id="tipNo"></b>
+      <p>문의가 접수되었습니다. 검토 후 회신드립니다.</p>
+      <p class="hint">접수번호는 상담 시 본인 확인에 사용됩니다.</p>
+      <button class="btn" data-close="tipScrim">닫기</button>
+    </div>
+  </div>
+</div>
+<div class="scrim" id="idScrim" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-label="ID 카드 발급" style="max-width:760px">
+    <button class="x" data-close="idScrim" aria-label="닫기">×</button>
+    <div class="m-head"><span>MERIDIAN SOLUTIONS · ID 카드 발급 · OPERATOR ID</span></div>
+    <div class="form" style="padding-bottom:28px">
+      <div class="photo-pick"><div id="idPv"></div></div>
+      <div class="fgrid inside" style="align-content:start">
+        <div class="full" style="display:flex;gap:6px;flex-wrap:wrap"><label class="btn sm" for="idPhoto">사진 올리기</label><input type="file" id="idPhoto" accept="image/*" hidden>
+          <select id="idPos" class="inp" style="width:auto;padding:6px 10px;font-size:12.5px" aria-label="사진 위치"><option value="0%">사진 위</option><option value="30%" selected>사진 위쪽</option><option value="50%">사진 가운데</option><option value="100%">사진 아래</option></select></div>
+        <label class="f">이름<input id="idName" maxlength="40"></label>
+        <label class="f">콜사인<input id="idCs" maxlength="30" placeholder="없으면 비워두기"></label>
+        <label class="f">분류·소속<select id="idUnit"><option value="c1">인외</option><option value="c2">개조인간</option><option value="c3">반인간</option><option value="c4">인간</option><option value="nw" selected>배치 대기</option></select></label>
+        <input type="hidden" id="idNo" value="">
+        <label class="f">생일<input id="idBlood" maxlength="16" placeholder="예: 3월 14일"></label>
+        <label class="check full"><input type="checkbox" id="idHide"> 이름 가리기</label>
+        <p class="hint full" style="margin:0">입력한 내용과 사진은 저장되지 않습니다. 창을 닫으면 사라지니 먼저 이미지로 저장하세요.</p>
+        <div class="full"><button class="btn primary" id="idSave" type="button">이미지로 저장</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<datalist id="relTypes"><option value="같은 분대"><option value="파트너"><option value="라이벌"><option value="악연"><option value="선임"><option value="후임"><option value="은인"><option value="빚진 사이"><option value="전 동료"></datalist>
+<input type="file" id="heroFile" accept="image/*" hidden>
+<datalist id="platforms"><option value="케이브덕"><option value="티팟"><option value="기타"></datalist>
+<div class="sync warn" id="sync"><i></i><span id="syncText">저장소 미연결 · 보기 전용</span></div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="config.js"></script>
+<script src="js/hash.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
