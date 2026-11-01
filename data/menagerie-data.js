@@ -87,30 +87,79 @@ window.MNG_DATA = {
       "photo": "assets/agents/op-kakapo-1793530297391.jpg"
     },
     {
-      "id": "op-sloth",
       "callsign": "SLOTH",
-      "no": "MNG-0089",
+      "no": "",
       "team": 4,
       "status": "ACTIVE",
       "name": "Jarrah Doyle",
       "nameHidden": false,
+      "teaser": false,
+      "kind": "personnel",
+      "assetNo": "",
+      "acquisition": "",
+      "assetStatus": "",
       "age": "28세",
-      "birthday": "",
-      "height": "",
+      "birthday": "8월 9일",
+      "height": "186cm",
+      "medAlert": "",
+      "kin": "",
       "weapon": "",
-      "quote": "",
-      "photo": "",
+      "quote": "난 블랙커피, 블랙 유머, 그리고 무릎 꿇은 네가 좋아",
+      "keywords": "",
+      "combat": "",
+      "reputation": "",
+      "remarks": "x",
+      "manager": "x",
+      "trailer": "",
+      "cases": "124",
+      "highrisk": "0",
+      "discipline": "미보유",
+      "bio": "",
       "photoPos": "30%",
       "links": [],
-      "stats": [],
+      "stats": [
+        {
+          "k": "화력",
+          "v": 5,
+          "d": "화기 운용과 제압"
+        },
+        {
+          "k": "근접",
+          "v": 5,
+          "d": "근접 전투·강행 진입"
+        },
+        {
+          "k": "내구",
+          "v": 5,
+          "d": "피격·부상 후 작전 지속"
+        },
+        {
+          "k": "규격 이탈",
+          "v": 5,
+          "d": "인간 규격을 벗어난 정도"
+        },
+        {
+          "k": "통제",
+          "v": 5,
+          "d": "팀장 지시·유지 약물 관리 순응도"
+        },
+        {
+          "k": "단독",
+          "v": 5,
+          "d": "팀 없이 작전 수행"
+        }
+      ],
+      "rels": [],
       "fields": [
         {
           "k": "출신",
           "v": "호주"
         }
       ],
+      "id": "op-sloth",
       "createdAt": 1793227200000,
-      "rels": []
+      "updatedAt": 1793530531765,
+      "photo": "assets/agents/op-sloth-1793530531766.jpg"
     },
     {
       "id": "op-lamb",
