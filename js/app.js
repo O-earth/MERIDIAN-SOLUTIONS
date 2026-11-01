@@ -264,7 +264,7 @@ function radarSVG(stats, color){
   return `<svg viewBox="${-pad} ${-ext} ${pad*2} ${ext*2}" role="img" aria-label="능력 평가: ${stats.map(s=>esc(s.k)+" "+s.v).join(", ")}">${g}</svg>`;
 }
 function scoresHTML(stats){
-  return `<div class="scores">${stats.map(s=>{ const over = s.v>MAXV, d = has(s.d) ? s.d : AXIS_DESC[s.k];
+  return `<div class="scores">${stats.map(s=>{ const over = s.v>MAXV, d = (s.d !== undefined && s.d !== null) ? s.d : AXIS_DESC[s.k];
     return `<div><span>${esc(s.k)}${d?`<small>${esc(d)}</small>`:""}</span><span class="meter"><i class="${over?"over":""}" style="width:${Math.min(100,s.v/MAXV*100)}%"></i></span><b class="${over?"over":""}">${s.v}</b></div>`; }).join("")}</div>`;
 }
 
