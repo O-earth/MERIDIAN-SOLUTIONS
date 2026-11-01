@@ -210,7 +210,7 @@ function teaserBadgeHTML(a, interactive){
     <span class="hz"></span>
     <span class="bbody"><span class="photo">${img}</span>
       <span class="tz"><b>INCOMING</b><small>등록 전</small></span>
-      <span class="dgrid"><span><small>CLASS</small><b><i class="rbar" style="width:70%"></i></b></span><span><small>BIRTH</small><b><i class="rbar" style="width:55%"></i></b></span><span class="w"><small>ARMED</small><b><i class="rbar" style="width:45%"></i></b></span></span></span>`;
+      <span class="dgrid g3"><span><small>CLASS</small><b><i class="rbar" style="width:80%"></i></b></span><span><small>BIRTH</small><b><i class="rbar" style="width:70%"></i></b></span><span><small>ARMED</small><b><i class="rbar" style="width:75%"></i></b></span></span></span>`;
   const body = interactive ? `<button class="hit" data-open="${esc(a.id)}" aria-label="추후 공개 오퍼레이터">${inner}</button>` : inner;
   return `<div class="badge teaser" style="--tc:#E4F020;--bc:${barcode(a.id||"x")}">${body}<span class="bfoot"><span class="barcode"></span></span><span class="prop">PROPERTY OF MERIDIAN SOLUTIONS · IF FOUND CALL CONTRACT DESK</span></div>`;
 }
@@ -224,10 +224,10 @@ function badgeHTML(a, interactive=true){
     <span class="bbody">
       ${photoHTML(a)}
       <span><span class="cs">${esc(a.callsign||"UNNAMED")}</span><span class="nm">${nameHTML(a)}</span></span>
-      <span class="dgrid">
-        ${cell("CLASS", esc(t.en))}
+      <span class="dgrid g3">
+        ${cell("CLASS", esc(t.name))}
         ${cell("BIRTH", esc(a.birthday||"—"))}
-        <span class="w"><small>ARMED</small><b>${esc(a.weapon||"—")}</b></span>
+        ${cell("ARMED", esc(a.weapon||"—"))}
       </span>
       ${has(a.medAlert) ? `<span class="med"><b>MED ALERT</b>${esc(a.medAlert)}</span>` : ""}
     </span>`;
@@ -638,7 +638,7 @@ function coverDraw(g, im, x, y, w, h, posY){
 async function drawBadge(a){
   try{ await document.fonts.ready; }catch(e){}
   const F = getComputedStyle(document.body).fontFamily;
-  const t = teamOf(a), SC = 3, W = 360, H = 804 + (has(a.medAlert) ? 34 : 0), PAD = 22;
+  const t = teamOf(a), SC = 3, W = 360, H = 616 + (has(a.medAlert) ? 34 : 0), PAD = 22;
   const c = document.createElement("canvas"); c.width = (W+PAD*2)*SC; c.height = (H+PAD*2)*SC;
   const g = c.getContext("2d"); g.scale(SC,SC); g.translate(PAD,PAD);
   const [logo, photo] = await Promise.all([loadURL("assets/logo.png"), loadURL(imgSrc(a.photo))]);
@@ -661,7 +661,7 @@ async function drawBadge(a){
   for(let x=-20; x<W+20; x+=16){ g.beginPath(); g.moveTo(x,97); g.lineTo(x+8,97); g.lineTo(x+17,88); g.lineTo(x+9,88); g.closePath(); g.fill(); }
   g.restore();
   // photo
-  const px = 18, py = 112, pw = W-36, ph = pw*4/3;
+  const px = 18, py = 112, pw = W-36, ph = pw*0.8;
   g.fillStyle = "#3B3E2B"; g.fillRect(px,py,pw,ph);
   if(photo) coverDraw(g, photo, px, py, pw, ph, a.photoPos);
   else { g.fillStyle = "#6E7262"; g.font = `800 64px ${F}`; g.textAlign = "center"; g.fillText((a.callsign||"?").slice(0,2).toUpperCase(), px+pw/2, py+ph/2); }
@@ -681,9 +681,9 @@ async function drawBadge(a){
   const row = (yy, cells) => { g.strokeStyle = LINE; g.lineWidth = 1; g.beginPath(); g.moveTo(px, yy); g.lineTo(px+pw, yy); g.stroke();
     cells.forEach(([k,v,x0,w])=>{ g.fillStyle = "#8E917F"; g.font = `700 10px ${F}`; g.fillText(k, x0, yy+17); g.fillStyle = "#ECEBE2"; g.font = `700 15px ${F}`; g.fillText(fit(v, w), x0, yy+37); }); };
   y += 18;
-  row(y, [["CLASS", t.en, px, pw/2-12],["BIRTH", a.birthday||"—", px+pw/2+10, pw/2-12]]);
-  g.beginPath(); g.moveTo(px+pw/2, y); g.lineTo(px+pw/2, y+46); g.stroke();
-  y += 46; row(y, [["ARMED", a.weapon||"—", px, pw]]);
+  const cw = pw/3;
+  row(y, [["CLASS", t.en, px, cw-12],["BIRTH", a.birthday||"—", px+cw+10, cw-16],["ARMED", a.weapon||"—", px+cw*2+10, cw-12]]);
+  g.beginPath(); g.moveTo(px+cw, y); g.lineTo(px+cw, y+46); g.moveTo(px+cw*2, y); g.lineTo(px+cw*2, y+46); g.stroke();
   y += 46; g.beginPath(); g.moveTo(px, y); g.lineTo(px+pw, y); g.stroke();
   if(has(a.medAlert)){
     y += 8; g.fillStyle = "#5A1D17"; g.fillRect(px, y, pw, 26); g.fillStyle = "#E5533F"; g.fillRect(px, y, 4, 26);

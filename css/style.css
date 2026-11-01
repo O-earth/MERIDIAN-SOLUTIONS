@@ -653,3 +653,18 @@ body.is-admin .staff-login{display:none}
 .team-row{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:900px){.team-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .tt small{letter-spacing:.08em;font-size:10.5px;white-space:nowrap}
+
+/* compact ID proportions */
+.badge .photo{aspect-ratio:4/5}
+.badge .bbody{gap:7px}
+.badge .cs{font-size:19px}
+.badge .nm{font-size:11.5px;min-height:1.3em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dgrid.g3{grid-template-columns:1fr 1fr 1fr}
+.dgrid.g3>span{padding:4px 6px 5px!important;border-right:1px solid #474B3A!important}
+.dgrid.g3>span:first-child{padding-left:0!important}
+.dgrid.g3>span:last-child{border-right:0!important}
+.dgrid.g3 b{font-size:10.5px}
+.badge .bfoot{margin:8px 11px 6px}
+.badge .barcode{height:16px}
+.prop{margin:0 11px 9px;font-size:6.5px}
+@media (max-width:440px){.band .bt b{font-size:8.5px;letter-spacing:.12em}.band .bt small{font-size:7.5px}.band{gap:6px;padding-inline:8px}}
