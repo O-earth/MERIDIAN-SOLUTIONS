@@ -164,6 +164,7 @@ const agents = () => S.data.agents;
 const isAsset = a => a.kind === "asset";
 const people = () => agents().filter(a => !isAsset(a));
 const counted = () => people().filter(a => !a.teaser);
+const registered = () => agents().filter(a => !a.teaser);
 const assets = () => agents().filter(isAsset);
 const assetNoOf = a => a.assetNo || "EQ-????";
 const teamOf = a => a._unit ? a._unit : (TEAMS[a.team] || TEAMS[1]);
@@ -240,7 +241,7 @@ function badgeHTML(a, interactive=true){
 }
 
 /* ============ radar ============ */
-function statsOf(a){ return (a.stats||[]).filter(s=>s && has(s.k)).map(s=>({k:String(s.k), v:Math.max(0, Math.min(CAP, Number(s.v)||0))})); }
+function statsOf(a){ return (a.stats||[]).filter(s=>s && has(s.k)).map(s=>({k:String(s.k), v:Math.max(0, Math.min(CAP, Number(s.v)||0)), d:s.d})); }
 function radarSVG(stats, color){
   const n = stats.length; if(n < 3) return "";
   const R = 100, ang = i => -Math.PI/2 + i*2*Math.PI/n;
@@ -263,16 +264,16 @@ function radarSVG(stats, color){
   return `<svg viewBox="${-pad} ${-ext} ${pad*2} ${ext*2}" role="img" aria-label="능력 평가: ${stats.map(s=>esc(s.k)+" "+s.v).join(", ")}">${g}</svg>`;
 }
 function scoresHTML(stats){
-  return `<div class="scores">${stats.map(s=>{ const over = s.v>MAXV, d = AXIS_DESC[s.k];
+  return `<div class="scores">${stats.map(s=>{ const over = s.v>MAXV, d = has(s.d) ? s.d : AXIS_DESC[s.k];
     return `<div><span>${esc(s.k)}${d?`<small>${esc(d)}</small>`:""}</span><span class="meter"><i class="${over?"over":""}" style="width:${Math.min(100,s.v/MAXV*100)}%"></i></span><b class="${over?"over":""}">${s.v}</b></div>`; }).join("")}</div>`;
 }
 
 /* ============ home ============ */
 function renderTiles(){
-  const n = k => counted().filter(a=>String(a.team)===String(k)).length;
+  const n = k => registered().filter(a=>String(a.team)===String(k)).length;
   $("teamTiles").innerHTML = TEAM_KEYS.map(k=>{ const t = TEAMS[k];
-    return `<button class="tt" data-team="${k}" style="--tc:${t.c}"><small><i></i>${t.code}</small><b>${t.name}</b><span class="cnt"><span>등재 인원</span><strong class="num">${S.loaded?n(k):"–"}</strong></span></button>`; }).join("");
-  $("heroCount").textContent = S.loaded ? `오퍼레이터 ${counted().length}명 등재` : "—";
+    return `<button class="tt" data-team="${k}" style="--tc:${t.c}"><small><i></i>${t.code}</small><b>${t.name}</b><span class="cnt"><span>등재 인원 <em class="go">명부 보기 →</em></span><strong class="num">${S.loaded?n(k):"–"}</strong></span></button>`; }).join("");
+  $("heroCount").textContent = S.loaded ? `${registered().length}명 등재` : "—";
 }
 function renderHero(){
   const fig = $("heroFig"), hero = imgSrc(S.data.settings.hero);
@@ -336,7 +337,7 @@ function renderAssets(){
     const t = teamOf(a), src = imgSrc(a.photo), tz = isTeaser(a);
     const th = src ? `<img src="${esc(src)}" alt="" loading="lazy" style="object-position:center ${esc(a.photoPos||"30%")}">` : `<span>${tz?"?":esc((a.callsign||"?").slice(0,2).toUpperCase())}</span>`;
     const cell = v => tz ? `<i class="rbar" style="width:70%"></i>` : esc(v||"—");
-    return `<button class="as-row" data-open="${esc(a.id)}"><span class="as-th">${th}</span><span class="as-no num">${tz?"EQ-████":esc(assetNoOf(a))}</span><span class="as-nm"><b>${tz?"CLASSIFIED":esc(a.callsign||"—")}</b>${!tz && a.teaser ? ' <em class="as-tz">등록 전</em>' : ""}</span><span>${tz?cell(""):esc(t.name)}</span><span>${cell(a.acquisition)}</span><span class="as-st">${cell(a.assetStatus||"운용 중")}</span></button>`;
+    return `<button class="as-row" data-open="${esc(a.id)}"><span class="as-th">${th}</span><span class="as-no num">${tz?"EQ-████":esc(assetNoOf(a))}</span><span class="as-nm"><b>${tz?"CLASSIFIED":esc(a.callsign||"—")}</b>${!tz && a.teaser ? ' <em class="as-tz">등록 전</em>' : ""}</span><span>${tz?cell(""):esc(t.name)}</span><span>${cell(a.acquisition)}</span><span class="as-st">${cell(a.assetStatus||"운용 중")}</span><span class="as-go">기록 보기 ›</span></button>`;
   }).join("");
 }
 $("assetRows").addEventListener("click", e=>{ const b = e.target.closest("[data-open]"); if(b){ e.preventDefault(); openFile(b.dataset.open); } });
@@ -421,7 +422,7 @@ function openEditor(id, kind){
   const a = id ? {...agents().find(x=>x.id===id)} : {team: S.team!=="all" ? +S.team : 1, status:"ACTIVE", no:"", kind: kind||"personnel"};
   S.editing = {id, photo:a.photo||"", photoData:null, photoPos:a.photoPos||"30%",
     links:(a.links||[]).map(l=>({...l})), fields:(a.fields||[]).map(f=>({...f})), rels:(a.rels||[]).map(r=>({...r})),
-    stats: (a.stats && a.stats.length) ? a.stats.map(s=>({...s})) : AXES.map(([k])=>({k, v:5}))};
+    stats: (a.stats && a.stats.length) ? a.stats.map(s=>({...s})) : AXES.map(([k,d])=>({k, v:5, d}))};
   const m = $("editModal"); m.style.setProperty("--tc", teamOf(a).c);
   const opt = (obj, cur, lab) => Object.keys(obj).map(k=>`<option value="${esc(k)}" ${String(k)===String(cur)?"selected":""}>${esc(lab(k))}</option>`).join("");
   const v = k => esc(a[k] ?? "");
@@ -510,7 +511,7 @@ function openEditor(id, kind){
   $("fTeam").addEventListener("change", ()=>{ m.style.setProperty("--tc", TEAMS[$("fTeam").value].c); drawPreview(); drawRadarPv(); });
   $("addLink").onclick = ()=>{ syncLinks(); S.editing.links.push({label:"",url:""}); drawLinks(); const r = $("linkRows").querySelectorAll("[data-u]"); r[r.length-1]?.focus(); };
   $("addStat").onclick = ()=>{ syncStats(); if(S.editing.stats.length>=8){ $("fErr").textContent = "평가 항목은 8개까지 넣을 수 있습니다."; return; } S.editing.stats.push({k:"",v:5}); drawStats(); const r = $("statRows").querySelectorAll("[data-sk]"); r[r.length-1]?.focus(); };
-  $("resetStat").onclick = ()=>{ S.editing.stats = AXES.map(([k])=>({k, v:5})); drawStats(); };
+  $("resetStat").onclick = ()=>{ S.editing.stats = AXES.map(([k,d])=>({k, v:5, d})); drawStats(); };
   $("addRel").onclick = ()=>{ syncRels(); S.editing.rels.push({to:"",name:"",rel:"",note:""}); drawRels(); };
   $("addField").onclick = ()=>{ syncCustom(); S.editing.fields.push({k:"",v:""}); drawCustom(); const r = $("customRows").querySelectorAll("[data-k]"); r[r.length-1]?.focus(); };
   $("agentForm").onsubmit = saveAgent;
@@ -535,11 +536,11 @@ function drawLinks(){
   $("linkRows").querySelectorAll(".lrow").forEach(r=>{ const u = r.querySelector("[data-u]"), l = r.querySelector("[data-l]");
     u.addEventListener("change", ()=>{ if(!l.value.trim()){ const g = guessPlatform(u.value.trim()); if(g) l.value = g; } syncLinks(); drawPreview(); }); });
 }
-function syncStats(){ S.editing.stats = [...$("statRows").querySelectorAll(".srow")].map(r=>({k:r.querySelector("[data-sk]").value, v:+r.querySelector("[data-sv]").value})); }
+function syncStats(){ S.editing.stats = [...$("statRows").querySelectorAll(".srow")].map(r=>({k:r.querySelector("[data-sk]").value, v:+r.querySelector("[data-sv]").value, d:r.querySelector("[data-sd]").value})); }
 function drawRadarPv(){ syncStats(); const st = S.editing.stats.filter(s=>s.k.trim()).map(s=>({k:s.k.trim(), v:s.v})); $("radarPv").innerHTML = st.length>=3 ? radarSVG(st, TEAMS[$("fTeam").value].c) : `<div class="hint" style="text-align:center">이름이 있는 항목이 3개 이상이면 그래프가 그려집니다.</div>`; }
 function drawStats(){
   $("statRows").innerHTML = S.editing.stats.map((s,i)=>{ const d = AXIS_DESC[(s.k||"").trim()];
-    return `<div class="srow"><div class="nm-wrap"><input class="inp" data-sk maxlength="12" value="${esc(s.k)}" placeholder="항목" aria-label="평가 항목 이름">${d?`<small>${esc(d)}</small>`:""}</div><input type="range" data-sv min="0" max="${CAP}" step="1" value="${Math.min(CAP,+s.v||0)}" aria-label="${esc(s.k||"항목")} 점수"><output class="${s.v>MAXV?"over":""}">${s.v}</output><button type="button" class="rm" data-rms="${i}" aria-label="항목 삭제">×</button></div>`; }).join("");
+    return `<div class="srow"><div class="nm-wrap"><input class="inp" data-sk maxlength="12" value="${esc(s.k)}" placeholder="항목" aria-label="평가 항목 이름"><input class="inp sdesc" data-sd maxlength="40" value="${esc(s.d ?? d ?? "")}" placeholder="설명 (비우면 표시 안 함)" aria-label="평가 항목 설명"></div><input type="range" data-sv min="0" max="${CAP}" step="1" value="${Math.min(CAP,+s.v||0)}" aria-label="${esc(s.k||"항목")} 점수"><output class="${s.v>MAXV?"over":""}">${s.v}</output><button type="button" class="rm" data-rms="${i}" aria-label="항목 삭제">×</button></div>`; }).join("");
   $("statRows").querySelectorAll(".srow").forEach(r=>{
     const rg = r.querySelector("[data-sv]"), o = r.querySelector("output");
     rg.addEventListener("input", ()=>{ o.textContent = rg.value; o.className = +rg.value>MAXV?"over":""; drawRadarPv(); });
@@ -567,7 +568,7 @@ async function saveAgent(e){
   const bad = links.find(l=>!safeUrl(l.url));
   if(bad){ $("fErr").textContent = `링크 주소를 확인해 주세요: ${bad.url} (https:// 로 시작해야 합니다)`; return; }
   a.links = links.map(l=>({label:l.label.trim() || guessPlatform(l.url), url:safeUrl(l.url)}));
-  a.stats = S.editing.stats.filter(s=>s.k.trim()).map(s=>({k:s.k.trim(), v:Math.max(0,Math.min(CAP,+s.v||0))}));
+  a.stats = S.editing.stats.filter(s=>s.k.trim()).map(s=>({k:s.k.trim(), v:Math.max(0,Math.min(CAP,+s.v||0)), d:(s.d||"").trim()}));
   a.rels = S.editing.rels.filter(r=>(r.to||r.name.trim()) && (r.rel.trim()||r.note.trim())).map(r=>({to:r.to||"", name:r.to?"":r.name.trim(), rel:r.rel.trim(), note:r.note.trim()}));
   a.fields = S.editing.fields.filter(f=>f.k.trim()||f.v.trim()).map(f=>({k:f.k.trim(), v:f.v.trim()}));
   const id = S.editing.id || newId();

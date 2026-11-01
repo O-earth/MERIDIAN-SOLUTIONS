@@ -712,3 +712,17 @@ body.is-admin .staff-login{display:none}
 .pf-photo::before,.pf-photo::after{content:"";position:absolute;width:16px;height:16px;border:2px solid #E4F020;z-index:2;pointer-events:none}
 .pf-photo::before{left:8px;top:8px;border-right:0;border-bottom:0}
 .pf-photo::after{right:8px;bottom:8px;border-left:0;border-top:0}
+
+/* stat description input */
+.srow .nm-wrap{display:flex;flex-direction:column;gap:5px}
+.srow .sdesc{font-size:12px;padding:6px 9px;color:var(--mute)}
+/* clickable cues */
+.tt{cursor:pointer}
+.tt .go{font-style:normal;display:block;margin-top:4px;font-size:11px;font-weight:700;color:var(--accent);opacity:.75;transition:opacity .15s}
+.tt:hover .go{opacity:1;color:var(--accent-hi)}
+.tt:hover{outline:1px solid var(--accent);outline-offset:-1px}
+.as-row{grid-template-columns:52px 110px minmax(0,1fr) 100px minmax(0,1.3fr) 90px 90px}
+.as-go{font-size:12px;font-weight:800;color:var(--accent);text-align:right;white-space:nowrap}
+.as-row:hover:not(.as-hd){box-shadow:inset 3px 0 0 var(--accent-hi)}
+.as-row:hover .as-go{color:var(--accent-hi)}
+@media (max-width:700px){.as-row{grid-template-columns:44px 1fr 1fr}.as-go{grid-column:2 / -1;text-align:left}}
