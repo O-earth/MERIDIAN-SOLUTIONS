@@ -76,7 +76,7 @@ window.MNG_DATA = {
       ],
       "id": "op-kakapo",
       "createdAt": 1793140800000,
-      "updatedAt": 1793528661843,
+      "updatedAt": 1793528712521,
       "photo": ""
     },
     {
