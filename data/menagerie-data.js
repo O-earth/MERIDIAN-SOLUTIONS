@@ -167,29 +167,74 @@ window.MNG_DATA = {
       "photo": "assets/agents/op-sloth-1793530531766.jpg"
     },
     {
-      "id": "op-lamb",
       "callsign": "LAMB",
-      "no": "MNG-0204",
+      "no": "",
       "team": 3,
       "status": "ACTIVE",
       "name": "Milo",
       "nameHidden": false,
-      "age": "",
-      "birthday": "",
-      "height": "",
-      "weapon": "",
-      "quote": "",
-      "photo": "",
-      "photoPos": "30%",
-      "links": [],
-      "stats": [],
-      "fields": [],
-      "createdAt": 1793313600000,
-      "rels": [],
+      "teaser": true,
       "kind": "asset",
       "assetNo": "EQ-2207",
       "acquisition": "잉여 군수 자산 인수",
-      "assetStatus": "운용 중"
+      "assetStatus": "운용 중",
+      "age": "",
+      "birthday": "",
+      "height": "180",
+      "medAlert": "",
+      "kin": "",
+      "weapon": "",
+      "quote": "",
+      "keywords": "",
+      "combat": "",
+      "reputation": "",
+      "remarks": "",
+      "manager": "",
+      "trailer": "",
+      "cases": "",
+      "highrisk": "",
+      "discipline": "",
+      "bio": "",
+      "photoPos": "30%",
+      "links": [],
+      "stats": [
+        {
+          "k": "화력",
+          "v": 5,
+          "d": "화기 운용과 제압"
+        },
+        {
+          "k": "근접",
+          "v": 5,
+          "d": "근접 전투·강행 진입"
+        },
+        {
+          "k": "내구",
+          "v": 5,
+          "d": "피격·부상 후 작전 지속"
+        },
+        {
+          "k": "규격 이탈",
+          "v": 5,
+          "d": "인간 규격을 벗어난 정도"
+        },
+        {
+          "k": "통제",
+          "v": 5,
+          "d": "팀장 지시·유지 약물 관리 순응도"
+        },
+        {
+          "k": "단독",
+          "v": 5,
+          "d": "팀 없이 작전 수행"
+        }
+      ],
+      "rels": [],
+      "fields": [],
+      "id": "op-lamb",
+      "createdAt": 1793313600000,
+      "updatedAt": 1793530898141,
+      "photo": "assets/agents/op-lamb-1793530898142.jpg"
     }
   ],
   "reports": []
