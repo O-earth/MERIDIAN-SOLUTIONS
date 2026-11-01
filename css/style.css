@@ -668,3 +668,47 @@ body.is-admin .staff-login{display:none}
 .badge .barcode{height:16px}
 .prop{margin:0 11px 9px;font-size:6.5px}
 @media (max-width:440px){.band .bt b{font-size:8.5px;letter-spacing:.12em}.band .bt small{font-size:7.5px}.band{gap:6px;padding-inline:8px}}
+
+/* ================= Vertical ID card (CR80 portrait, small photo) ================= */
+.badges{grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:24px 18px;align-items:start}
+@media (max-width:440px){.badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px}}
+.add-badge{min-height:300px}
+.badge .slot{display:block}
+.band{padding:22px 11px 8px;gap:8px}
+.band .lg{width:24px!important;height:24px}
+.badge .hz{height:5px}
+.badge .bbody{display:flex;flex-direction:column;align-items:stretch;padding:14px 12px 0;gap:4px}
+.badge .bbody>.photo{width:48%;aspect-ratio:3/4;align-self:center;margin-bottom:6px}
+.badge .photo::before,.badge .photo::after{width:8px;height:8px;border-width:1.5px}
+.badge .photo::before{left:3px;top:3px}.badge .photo::after{right:3px;bottom:3px}
+.badge .photo .ph{font-size:22px}
+.badge .photo .stamp{font-size:7px;padding:2px 4px}
+.badge .bbody>span:nth-child(2){text-align:center}
+.badge .cs{font-size:18px;line-height:1.1}
+.badge .nm{font-size:11px;margin-top:2px}
+.dgrid.g3{display:flex;flex-direction:column;border-top:1px solid #474B3A;margin-top:6px}
+.dgrid.g3>span{flex-direction:row!important;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 0!important;border-right:0!important;border-bottom:1px solid #474B3A}
+.dgrid.g3 small{flex:0 0 auto;font-size:8px}
+.dgrid.g3 b{font-size:11px;text-align:right;min-width:0}
+.badge .med{font-size:10.5px;padding:3px 7px;margin-top:4px}
+.badge .bfoot{margin:10px 12px 4px}
+.badge .barcode{height:14px}
+.prop{margin:0 12px 9px;font-size:6px}
+.newtag{top:61px;left:11px;right:auto;font-size:8.5px;padding:2px 6px}
+.badge.teaser .tz{justify-content:center;gap:8px;padding:0;border-top:0}
+.badge.teaser .tz b{font-size:17px}
+/* containers that hold a single card */
+.file{grid-template-columns:240px minmax(0,1fr)}
+@media (max-width:720px){.file{grid-template-columns:1fr}.file .left{max-width:260px;margin:0 auto;width:100%}}
+.form{grid-template-columns:210px minmax(0,1fr)}
+@media (max-width:720px){.form{grid-template-columns:1fr}}
+.photo-pick{max-width:230px}
+
+/* personnel file: large photo instead of ID card */
+.pf-photo{position:relative;aspect-ratio:3/4;background:#2A2D1F;border:1px solid #474B3A;border-top:3px solid var(--tc);overflow:hidden;display:grid;place-items:center}
+.pf-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-photo span{font-size:54px;font-weight:900;color:#6E7262}
+.pf-photo .pf-tag{position:absolute;left:0;bottom:0;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.14em;background:rgba(11,12,8,.82);color:#E4F020;padding:5px 9px}
+.pf-photo::before,.pf-photo::after{content:"";position:absolute;width:16px;height:16px;border:2px solid #E4F020;z-index:2;pointer-events:none}
+.pf-photo::before{left:8px;top:8px;border-right:0;border-bottom:0}
+.pf-photo::after{right:8px;bottom:8px;border-left:0;border-top:0}

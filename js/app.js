@@ -367,7 +367,7 @@ function openFile(id, scrollTo){
     ${isMismatch(a) ? `<div class="mm-note"><b>RECORD MISMATCH · 기록 불일치</b>이 인사기록은 현실의 인물과 일치하지 않습니다. 일부 항목은 대조에 실패했으며, 열람 내용은 참고용으로만 사용하십시오.</div>` : ""}
     <div class="file ${isMismatch(a)?"mm":""}">
       <div class="left">
-        ${badgeHTML(a,false)}
+        <div class="pf-photo" style="--tc:${t.c}">${imgSrc(a.photo) ? `<img src="${esc(imgSrc(a.photo))}" alt="${esc(a.callsign)}" style="object-position:center ${esc(a.photoPos||"30%")}">` : `<span>${esc((a.callsign||"?").slice(0,2).toUpperCase())}</span>`}<i class="pf-tag">${isAsset(a) ? esc(assetNoOf(a)) : esc(t.code)}</i></div>
         <button class="btn sm" id="savePng" style="width:100%;margin-top:10px">ID 카드 이미지 저장</button>
         <div class="access" id="access"><h4 class="sec-h">바로가기 · ACCESS</h4>
           ${links.length ? `<div class="list">${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener"><span>${esc(l.label)}</span><span aria-hidden="true">↗</span></a>`).join("")}</div>` : `<div class="none">연결된 링크가 없습니다.</div>`}
@@ -638,12 +638,13 @@ function coverDraw(g, im, x, y, w, h, posY){
 async function drawBadge(a){
   try{ await document.fonts.ready; }catch(e){}
   const F = getComputedStyle(document.body).fontFamily;
-  const t = teamOf(a), SC = 3, W = 360, H = 616 + (has(a.medAlert) ? 34 : 0), PAD = 22;
+  const t = teamOf(a), SC = 3, W = 360, PAD = 22, med = has(a.medAlert);
+  const H = med ? 612 : 578;
   const c = document.createElement("canvas"); c.width = (W+PAD*2)*SC; c.height = (H+PAD*2)*SC;
   const g = c.getContext("2d"); g.scale(SC,SC); g.translate(PAD,PAD);
   const [logo, photo] = await Promise.all([loadURL("assets/logo.png"), loadURL(imgSrc(a.photo))]);
   const LIME = "#E4F020", LINE = "#474B3A";
-  // card body: olive drab
+  const fit = (txt, maxW) => { let s = String(txt); while(g.measureText(s).width > maxW && s.length > 1) s = s.slice(0,-2) + "…"; return s; };
   g.save(); g.shadowColor = "rgba(0,0,0,.45)"; g.shadowBlur = 18; g.shadowOffsetY = 8; rr(g,0,0,W,H,18);
   const bg = g.createLinearGradient(0,0,W*.4,H); bg.addColorStop(0,"#343826"); bg.addColorStop(.6,"#262919"); bg.addColorStop(1,"#1F2215"); g.fillStyle = bg; g.fill(); g.restore();
   g.save(); rr(g,0,0,W,H,18); g.clip();
@@ -651,51 +652,52 @@ async function drawBadge(a){
   // band
   g.fillStyle = "#0B0C08"; g.fillRect(0,0,W,84);
   rr(g, W/2-24, 12, 48, 10, 5); g.fillStyle = "#2A2D1F"; g.fill();
-  if(logo) g.drawImage(logo, 16, 30, 46, 46);
+  if(logo) g.drawImage(logo, 16, 32, 42, 42);
   g.textAlign = "left"; g.textBaseline = "middle";
-  g.fillStyle = LIME; g.font = `900 14px ${F}`; g.fillText(isAsset(a) ? "EQUIPMENT ASSET" : "ARMED CONTRACTOR", 74, 45);
-  g.fillStyle = "#9C9E8F"; g.font = `600 10.5px ${F}`; g.fillText(isAsset(a) ? assetNoOf(a)+" · "+t.en : t.code, 74, 64);
-  g.fillStyle = t.c; g.fillRect(0,84,W,4);
-  // hazard stripe
-  g.save(); g.beginPath(); g.rect(0,88,W,9); g.clip(); g.fillStyle = "#0B0C08"; g.fillRect(0,88,W,9); g.fillStyle = LIME;
-  for(let x=-20; x<W+20; x+=16){ g.beginPath(); g.moveTo(x,97); g.lineTo(x+8,97); g.lineTo(x+17,88); g.lineTo(x+9,88); g.closePath(); g.fill(); }
+  g.fillStyle = LIME; g.font = `900 14px ${F}`; g.fillText(isAsset(a) ? "EQUIPMENT ASSET" : "ARMED CONTRACTOR", 70, 46);
+  g.fillStyle = "#9C9E8F"; g.font = `600 10.5px ${F}`; g.fillText(isAsset(a) ? assetNoOf(a)+" · "+t.en : t.code, 70, 64);
+  g.fillStyle = t.c; g.fillRect(0,84,W,3);
+  g.save(); g.beginPath(); g.rect(0,87,W,8); g.clip(); g.fillStyle = "#0B0C08"; g.fillRect(0,87,W,8); g.fillStyle = LIME;
+  for(let x=-20; x<W+20; x+=16){ g.beginPath(); g.moveTo(x,95); g.lineTo(x+8,95); g.lineTo(x+16,87); g.lineTo(x+8,87); g.closePath(); g.fill(); }
   g.restore();
-  // photo
-  const px = 18, py = 112, pw = W-36, ph = pw*0.8;
+  // small centered ID photo
+  const pw = 150, ph = 200, px = (W-pw)/2, py = 116;
   g.fillStyle = "#3B3E2B"; g.fillRect(px,py,pw,ph);
   if(photo) coverDraw(g, photo, px, py, pw, ph, a.photoPos);
-  else { g.fillStyle = "#6E7262"; g.font = `800 64px ${F}`; g.textAlign = "center"; g.fillText((a.callsign||"?").slice(0,2).toUpperCase(), px+pw/2, py+ph/2); }
-  g.strokeStyle = LIME; g.lineWidth = 2.5; const k = 20, m = 8;
+  else { g.fillStyle = "#6E7262"; g.font = `800 44px ${F}`; g.textAlign = "center"; g.fillText((a.callsign||"?").slice(0,2).toUpperCase(), px+pw/2, py+ph/2); }
+  g.strokeStyle = LIME; g.lineWidth = 2; const k = 12, m = 5;
   g.beginPath(); g.moveTo(px+m, py+m+k); g.lineTo(px+m, py+m); g.lineTo(px+m+k, py+m); g.stroke();
   g.beginPath(); g.moveTo(px+pw-m, py+ph-m-k); g.lineTo(px+pw-m, py+ph-m); g.lineTo(px+pw-m-k, py+ph-m); g.stroke();
-  // callsign + name
-  let y = py + ph + 40; g.textAlign = "left"; g.textBaseline = "alphabetic";
-  let fs = 34; g.font = `900 ${fs}px ${F}`;
-  const cs = (a.callsign||"UNNAMED").toUpperCase(); while(g.measureText(cs).width > pw && fs > 16){ fs -= 2; g.font = `900 ${fs}px ${F}`; }
-  g.fillStyle = "#F1F0E6"; g.fillText(cs, px, y);
-  y += 24; g.font = `500 15px ${F}`; g.fillStyle = "#AFB1A0";
-  if(a.name && a.nameHidden){ const w = Math.min(pw, g.measureText(a.name).width+8); g.fillStyle = "#0B0C08"; g.fillRect(px, y-14, w, 19); }
-  else if(a.name) g.fillText(a.name, px, y);
-  // data grid
-  const fit = (txt, maxW) => { let s = String(txt); while(g.measureText(s).width > maxW && s.length > 1) s = s.slice(0,-2) + "…"; return s; };
-  const row = (yy, cells) => { g.strokeStyle = LINE; g.lineWidth = 1; g.beginPath(); g.moveTo(px, yy); g.lineTo(px+pw, yy); g.stroke();
-    cells.forEach(([k,v,x0,w])=>{ g.fillStyle = "#8E917F"; g.font = `700 10px ${F}`; g.fillText(k, x0, yy+17); g.fillStyle = "#ECEBE2"; g.font = `700 15px ${F}`; g.fillText(fit(v, w), x0, yy+37); }); };
-  y += 18;
-  const cw = pw/3;
-  row(y, [["CLASS", t.en, px, cw-12],["BIRTH", a.birthday||"—", px+cw+10, cw-16],["ARMED", a.weapon||"—", px+cw*2+10, cw-12]]);
-  g.beginPath(); g.moveTo(px+cw, y); g.lineTo(px+cw, y+46); g.moveTo(px+cw*2, y); g.lineTo(px+cw*2, y+46); g.stroke();
-  y += 46; g.beginPath(); g.moveTo(px, y); g.lineTo(px+pw, y); g.stroke();
-  if(has(a.medAlert)){
-    y += 8; g.fillStyle = "#5A1D17"; g.fillRect(px, y, pw, 26); g.fillStyle = "#E5533F"; g.fillRect(px, y, 4, 26);
-    g.fillStyle = "#FF8A7C"; g.font = `800 10px ${F}`; g.fillText("MED ALERT", px+12, y+17);
-    g.fillStyle = "#FFD9D3"; g.font = `700 13px ${F}`; g.fillText(fit(a.medAlert, pw-100), px+86, y+18);
-    y += 26;
+  // callsign + name (centered)
+  const lx = 22, lw = W - 44;
+  g.textAlign = "center"; g.textBaseline = "alphabetic";
+  let fs = 32; g.font = `900 ${fs}px ${F}`;
+  const cs = (a.callsign||"UNNAMED").toUpperCase(); while(g.measureText(cs).width > lw && fs > 16){ fs -= 2; g.font = `900 ${fs}px ${F}`; }
+  g.fillStyle = "#F1F0E6"; g.fillText(cs, W/2, py + ph + 40);
+  let y = py + ph + 62; g.font = `500 13px ${F}`; g.fillStyle = "#AFB1A0";
+  if(a.name && a.nameHidden){ const w = Math.min(lw, g.measureText(a.name).width+8); g.fillStyle = "#0B0C08"; g.fillRect(W/2-w/2, y-12, w, 17); }
+  else if(a.name) g.fillText(fit(a.name, lw), W/2, y);
+  y += 16;
+  // data rows
+  g.strokeStyle = LINE; g.lineWidth = 1;
+  [["CLASS", t.en],["BIRTH", a.birthday||"—"],["ARMED", a.weapon||"—"]].forEach(([k2,v])=>{
+    g.beginPath(); g.moveTo(lx, y); g.lineTo(lx+lw, y); g.stroke();
+    g.fillStyle = "#8E917F"; g.font = `700 10px ${F}`; g.textAlign = "left"; g.fillText(k2, lx, y + 20);
+    g.fillStyle = "#ECEBE2"; g.font = `700 14px ${F}`; g.textAlign = "right"; g.fillText(fit(v, lw - 70), lx + lw, y + 21);
+    y += 30;
+  });
+  g.beginPath(); g.moveTo(lx, y); g.lineTo(lx+lw, y); g.stroke(); g.textAlign = "left";
+  let by = y + 14;
+  if(med){
+    g.fillStyle = "#5A1D17"; g.fillRect(lx, by, lw, 24); g.fillStyle = "#E5533F"; g.fillRect(lx, by, 4, 24);
+    g.fillStyle = "#FF8A7C"; g.font = `800 10px ${F}`; g.fillText("MED ALERT", lx+12, by+16);
+    g.fillStyle = "#FFD9D3"; g.font = `700 13px ${F}`; g.fillText(fit(a.medAlert, lw-100), lx+88, by+17);
+    by += 34;
   }
-  // barcode
-  let h = hash32(a.id||a.callsign), x = 0; const by = y + 18, bw = pw, bh = 28; g.fillStyle = "#D9D8CC";
+  let h = hash32(a.id||a.callsign), x = 0; const bh = 22; g.fillStyle = "#D9D8CC";
   while(x < 100){ const w = .6 + (h % 5) * .55; h = Math.imul(h ^ (h>>>13), 1597334677)>>>0; const gp = .6 + (h % 4) * .6; h = Math.imul(h ^ (h>>>11), 2654435761)>>>0;
-    g.fillRect(px + bw*x/100, by, Math.min(bw*w/100, bw - bw*x/100), bh); x += w + gp; }
-  g.fillStyle = "#6E7262"; g.font = `700 8.5px ${F}`; g.fillText("PROPERTY OF MERIDIAN SOLUTIONS · IF FOUND CALL CONTRACT DESK", px, by + bh + 22);
+    g.fillRect(lx + lw*x/100, by, Math.min(lw*w/100, lw - lw*x/100), bh); x += w + gp; }
+  g.fillStyle = "#6E7262"; g.font = `700 8px ${F}`; g.fillText("PROPERTY OF MERIDIAN SOLUTIONS · IF FOUND CALL CONTRACT DESK", lx, by + bh + 17);
   g.restore();
   g.strokeStyle = "#4A4E3B"; g.lineWidth = 1; rr(g,.5,.5,W-1,H-1,18); g.stroke();
   return c;
