@@ -22,45 +22,52 @@ window.MNG_DATA = {
       "weapon": "",
       "quote": "내 섹시한 얼굴에 뽀뽀라도 해줘야 하는 거 아니야, 응?",
       "keywords": "",
-      "combat": "",
+      "combat": "돌격조",
       "reputation": "",
-      "remarks": "",
-      "manager": "",
+      "remarks": "인공장기 착용",
+      "manager": "거부반응 억제제 복용",
       "trailer": "",
       "cases": "",
       "highrisk": "",
-      "discipline": "",
+      "discipline": "보유",
       "bio": "",
       "photoPos": "30%",
       "links": [],
       "stats": [
         {
           "k": "화력",
-          "v": 8
+          "v": 8,
+          "d": ""
         },
         {
           "k": "근접",
-          "v": 12
+          "v": 12,
+          "d": ""
         },
         {
           "k": "통제",
-          "v": 7
+          "v": 7,
+          "d": ""
         },
         {
           "k": "기동력",
-          "v": 6
+          "v": 6,
+          "d": ""
         },
         {
           "k": "생존",
-          "v": 13
+          "v": 13,
+          "d": ""
         },
         {
           "k": "단독",
-          "v": 8
+          "v": 8,
+          "d": ""
         },
         {
           "k": "전술",
-          "v": 7
+          "v": 7,
+          "d": ""
         }
       ],
       "rels": [],
@@ -76,8 +83,8 @@ window.MNG_DATA = {
       ],
       "id": "op-kakapo",
       "createdAt": 1793140800000,
-      "updatedAt": 1793528712521,
-      "photo": ""
+      "updatedAt": 1793529274206,
+      "photo": "assets/agents/op-kakapo-1793529274206.jpg"
     },
     {
       "id": "op-sloth",
