@@ -27,12 +27,12 @@ const LEVELS = [
   ["SEVERE","비표준 전력과의 교전이 예상되거나 생환 가능성을 보장할 수 없습니다. 개별 검토 후 수임합니다."]
 ];
 const AXES = [
-  ["화력","화기 운용과 제압"],
-  ["근접","근접 전투·강행 진입"],
-  ["내구","피격·부상 후 작전 지속"],
-  ["규격 이탈","인간 규격을 벗어난 정도"],
-  ["통제","팀장 지시·유지 약물 관리 순응도"],
-  ["단독","팀 없이 작전 수행"]
+  ["화력","무장 및 특수 능력을 활용한 원거리 공격·제압 능력"],
+  ["근접","근거리 전투 및 격투·제압 능력"],
+  ["통제","명령 이행 및 작전 규율 준수 정도"],
+  ["기동력","이동 속도, 민첩성 및 지형 돌파 능력"],
+  ["생존","부상과 극한 환경에서의 생존·작전 지속 능력"],
+  ["단독","외부 지원 없이 독립적으로 임무를 수행하는 능력"]
 ];
 const AXIS_DESC = Object.fromEntries(AXES);
 const MAXV = 10, CAP = 15;
@@ -474,12 +474,12 @@ function openEditor(id, kind){
 
       <div class="fsec"><h3>특징</h3><small>비워둔 칸은 인사기록에 나오지 않습니다</small></div>
       <div class="fgrid">
-        <label class="f full">키워드 <em>— 쉼표로 구분</em><input id="fKw" maxlength="200" value="${v("keywords")}" placeholder="예: 시끄러움, 골초, 도박, 빨래 안 함"></label>
+        <label class="f full" hidden>키워드 <em>— 쉼표로 구분</em><input id="fKw" maxlength="200" value="${v("keywords")}" placeholder="예: 시끄러움, 골초, 도박, 빨래 안 함"></label>
         <label class="f full">전투 방식<textarea id="fCombat" maxlength="1500" placeholder="작전에서 어떻게 움직이는지, 맡는 역할, 선호하는 장비와 거리">${v("combat")}</textarea></label>
-        <label class="f full">거점 평판<textarea id="fRep" maxlength="1500" placeholder="거점에서 다른 오퍼레이터들이 이 사람을 어떻게 말하는지. 콜사인이 붙은 이유, 소문, 별명">${v("reputation")}</textarea></label>
+        <label class="f full" hidden>거점 평판<textarea id="fRep" maxlength="1500" placeholder="거점에서 다른 오퍼레이터들이 이 사람을 어떻게 말하는지. 콜사인이 붙은 이유, 소문, 별명">${v("reputation")}</textarea></label>
         <label class="f full">개조·신체 특이사항<textarea id="fRem" maxlength="1500" placeholder="개조 부위, 인외·반인간으로서의 신체 특징, 약점">${v("remarks")}</textarea></label>
         <label class="f full">유지 관리<textarea id="fMgr" maxlength="1000" placeholder="복용 중인 유지 약물(거부반응 억제제, 신경 안정제, 나노머신 유지제 등)과 주기, 의무실 메모">${v("manager")}</textarea></label>
-        <label class="f full">트레일러<textarea id="fTrailer" maxlength="1000" placeholder="숙소 트레일러 안이 어떻게 생겼는지. 들어가 보면 어떤 사람인지 보이는 것들">${v("trailer")}</textarea></label>
+        <label class="f full" hidden>트레일러<textarea id="fTrailer" maxlength="1000" placeholder="숙소 트레일러 안이 어떻게 생겼는지. 들어가 보면 어떤 사람인지 보이는 것들">${v("trailer")}</textarea></label>
         <label class="f">파견 횟수 (회)<input id="fCases" inputmode="numeric" maxlength="6" value="${v("cases")}"></label>
         <label class="f">팀장 지휘 (회)<input id="fHigh" inputmode="numeric" maxlength="6" value="${v("highrisk")}"></label>
         <label class="f full">지휘 자격<input id="fDisc" maxlength="60" value="${v("discipline")}" placeholder="예: 보유 / 미보유 / 박탈"></label>
@@ -490,7 +490,7 @@ function openEditor(id, kind){
       <div class="fsec"><h3>기타 정보</h3><small>국적, 출신, 취미 등 자유 항목</small></div>
       <div class="rows" id="customRows"></div>
       <div class="full"><button type="button" class="btn sm" id="addField">+ 항목 추가</button></div>
-      <label class="f full">상세 기록 <em>— 길게 쓰는 설정·메모</em><textarea id="fBio" maxlength="8000" style="min-height:140px">${v("bio")}</textarea></label>
+      <label class="f full" hidden>상세 기록 <em>— 길게 쓰는 설정·메모</em><textarea id="fBio" maxlength="8000" style="min-height:140px">${v("bio")}</textarea></label>
     </div>
     <div class="err" id="fErr"></div>
     <div class="m-actions"><button type="button" class="btn" data-close="editScrim">취소</button><button type="submit" class="btn primary" id="fSave">${id?"저장":"등록"}</button></div>
