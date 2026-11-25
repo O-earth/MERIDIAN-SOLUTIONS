@@ -154,8 +154,8 @@ window.ROSTER_DATA = {
     },
     {
       "callsign": "TAPIR",
-      "name": "Beau Whitaker",
-      "nameKo": "보",
+      "name": "",
+      "nameKo": "",
       "type": "인간",
       "position": "파일럿",
       "age": "31",
