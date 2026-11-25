@@ -239,6 +239,28 @@ window.ROSTER_DATA = {
       "bgmUrl": "",
       "radio": "",
       "links": []
+    },
+    {
+      "callsign": "FIDDLER",
+      "name": "",
+      "nameKo": "",
+      "type": "인외",
+      "position": "",
+      "age": "",
+      "height": "",
+      "birthday": "",
+      "origin": "",
+      "tenure": "",
+      "intro": "",
+      "personality": "",
+      "history": "",
+      "status": "준비 중",
+      "image": "fiddler-mwwhpw4v.jpg",
+      "bgmTitle": "",
+      "bgmArtist": "",
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     }
   ]
 };
