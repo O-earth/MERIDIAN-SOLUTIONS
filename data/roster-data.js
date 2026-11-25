@@ -154,7 +154,7 @@ window.ROSTER_DATA = {
     },
     {
       "callsign": "TAPIR",
-      "name": "",
+      "name": "Boew",
       "nameKo": "",
       "type": "인간",
       "position": "파일럿",
