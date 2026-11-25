@@ -173,6 +173,28 @@ window.ROSTER_DATA = {
       "bgmUrl": "https://youtu.be/KbzNB2sRnVQ?si=ivF4W9rjp1auIE-y",
       "radio": "",
       "links": []
+    },
+    {
+      "callsign": "POSSUM",
+      "name": "",
+      "nameKo": "",
+      "type": "인외",
+      "position": "",
+      "age": "",
+      "height": "",
+      "birthday": "",
+      "origin": "",
+      "tenure": "",
+      "intro": "",
+      "personality": "",
+      "history": "",
+      "status": "준비 중",
+      "image": "possum-mwwho5yz.jpg",
+      "bgmTitle": "",
+      "bgmArtist": "",
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     }
   ]
 };
