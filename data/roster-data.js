@@ -113,15 +113,15 @@ window.ROSTER_DATA = {
       "personality": "건드릴 이유 없는 사람까지 긁어보는 위험한 남자. 입은 최악이지만, 손은 말없이 필요한 일을 다 해낸다. 고맙다는 말을 들으면 짜증부터 낸다. 사과도 인정도 안 해서 작은 싸움이 며칠씩 간다. 금연 중이고, 또 실패하는 중이다.",
       "history": "홍콩 경찰 특수부대 SDU 최고의 사수이자 최대의 골칫거리였다. 2041년, 윗선의 잘못된 정보로 무너진 작전에서 팀을 먼저 내보내고 혼자 남았다. 전사 처리되고 8개월 뒤 눈 하나와 다리 하나를 잃고 돌아왔지만, 자리는 이미 없었다. 5년의 용병 생활 끝에 2046년 메리디안에 들어왔다.",
       "status": "공개",
-      "image": "ocelot.jpg",
+      "image": "ocelot-mwwhjvxv.jpg",
       "bgmTitle": "Orion",
       "bgmArtist": "Metallica",
       "bgmUrl": "https://youtu.be/uPfmlpiBEk8?si=xnVdUFZ9DRwH3Tod",
       "radio": "내 왼쪽 빈다. 거기 메워.\n다들 입 다물어. 숨소리까지 다 들린다, 이 새끼들아.\n내 밀크티 마신 새끼 무전으로 자백해. 지금.\n바람 동쪽 3. 한마디만 더 하면 너부터 맞춘다.\n표적 사살. 소리 좀 그만 질러.\n정보가 개판이네. 내가 들어간다.\n씨발, 섬광탄 누가 던졌냐?\n재장전 중. 5초만 벌어.\n브리핑 개소리네. 난 빠진다.\n문 두드리지 마라. 자는 중이니까.\n공용 채널에서 징징대지 마.\n차 출발한다. 뛰어라, 굼벵아.",
       "links": [
         {
-          "label": "",
-          "url": "https://caveduck.io/ko/share/characters/98c6f1a5-dfed-41a3-b0f9-d122fc4696e5?rc=OaeOwRhsdp&_share_hash="
+          "url": "https://caveduck.io/ko/share/characters/98c6f1a5-dfed-41a3-b0f9-d122fc4696e5?rc=OaeOwRhsdp&_share_hash=",
+          "label": ""
         }
       ]
     },
