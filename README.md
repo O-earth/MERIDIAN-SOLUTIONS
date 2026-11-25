@@ -7,7 +7,7 @@ GitHub Pages에 올리면 그대로 동작하는 정적 사이트입니다. 관�
 ### 1. 저장소 만들고 파일 올리기
 1. GitHub에서 새 저장소를 만듭니다 (예: `menagerie`). 무료 GitHub Pages는 **Public** 저장소에서만 됩니다.
 2. 이 폴더 안의 파일을 **전부** 저장소 최상단에 올립니다. `.nojekyll` 파일도 같이 올려 주세요.
-3. 저장소 → **Settings → Pages** → Source: `Deploy from a branch`, Branch: `main` / `(root)` → Save
+3. 저장소 → **Settings → Pages** → Source: `Deploy from a ㅊbranch`, Branch: `main` / `(root)` → Save
 4. 1~2분 뒤 `https://내아이디.github.io/menagerie/` 에서 열립니다.
 
 ### 2. 관리자 아이디·비밀번호 정하기
