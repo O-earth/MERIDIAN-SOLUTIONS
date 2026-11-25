@@ -195,6 +195,28 @@ window.ROSTER_DATA = {
       "bgmUrl": "",
       "radio": "",
       "links": []
+    },
+    {
+      "callsign": "GOOSE",
+      "name": "",
+      "nameKo": "",
+      "type": "인외",
+      "position": "",
+      "age": "",
+      "height": "",
+      "birthday": "",
+      "origin": "",
+      "tenure": "",
+      "intro": "",
+      "personality": "",
+      "history": "",
+      "status": "준비 중",
+      "image": "goose-mwwhotus.jpg",
+      "bgmTitle": "",
+      "bgmArtist": "",
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     }
   ]
 };
