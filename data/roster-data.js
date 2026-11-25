@@ -189,7 +189,7 @@ window.ROSTER_DATA = {
       "personality": "",
       "history": "",
       "status": "준비 중",
-      "image": "goose-mwwhqm26.jpg",
+      "image": "goose-mwwhrjh4.jpg",
       "bgmTitle": "",
       "bgmArtist": "",
       "bgmUrl": "",
