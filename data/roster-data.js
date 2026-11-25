@@ -217,6 +217,28 @@ window.ROSTER_DATA = {
       "bgmUrl": "",
       "radio": "",
       "links": []
+    },
+    {
+      "callsign": "KITTYCAT",
+      "name": "",
+      "nameKo": "",
+      "type": "인외",
+      "position": "",
+      "age": "",
+      "height": "",
+      "birthday": "",
+      "origin": "",
+      "tenure": "",
+      "intro": "",
+      "personality": "",
+      "history": "",
+      "status": "준비 중",
+      "image": "kittycat-mwwhpbia.jpg",
+      "bgmTitle": "",
+      "bgmArtist": "",
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     }
   ]
 };
