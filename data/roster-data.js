@@ -167,7 +167,7 @@ window.ROSTER_DATA = {
       "personality": "",
       "history": "",
       "status": "준비 중",
-      "image": "tapir-mwwhiqx2.jpg",
+      "image": "tapir-mwwhjhne.jpg",
       "bgmTitle": "My Man on Willpower",
       "bgmArtist": "Sabrina Carpenter",
       "bgmUrl": "",
