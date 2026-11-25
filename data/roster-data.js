@@ -56,7 +56,16 @@ window.ROSTER_DATA = {
       "bgmArtist": "AC/DC",
       "bgmUrl": "https://youtu.be/vZwLvpTeRTk?si=FjwPQyOgE4Cb0pGE",
       "radio": "슬로스. 어, 아직 살아 있어. 실망했지, darl?\n3번 출구로 누가 먼저 나오는지 걸 사람. 정답은 나야.\n보고할 거 없음. 아, 하나 있다. 담배 떨어졌어.\n여기는 슬로스. 아직 숨은 붙어 있다.\n타깃 사살 완료. 담배 한 대가 급하다.\n폭탄 배선 누가 짰냐? 완전 날림이네.\n자기야, 지금 당장 대가리 숙여.\n탈출 헬기 늦네. 내기 돈이나 내놔.\n피 좀 흘리는 중. 바지 다 버렸네.\n통신 보안 점검. 나 아직 섹시하냐, 자기야?",
-      "links": []
+      "links": [
+        {
+          "url": "https://caveduck.io/ko/share/characters/6682a10d-e370-4b46-b773-6ae55350a486?rc=OaeOwRhsdp&_share_hash=",
+          "label": ""
+        },
+        {
+          "url": "https://teapotchat.com/character/nW2yc7FLGbdniaVR78a9",
+          "label": ""
+        }
+      ]
     },
     {
       "callsign": "LAMB",
