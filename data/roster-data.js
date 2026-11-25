@@ -76,8 +76,8 @@ window.ROSTER_DATA = {
       "image": "lamb.jpg",
       "bgmTitle": "Please Please Me",
       "bgmArtist": "The Beatles",
-      "bgmUrl": "",
-      "radio": "",
+      "bgmUrl": "https://youtu.be/czw8eqepir8?si=CNymyT8_rSNrgC2c",
+      "radio": "목표 발견했습니다. 엄청 깨끗한 냄새가 납니다. 계속 따라다녀도 되는지 허가 요청합니다.",
       "links": []
     },
     {
