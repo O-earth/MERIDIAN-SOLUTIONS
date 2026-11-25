@@ -425,8 +425,7 @@ body.zap .mg{animation:zap .18s steps(2) 1}
 @media(max-width:520px){ .shelf{grid-template-columns:repeat(2,1fr);gap:22px 12px} }
 @media (prefers-reduced-motion: reduce){ .cdx.playing .disc,.player .pd,.player .eq b{animation:none} }
 </style>
-<script src="config.js"></script>
-<script src="data/roster-data.js"></script>
+<script>var V=Date.now();document.write('<script src="config.js?v='+V+'"><\/script><script src="data/roster-data.js?v='+V+'"><\/script>');</script>
 </head>
 <body>
 <div class="fx-scan"></div><div class="fx-noise"></div><div class="fx-roll"></div>
