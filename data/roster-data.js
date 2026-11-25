@@ -86,8 +86,17 @@ window.ROSTER_DATA = {
       "bgmTitle": "Please Please Me",
       "bgmArtist": "The Beatles",
       "bgmUrl": "https://youtu.be/czw8eqepir8?si=CNymyT8_rSNrgC2c",
-      "radio": "목표 발견했습니다. 엄청 깨끗한 냄새가 납니다. 계속 따라다녀도 되는지 허가 요청합니다.",
-      "links": []
+      "radio": "목표 발견했습니다. 엄청 깨끗한 냄새가 납니다. 계속 따라다녀도 되는지 허가 요청합니다.\n여기는 램. 제가 물었어요. 오버.\n이거 지금 먹어도 돼요? 오버.\n문이 없어졌어요. 제 발이 그랬어요.\n타깃한테서 양파 냄새 나요.\n비명 안 질러요. 잘했죠?\n이 아저씨 팔 찾았어요. 필요해요?\n꼬리가 인계철선 쳤어요. 죄송해요.\n대기 중. 아직도 대기 중. 오버.\n저거 쫓아가도 돼요? 엄청 빨라요.\n제 입이 이걸 안 놔줘요. 오버.\n어디 계세요? 냄새가 안 나요.\n정리 끝. 와서 쓰다듬어 주세요. 오버.\n저 이제 착한 애 맞죠? 오버.",
+      "links": [
+        {
+          "url": "https://caveduck.io/ko/share/characters/83d4e56a-3678-48e3-ba74-48dfbadad0b3?rc=OaeOwRhsdp&_share_hash=",
+          "label": ""
+        },
+        {
+          "url": "https://teapotchat.com/character/nW2yc7FLGbdniaVR78a9",
+          "label": ""
+        }
+      ]
     },
     {
       "callsign": "OCELOT",
