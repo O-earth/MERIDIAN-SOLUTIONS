@@ -217,6 +217,28 @@ window.ROSTER_DATA = {
       "bgmUrl": "",
       "radio": "",
       "links": []
+    },
+    {
+      "callsign": "POSSUM",
+      "name": "",
+      "nameKo": "",
+      "type": "인외",
+      "position": "",
+      "age": "",
+      "height": "",
+      "birthday": "",
+      "origin": "",
+      "tenure": "",
+      "intro": "",
+      "personality": "",
+      "history": "",
+      "status": "준비 중",
+      "image": "possum-mwwhwqd5.jpg",
+      "bgmTitle": "",
+      "bgmArtist": "",
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     }
   ]
 };
