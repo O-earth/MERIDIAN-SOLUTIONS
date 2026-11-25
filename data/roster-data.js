@@ -31,8 +31,8 @@ window.ROSTER_DATA = {
       "radio": "폭약 붙였다. 3초 뒤에 귀 막아, 예쁜이들아.\n여기 카카포. 길 열렸으니까 내 궁둥이만 따라와.\n1층 클리어. 누가 내 껌 가져갔냐? 아, 찾았다.\n내 쪽으로 쏘지 마라, 새 팬티 안 챙겨 왔으니까.\n카카포 수신. 방금 벽 뚫었는데 안쪽이 아주 개판이야.\n아직 살아있냐, 자기야? 대답 없으면 뽀뽀하러 간다.\n목표 확보. 이제 집에 가서 맥주나 까자고, 오버.\n여기 카카포. 문 열었어. 문짝은 좀 많이 열렸고. 수리비는 슬로스 앞으로 달아 둬.\n¿Me oyes? 들리면 대답해. 안 하면 지금부터 노래한다.\n브리칭 완료. 참고로 거긴 문이 아니라 벽이었어.",
       "links": [
         {
-          "url": "https://caveduck.io/ko/share/characters/09b61a01-1756-4067-94d1-7237cc3914a4?rc=OaeOwRhsdp&_share_hash=",
-          "label": ""
+          "label": "",
+          "url": "https://caveduck.io/ko/share/characters/09b61a01-1756-4067-94d1-7237cc3914a4?rc=OaeOwRhsdp&_share_hash="
         }
       ]
     },
@@ -58,12 +58,12 @@ window.ROSTER_DATA = {
       "radio": "슬로스. 어, 아직 살아 있어. 실망했지, darl?\n3번 출구로 누가 먼저 나오는지 걸 사람. 정답은 나야.\n보고할 거 없음. 아, 하나 있다. 담배 떨어졌어.\n여기는 슬로스. 아직 숨은 붙어 있다.\n타깃 사살 완료. 담배 한 대가 급하다.\n폭탄 배선 누가 짰냐? 완전 날림이네.\n자기야, 지금 당장 대가리 숙여.\n탈출 헬기 늦네. 내기 돈이나 내놔.\n피 좀 흘리는 중. 바지 다 버렸네.\n통신 보안 점검. 나 아직 섹시하냐, 자기야?",
       "links": [
         {
-          "url": "https://caveduck.io/ko/share/characters/6682a10d-e370-4b46-b773-6ae55350a486?rc=OaeOwRhsdp&_share_hash=",
-          "label": ""
+          "label": "",
+          "url": "https://caveduck.io/ko/share/characters/6682a10d-e370-4b46-b773-6ae55350a486?rc=OaeOwRhsdp&_share_hash="
         },
         {
-          "url": "https://teapotchat.com/character/nW2yc7FLGbdniaVR78a9",
-          "label": ""
+          "label": "",
+          "url": "https://teapotchat.com/character/nW2yc7FLGbdniaVR78a9"
         }
       ]
     },
@@ -89,12 +89,12 @@ window.ROSTER_DATA = {
       "radio": "목표 발견했습니다. 엄청 깨끗한 냄새가 납니다. 계속 따라다녀도 되는지 허가 요청합니다.\n여기는 램. 제가 물었어요. 오버.\n이거 지금 먹어도 돼요? 오버.\n문이 없어졌어요. 제 발이 그랬어요.\n타깃한테서 양파 냄새 나요.\n비명 안 질러요. 잘했죠?\n이 아저씨 팔 찾았어요. 필요해요?\n꼬리가 인계철선 쳤어요. 죄송해요.\n대기 중. 아직도 대기 중. 오버.\n저거 쫓아가도 돼요? 엄청 빨라요.\n제 입이 이걸 안 놔줘요. 오버.\n어디 계세요? 냄새가 안 나요.\n정리 끝. 와서 쓰다듬어 주세요. 오버.\n저 이제 착한 애 맞죠? 오버.",
       "links": [
         {
-          "url": "https://caveduck.io/ko/share/characters/83d4e56a-3678-48e3-ba74-48dfbadad0b3?rc=OaeOwRhsdp&_share_hash=",
-          "label": ""
+          "label": "",
+          "url": "https://caveduck.io/ko/share/characters/83d4e56a-3678-48e3-ba74-48dfbadad0b3?rc=OaeOwRhsdp&_share_hash="
         },
         {
-          "url": "https://teapotchat.com/character/nW2yc7FLGbdniaVR78a9",
-          "label": ""
+          "label": "",
+          "url": "https://teapotchat.com/character/nW2yc7FLGbdniaVR78a9"
         }
       ]
     },
@@ -120,8 +120,8 @@ window.ROSTER_DATA = {
       "radio": "내 왼쪽 빈다. 거기 메워.\n다들 입 다물어. 숨소리까지 다 들린다, 이 새끼들아.\n내 밀크티 마신 새끼 무전으로 자백해. 지금.\n바람 동쪽 3. 한마디만 더 하면 너부터 맞춘다.\n표적 사살. 소리 좀 그만 질러.\n정보가 개판이네. 내가 들어간다.\n씨발, 섬광탄 누가 던졌냐?\n재장전 중. 5초만 벌어.\n브리핑 개소리네. 난 빠진다.\n문 두드리지 마라. 자는 중이니까.\n공용 채널에서 징징대지 마.\n차 출발한다. 뛰어라, 굼벵아.",
       "links": [
         {
-          "url": "https://caveduck.io/ko/share/characters/98c6f1a5-dfed-41a3-b0f9-d122fc4696e5?rc=OaeOwRhsdp&_share_hash=",
-          "label": ""
+          "label": "",
+          "url": "https://caveduck.io/ko/share/characters/98c6f1a5-dfed-41a3-b0f9-d122fc4696e5?rc=OaeOwRhsdp&_share_hash="
         }
       ]
     },
@@ -147,8 +147,8 @@ window.ROSTER_DATA = {
       "radio": "너 씨발 무전기 껐냐? 대답해.\n네 작전 존나 지루해. 난 창문으로 들어간다.\n들려? 안 들려도 상관없어, 할 말만 하고 끊을 거니까.\n26일에 파티 한다. 안 오면 니 트레일러 문짝 떼다가 장식한다.\n휴게실에 내 푸딩 누가 처먹었냐. 자수해라.\n거기 쏘지 마, 그 새끼 내 거야.\n어디냐. 나 심심해. 나 좀 봐.\n야, 이 새끼 재킷 내가 가져도 되냐?\n돌아오는 길에 단것 좀 사 와.\n대기하라고 지랄하지 마, 이 씹새끼야.\n야, 이 노래 들리냐? 존나 좋지.\n내 파티 전에 뒤지기만 해봐, 죽여버릴 거야.",
       "links": [
         {
-          "url": "https://caveduck.io/ko/share/characters/ad858f3a-8bc9-4897-a66e-d984b6cc4e2d?rc=OaeOwRhsdp&_share_hash=",
-          "label": ""
+          "label": "",
+          "url": "https://caveduck.io/ko/share/characters/ad858f3a-8bc9-4897-a66e-d984b6cc4e2d?rc=OaeOwRhsdp&_share_hash="
         }
       ]
     },
@@ -167,7 +167,7 @@ window.ROSTER_DATA = {
       "personality": "",
       "history": "",
       "status": "준비 중",
-      "image": "",
+      "image": "tapir-mwwhiqx2.jpg",
       "bgmTitle": "My Man on Willpower",
       "bgmArtist": "Sabrina Carpenter",
       "bgmUrl": "",
