@@ -25,10 +25,16 @@ window.ROSTER_DATA = {
       "history": "카디스 항구의 부두 노동자였다. 사고로 다친 동료의 수술비를 대려고 제약사 임상시험에 참가했다가 시설 화재로 크게 다쳤고, 살아남기 위해 몸 대부분을 개조했다. 지금은 혼자서는 감당 못 할 억제제 값을 대주는 메나제리에서 4년째 일하고 있다.",
       "status": "공개",
       "image": "kakapo.jpg",
-      "links": [],
       "bgmTitle": "Gap Tooth Smile",
       "bgmArtist": "Djo",
-      "bgmUrl": ""
+      "bgmUrl": "https://youtu.be/rKmxcOCHsCk?si=sZcZE5wXivxB6kM-",
+      "radio": "폭약 붙였다. 3초 뒤에 귀 막아, 예쁜이들아.\n여기 카카포. 길 열렸으니까 내 궁둥이만 따라와.\n1층 클리어. 누가 내 껌 가져갔냐? 아, 찾았다.\n내 쪽으로 쏘지 마라, 새 팬티 안 챙겨 왔으니까.\n카카포 수신. 방금 벽 뚫었는데 안쪽이 아주 개판이야.\n아직 살아있냐, 자기야? 대답 없으면 뽀뽀하러 간다.\n목표 확보. 이제 집에 가서 맥주나 까자고, 오버.\n여기 카카포. 문 열었어. 문짝은 좀 많이 열렸고. 수리비는 슬로스 앞으로 달아 둬.\n¿Me oyes? 들리면 대답해. 안 하면 지금부터 노래한다.\n브리칭 완료. 참고로 거긴 문이 아니라 벽이었어.",
+      "links": [
+        {
+          "url": "https://caveduck.io/ko/share/characters/09b61a01-1756-4067-94d1-7237cc3914a4?rc=OaeOwRhsdp&_share_hash=",
+          "label": ""
+        }
+      ]
     },
     {
       "callsign": "SLOTH",
@@ -46,10 +52,11 @@ window.ROSTER_DATA = {
       "history": "웨스턴 시드니의 펍 뒷방에서 도박하는 아버지 곁에서 자랐다. 10대 중반에 빚 대신 불법 북메이커에게 넘겨져 수금원으로 일했다. 스무 살에 뻔한 결말이 지루해져 말없이 호주를 떠났고, 고향에서는 그가 죽은 줄 안다.",
       "status": "공개",
       "image": "sloth.jpg",
-      "links": [],
       "bgmTitle": "Dirty Deeds Done Dirt Cheap",
       "bgmArtist": "AC/DC",
-      "bgmUrl": ""
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     },
     {
       "callsign": "LAMB",
@@ -67,10 +74,11 @@ window.ROSTER_DATA = {
       "history": "군견을 대체하려던 반인간 프로그램 WHISTLE에서 태어났다. 이름보다 개체 번호가 먼저였고, 호각과 짧은 명령, 칭찬과 간식으로 자랐다. 프로그램이 폐지되면서 잉여 장비로 팔려 메나제리에 왔다. 서류상으로는 지금도 인원 명단이 아니라 장비 목록에 올라 있다.",
       "status": "공개",
       "image": "lamb.jpg",
-      "links": [],
       "bgmTitle": "Please Please Me",
       "bgmArtist": "The Beatles",
-      "bgmUrl": ""
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     },
     {
       "callsign": "OCELOT",
@@ -88,10 +96,11 @@ window.ROSTER_DATA = {
       "history": "홍콩 경찰 특수부대 SDU 최고의 사수이자 최대의 골칫거리였다. 2041년, 윗선의 잘못된 정보로 무너진 작전에서 팀을 먼저 내보내고 혼자 남았다. 전사 처리되고 8개월 뒤 눈 하나와 다리 하나를 잃고 돌아왔지만, 자리는 이미 없었다. 5년의 용병 생활 끝에 2046년 메리디안에 들어왔다.",
       "status": "공개",
       "image": "ocelot.jpg",
-      "links": [],
       "bgmTitle": "Orion",
       "bgmArtist": "Metallica",
-      "bgmUrl": ""
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     },
     {
       "callsign": "MAGPIE",
@@ -109,10 +118,11 @@ window.ROSTER_DATA = {
       "history": "군인에게 이식할 대체 조직을 만들던 연구에서 나왔다. 스스로 붙게 하려고 신경 배양체를 섞은 조직 가운데, 기록되지 않은 조건에서 자란 한 배치가 생각을 하기 시작했다. 다시 만들 수 없었고, 제 생각을 가진 조직은 군인 몸에 붙일 수 없었다. 결론은 실패작이었다. 연구소에서 지낸 몇 주 동안 연구원들의 잡담, 휴게실 라디오, 경비원들의 욕을 들으며 말과 인간 짓을 배웠다. 그 뒤 메리디안으로 넘어왔다.",
       "status": "공개",
       "image": "magpie.jpg",
-      "links": [],
       "bgmTitle": "Lust for Life",
       "bgmArtist": "Iggy Pop",
-      "bgmUrl": ""
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     },
     {
       "callsign": "TAPIR",
@@ -130,10 +140,11 @@ window.ROSTER_DATA = {
       "history": "",
       "status": "준비 중",
       "image": "",
-      "links": [],
       "bgmTitle": "My Man on Willpower",
       "bgmArtist": "Sabrina Carpenter",
-      "bgmUrl": ""
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     }
   ]
 };
