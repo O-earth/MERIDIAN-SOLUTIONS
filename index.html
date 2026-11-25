@@ -2,384 +2,1242 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Meridian Solutions | Private Military Company</title>
-<meta name="description" content="Meridian Solutions 공식 웹사이트. 위험지역 경호·시설 보호·인원 철수·수색 회수 전문 민간군사기업.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Meridian Solutions | Private Military Company">
-<meta property="og:description" content="다른 곳이 받지 않는 의뢰를 끝까지 수행합니다.">
-<meta property="og:image" content="assets/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0E0F0B">
-<link rel="icon" href="assets/favicon.png">
-<link rel="preload" href="assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
-<style>@font-face{font-family:"Pretendard Variable";src:url(assets/fonts/PretendardVariable.woff2) format("woff2");font-weight:45 920;font-display:swap}</style>
-<link rel="stylesheet" href="css/style.css?v=20261101c">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MENAGERIE — PERSONNEL</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#000}
+.mg,.mg *{text-align:left;word-break:keep-all}
+.mg{max-width:1120px;margin:0 auto;background:#030503;color:#EDF4EE;font-family:Pretendard,'Apple SD Gothic Neo',Arial,sans-serif;min-height:100vh;overflow:hidden}
+.mg a{color:inherit;text-decoration:none}
+.mono{font-family:Consolas,'Courier New',monospace}
+.g{color:#00FF5A}
+.muted{color:#97AC9B}
+
+/* header */
+.top{padding:18px 4% 15px;border-top:4px solid #00FF5A;border-bottom:1px solid #263A2D;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.top .k{font:800 9px/1.6 Consolas,monospace;letter-spacing:.14em;color:#00FF5A}
+.top b{font:900 15px/1 Arial;letter-spacing:-.04em}
+.meta{padding:18px 4% 0;display:flex;flex-wrap:wrap;gap:8px;font:750 10px/1.4 Consolas,monospace;letter-spacing:.1em;color:#8BA392}
+.meta .sl{color:#45614C}
+.hero{padding:24px 4% 28px;position:relative;overflow:hidden}
+.hero .bg{position:absolute;top:-52px;right:10px;color:#102014;font:950 190px/1 Arial;letter-spacing:-.08em;pointer-events:none}
+.hero .ovl{position:relative;font:800 10px/1.5 Consolas,monospace;letter-spacing:.16em;color:#97AC9B}
+.hero h1{position:relative;margin:13px 0 0;font:950 clamp(43px,9vw,78px)/.89 Arial;letter-spacing:-.09em}
+.hero .sb{position:relative;border-left:3px solid #00FF5A;padding-left:12px;margin-top:20px}
+.hero .sb b{font:900 16px/1.4 Arial}
+.hero .sb div{font:10px/1.5 Consolas,monospace;letter-spacing:.1em;color:#97AC9B;margin-top:5px}
+.hero .links{position:relative;display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+
+.navlink{display:inline-block;border:1px solid #31543B;color:#C9DED0;padding:9px 12px;font:800 10px/1.4 Consolas,monospace;letter-spacing:.08em;background:none;cursor:pointer}
+.navlink:hover{background:#0B2412;color:#00FF5A}
+.navlink.on{background:#00FF5A;border-color:#00FF5A;color:#031008}
+
+.bar{border-top:1px solid #263A2D;border-bottom:1px solid #263A2D;display:flex;gap:7px;flex-wrap:wrap;padding:14px 4%;align-items:center}
+.bar .cnt{margin-left:auto;font:800 10px/1.4 Consolas,monospace;letter-spacing:.1em;color:#8BA392}
+
+/* cards */
+.grid{padding:26px 4% 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.card{background:#080D09;border:1px solid #293C2E;display:flex;flex-direction:column;transition:border-color .12s}
+.card:hover{border-color:#00FF5A}
+.card .img{aspect-ratio:3/4;background:#0B130D;border-bottom:1px solid #263A2D;position:relative;overflow:hidden}
+.card .img img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block}
+.card .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:950 64px/1 Arial;color:#102014;letter-spacing:-.08em}
+.card .no{position:absolute;top:8px;left:8px;font:800 10px/1.4 Consolas,monospace;background:#00FF5A;color:#031008;padding:2px 6px;letter-spacing:.08em}
+.card .st{position:absolute;top:8px;right:8px;font:800 10px/1.4 Consolas,monospace;letter-spacing:.06em;padding:2px 7px;border:1px solid #366744;color:#00FF5A;background:rgba(3,5,3,.8)}
+.stamp{position:absolute;left:50%;bottom:14%;transform:translateX(-50%) rotate(-8deg);border:2px solid #00FF5A;color:#00FF5A;padding:6px 12px;font:900 15px/1 Consolas,monospace;letter-spacing:.2em;background:rgba(3,5,3,.6);white-space:nowrap}
+.redact{display:inline-block;height:13px;background:#1B2A1F;vertical-align:middle}
+.card.soon .cs{color:#AFC1B3}
+
+.pf-lock{border:1px dashed #366744;padding:13px 14px;font-size:13px;line-height:1.7;color:#97AC9B}
+.pf-lock b{display:block;font:800 10px/1.6 Consolas,monospace;letter-spacing:.14em;color:#00FF5A;margin-bottom:3px}
+.card .bd{padding:14px 15px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cs{font:900 25px/1.05 Arial;letter-spacing:-.055em}
+.card:hover .cs{color:#00FF5A}
+.nm{font-size:13px;line-height:1.5;color:#AFC1B3}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{display:inline-block;font:800 10px/1.4 Consolas,monospace;letter-spacing:.04em;padding:4px 8px;border:1px solid #366744;color:#00FF5A}
+.chip.w{color:#EDF4EE;border-color:#31543B}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #263A2D;padding-top:10px;margin-top:2px}
+.stats div{font:800 9px/1.4 Consolas,monospace;letter-spacing:.1em;color:#00FF5A}
+.stats b{display:block;font:750 13px/1.5 Pretendard,'Apple SD Gothic Neo',sans-serif;letter-spacing:0;color:#EDF4EE;margin-top:2px}
+.origin{font-size:12px;color:#89A391}
+.plat{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:6px}
+.plat a{flex:1 1 auto;text-align:center;border:1px solid #31543B;color:#C9DED0;padding:8px 6px;font:800 10px/1.4 Consolas,monospace;letter-spacing:.06em}
+.plat a:hover{background:#00FF5A;border-color:#00FF5A;color:#031008}
+.plat .none{flex:1;text-align:center;border:1px dashed #263A2D;color:#45614C;padding:8px 6px;font:800 10px/1.4 Consolas,monospace;letter-spacing:.1em}
+
+.empty{padding:40px 4%;color:#89A391;font-size:13px}
+
+footer{background:#00FF5A;color:#031008;padding:19px 4%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+footer b{font:950 24px/1 Arial;letter-spacing:-.06em}
+footer span{font:800 9px/1.7 Consolas,monospace;letter-spacing:.06em;text-align:right}
+
+
+.card{cursor:pointer}
+.card .bd{gap:7px}
+.card .more{margin-top:auto;padding-top:8px;border-top:1px solid #263A2D;font:800 10px/1.4 Consolas,monospace;letter-spacing:.1em;color:#45614C;display:flex;justify-content:space-between}
+.card:hover .more{color:#00FF5A}
+
+/* profile modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.82);display:flex;justify-content:center;align-items:flex-start;padding:28px 14px;overflow-y:auto;z-index:20}
+.pf{width:100%;max-width:820px;background:#030503;border:1px solid #31543B;border-top:4px solid #00FF5A;color:#EDF4EE;font-family:Pretendard,'Apple SD Gothic Neo',Arial,sans-serif}
+.pf *{text-align:left;word-break:keep-all}
+.pf-h{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid #263A2D;font:800 10px/1.4 Consolas,monospace;letter-spacing:.12em;color:#8BA392}
+.pf-h .sp{flex:1}
+.pf-x{border:1px solid #31543B;background:none;color:#C9DED0;font:800 14px/1 Consolas,monospace;padding:6px 10px;cursor:pointer}
+.pf-x:hover{color:#00FF5A;border-color:#00FF5A}
+.pf-b{display:grid;grid-template-columns:300px 1fr}
+.pf-side{border-right:1px solid #263A2D;display:flex;flex-direction:column}
+.pf-img{border-bottom:1px solid #263A2D;background:#0B130D;position:relative;aspect-ratio:832/1216;overflow:hidden}
+.pf-side .rows{border-top:0;padding:4px 18px 18px}
+.pf-side .row{padding:9px 0}
+.pf-side .row span{flex:0 0 78px}
+.pf-side .row b{font-size:13.5px}
+.pf-mhead{display:none}
+.pf-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0}
+.pf-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:950 80px/1 Arial;color:#102014;letter-spacing:-.08em}
+.pf-m{padding:22px 22px 24px;display:flex;flex-direction:column;gap:14px}
+.pf-cs{font:950 clamp(34px,6vw,48px)/.95 Arial;letter-spacing:-.07em}
+.pf-nm{font-size:14px;color:#AFC1B3;margin-top:-6px}
+.pf-intro{background:#0B130D;border-left:3px solid #00FF5A;padding:13px 14px;font-size:14px;line-height:1.8;color:#E6F3E9}
+.rows{border-top:1px solid #263A2D}
+.row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #263A2D}
+.row span{flex:0 0 92px;font:800 10px/1.9 Consolas,monospace;letter-spacing:.1em;color:#00FF5A}
+.row b{flex:1;font-size:14px;font-weight:750;line-height:1.6}
+.pf-sec h3{margin:0 0 7px;font:800 10px/1.5 Consolas,monospace;letter-spacing:.13em;color:#00FF5A;display:flex;align-items:center;gap:8px}
+.pf-sec h3::after{content:"";flex:1;height:1px;background:#263A2D}
+.pf-sec p{margin:0;font-size:14px;line-height:1.85;color:#DCE8DF;white-space:pre-wrap}
+.pf-l{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+.pf-l a{border:1px solid #00FF5A;background:#00FF5A;color:#031008;padding:10px 16px;font:800 11px/1.3 Consolas,monospace;letter-spacing:.08em}
+.pf-l a:hover{background:#3dff80}
+.pf-l .none{border:1px dashed #263A2D;color:#45614C;padding:10px 16px;font:800 11px/1.3 Consolas,monospace;letter-spacing:.1em}
+@media(max-width:640px){
+  .pf-b{grid-template-columns:1fr}
+  .pf-side{border-right:0;border-bottom:1px solid #263A2D}
+  .pf-mhead{display:block;padding:18px 18px 14px;border-bottom:1px solid #263A2D}
+  .pf-m > .pf-cs, .pf-m > .pf-nm{display:none}
+  .pf-img{aspect-ratio:4/5}
+  .pf-img img{object-position:center 12%}
+}
+
+@media(max-width:520px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .card .bd{padding:11px 11px 12px}
+  .cs{font-size:20px}
+  .stats b{font-size:12px}
+  .hero .bg{font-size:130px}
+}
+
+/* ---------- admin ---------- */
+.adminbar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:12px 4%;border-top:1px solid #263A2D;background:#0B1B10}
+.adminbar[hidden]{display:none}
+.ab-k{font:800 10px/1.4 Consolas,monospace;letter-spacing:.14em;color:#00FF5A}
+.ab-s{font:11px/1.4 Consolas,monospace;color:#97AC9B}
+.adminbar .sp{flex:1}
+.edit-btn{position:absolute;bottom:8px;right:8px;z-index:3;border:1px solid #00FF5A;background:#031008;color:#00FF5A;font:800 10px/1.4 Consolas,monospace;letter-spacing:.1em;padding:4px 9px;cursor:pointer}
+.edit-btn:hover{background:#00FF5A;color:#031008}
+footer .staff{display:inline-block;margin-top:6px;border-bottom:1px solid #031008;opacity:.7}
+footer .staff:hover{opacity:1}
+.ov2{z-index:30}.ov3{z-index:40;align-items:center}
+.dlg{width:100%;max-width:460px;background:#030503;border:1px solid #31543B;border-top:4px solid #00FF5A;padding:20px;color:#EDF4EE;font-family:Pretendard,'Apple SD Gothic Neo',Arial,sans-serif;margin:auto 0}
+.dlg.wide{max-width:900px}.dlg.small{max-width:360px}
+.dlg *{text-align:left}
+.dlg-h{font:900 22px/1.1 Arial;letter-spacing:-.05em;margin-bottom:14px}
+.dlg-p{font-size:13.5px;line-height:1.75;color:#C6D7C9;margin:0 0 12px}
+.dlg-p b{color:#00FF5A}
+.dlg-ol{margin:0 0 14px;padding-left:20px;font-size:12.5px;line-height:1.8;color:#AFC1B3}
+.dlg-ol code,.dlg-p code{font-family:Consolas,monospace;color:#00FF5A}
+.dlg-err{min-height:18px;font-size:12px;color:#ff7a5a;margin-top:8px}
+.dlg-f{display:flex;gap:7px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.dlg-f .sp{flex:1}
+.navlink.danger{border-color:#7a3a2a;color:#ff7a5a}
+.navlink.danger:hover{background:#2a110b;color:#ff7a5a}
+.navlink:disabled{opacity:.5;cursor:wait}
+.fl{display:flex;flex-direction:column;gap:5px;font:800 9px/1.4 Consolas,monospace;letter-spacing:.12em;color:#00FF5A;margin-bottom:10px}
+.fl em{font:400 11px/1.5 Pretendard,sans-serif;letter-spacing:0;color:#89A391;font-style:normal}
+.fl em.warn{color:#ff7a5a}
+.fl input,.fl textarea,.fl select,.ed-link input{font:400 13.5px/1.6 Pretendard,'Apple SD Gothic Neo',sans-serif;letter-spacing:0;color:#EDF4EE;background:#080D09;border:1px solid #31543B;padding:8px 10px;width:100%}
+.fl textarea{resize:vertical;line-height:1.7}
+.fl input:focus,.fl textarea:focus,.fl select:focus,.ed-link input:focus{outline:1px solid #00FF5A;outline-offset:-1px}
+.fl select option{background:#080D09}
+.ed{display:grid;grid-template-columns:200px 1fr;gap:20px}
+.ed-img{display:flex;flex-direction:column;gap:8px}
+.ed-th{aspect-ratio:832/1216;background:#0B130D;border:1px solid #263A2D;display:flex;align-items:center;justify-content:center;overflow:hidden;font:800 10px Consolas,monospace;color:#45614C;letter-spacing:.12em}
+.ed-th img{width:100%;height:100%;object-fit:cover}
+.navlink.file{text-align:center}
+.ed-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ed-row.three{grid-template-columns:1fr 1fr 1fr}
+.ed-link{display:grid;grid-template-columns:2fr 1fr auto;gap:6px;margin-bottom:6px}
+.ed-none{font-size:12px;color:#45614C;margin-bottom:8px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#00FF5A;color:#031008;padding:9px 16px;font:800 11px/1.4 Consolas,monospace;letter-spacing:.06em;z-index:60;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1}
+@media(max-width:700px){ .ed{grid-template-columns:1fr} .ed-img{max-width:220px} .ed-row,.ed-row.three{grid-template-columns:1fr 1fr} }
+
+/* ---------- static / glitch fx ---------- */
+.fx-scan{position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.22) 2px 3px);mix-blend-mode:multiply}
+.fx-noise{position:fixed;inset:-50%;pointer-events:none;z-index:51;opacity:.06;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain .5s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(3%,2%)}}
+.fx-roll{position:fixed;left:0;right:0;height:120px;top:-120px;pointer-events:none;z-index:52;
+  background:linear-gradient(to bottom,rgba(0,255,90,0),rgba(0,255,90,.05) 50%,rgba(0,255,90,0));animation:roll 7s linear infinite}
+@keyframes roll{to{top:110%}}
+body.zap .mg{animation:zap .18s steps(2) 1}
+@keyframes zap{0%{transform:translate(0,0);filter:none}33%{transform:translate(-4px,1px);filter:hue-rotate(40deg) contrast(1.4)}66%{transform:translate(3px,-1px);filter:saturate(2)}100%{transform:none;filter:none}}
+
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;opacity:0}
+.glitch::before{color:#00FF5A;transform:translate(-3px,0)}
+.glitch::after{color:#ff2a6d;transform:translate(3px,0)}
+.glitch.on::before{opacity:.85;animation:gl1 .35s steps(2) 1}
+.glitch.on::after{opacity:.75;animation:gl2 .35s steps(2) 1}
+@keyframes gl1{0%{clip-path:inset(10% 0 60% 0)}50%{clip-path:inset(55% 0 20% 0);transform:translate(-6px,0)}100%{clip-path:inset(30% 0 45% 0)}}
+@keyframes gl2{0%{clip-path:inset(65% 0 5% 0)}50%{clip-path:inset(15% 0 70% 0);transform:translate(6px,0)}100%{clip-path:inset(40% 0 35% 0)}}
+
+.ticker{border-top:1px solid #263A2D;border-bottom:1px solid #263A2D;background:#050A06;overflow:hidden;white-space:nowrap;margin-top:14px}
+.ticker .tk{display:inline-block;padding:8px 0;font:800 10px/1.4 Consolas,monospace;letter-spacing:.14em;color:#6F8A76;animation:tick 60s linear infinite}
+.ticker .tk b{color:#00FF5A;font-weight:800}
+.ticker .tk i{font-style:normal;color:#ff7a5a}
+.ticker .tk span{margin:0 26px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.card .img::after{content:"";position:absolute;left:0;right:0;height:30%;top:-30%;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(0,255,90,0),rgba(0,255,90,.18),rgba(0,255,90,0))}
+.card:hover .img::after{animation:sweep .9s ease-out 1}
+@keyframes sweep{to{top:100%}}
+.card .img.glx img{animation:imgglx .28s steps(3) 1}
+@keyframes imgglx{0%{transform:translate(0);filter:none}33%{transform:translate(-5px,0) skewX(4deg);filter:hue-rotate(90deg) saturate(2)}66%{transform:translate(4px,0);filter:contrast(1.8) brightness(1.3)}100%{transform:none;filter:none}}
+.stamp{animation:stampflick 5s steps(1) infinite}
+@keyframes stampflick{0%,91%,95%,100%{opacity:1}92%,94%{opacity:.2}93%{opacity:.7}}
+.pf{animation:pfin .32s steps(4) 1}
+@keyframes pfin{0%{clip-path:inset(0 0 100% 0);filter:brightness(2)}50%{clip-path:inset(0 0 40% 0)}100%{clip-path:inset(0);filter:none}}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.boot{position:fixed;inset:0;z-index:70;background:#020302;display:flex;align-items:center;justify-content:center;padding:24px;cursor:pointer}
+.boot[hidden]{display:none}
+.boot pre{margin:0;font:700 13px/1.9 Consolas,'Courier New',monospace;color:#00FF5A;white-space:pre-wrap;max-width:560px;width:100%;text-shadow:0 0 6px rgba(0,255,90,.5)}
+.boot pre .d{color:#45614C}
+.boot.out{animation:bootout .35s steps(3) forwards}
+@keyframes bootout{to{opacity:0;clip-path:inset(50% 0 50% 0)}}
+
+@media (prefers-reduced-motion: reduce){
+  .fx-noise,.fx-roll,.ticker .tk,.stamp{animation:none}
+  .glitch.on::before,.glitch.on::after{animation:none;opacity:0}
+}
+
+
+/* ---------- HUD: birthday + radio ---------- */
+.hud{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.hud .mod{background:#060B07;border:1px solid #263A2D;display:flex;align-items:center;gap:12px;padding:10px 14px 10px 10px;cursor:pointer;text-align:left;color:#EDF4EE;font-family:inherit}
+.hud .mod:hover{border-color:#00FF5A}
+.hud .mod .av{width:42px;height:42px;flex:0 0 42px;background:#0B130D;border:1px solid #31543B;overflow:hidden}
+.hud .mod .av img{width:100%;height:100%;object-fit:cover;object-position:center 12%}
+.hud .mod .k{display:block;font:800 9px/1.5 Consolas,monospace;letter-spacing:.14em;color:#00FF5A}
+.hud .mod .v{display:block;font:900 17px/1.15 Arial;letter-spacing:-.04em}
+.hud .mod .s{display:block;font:11.5px/1.4 Consolas,monospace;color:#97AC9B;margin-top:1px}
+.hud .mod .dd{margin-left:6px;font:950 28px/1 Arial;letter-spacing:-.06em;color:#00FF5A}
+.hud .mod.today{border-color:#00FF5A;background:#0B2412}
+.hud .mod.today .dd{animation:blink 1s steps(1) infinite}
+.card .bdtag{position:absolute;left:8px;top:32px;font:800 10px/1.4 Consolas,monospace;letter-spacing:.08em;background:#031008;border:1px solid #00FF5A;color:#00FF5A;padding:2px 6px;animation:blink 1s steps(1) infinite}
+
+
+
+/* ---------- walkie-talkie ---------- */
+.hero.has-wt{min-height:360px;padding-right:calc(4% + 330px)}
+.hero.has-wt .bg{display:none}
+.wt-wrap{position:absolute;right:4%;top:22px;display:flex;align-items:flex-start;gap:14px;z-index:2}
+.wt-wrap[hidden]{display:none}
+.wt-say{width:200px;margin-top:64px;background:#060B07;border:1px solid #31543B;border-left:3px solid #00FF5A;padding:11px 12px;opacity:0;transform:translateX(8px);transition:opacity .2s,transform .2s;position:relative}
+.wt-say::after{content:"";position:absolute;right:-8px;top:22px;border:7px solid transparent;border-left-color:#31543B;border-right:0}
+.wt-say.on{opacity:1;transform:none}
+.wt-say .k{font:800 9px/1.5 Consolas,monospace;letter-spacing:.14em;color:#00FF5A}
+.wt-say .who{font:950 20px/1.05 Arial;letter-spacing:-.05em;margin:3px 0 7px}
+.wt-say .line{font-size:13.5px;line-height:1.65;color:#E6F3E9;min-height:44px;word-break:keep-all}
+.wt-say .line.typing::after{content:"▌";color:#00FF5A;animation:blink .8s steps(1) infinite;margin-left:1px}
+.wt-say .line.enc{font-family:Consolas,monospace;color:#6F8A76;word-break:break-all}
+.wt{position:relative;width:112px;padding-top:58px;flex:0 0 112px}
+.wt.shake{animation:wtshake .35s linear 1}
+@keyframes wtshake{0%,100%{transform:none}20%{transform:translate(-2px,1px) rotate(-1deg)}40%{transform:translate(2px,-1px) rotate(1deg)}60%{transform:translate(-1px,0)}80%{transform:translate(1px,1px)}}
+.wt-ant{position:absolute;left:16px;top:0;width:14px;height:66px;border-radius:5px 5px 2px 2px;background:repeating-linear-gradient(to bottom,#162219 0 5px,#0c140e 5px 7px);border:1px solid #2b4231}
+.wt-ant::before{content:"";position:absolute;left:3px;top:-6px;width:6px;height:8px;border-radius:3px;background:#1d2d21;border:1px solid #2b4231}
+.wt-knob{position:absolute;right:20px;top:40px;width:22px;height:22px;border-radius:50%;background:repeating-conic-gradient(#1d2d21 0 10deg,#0f1a12 10deg 20deg);border:1px solid #31543B}
+.wt-knob.sm{right:50px;top:46px;width:14px;height:16px;border-radius:3px;background:#1d2d21}
+.wt-body{position:relative;background:linear-gradient(180deg,#121c15,#0a110c);border:1px solid #31543B;border-radius:14px 14px 18px 18px;padding:12px 11px 14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 14px 30px rgba(0,0,0,.6)}
+.wt-led{position:absolute;right:12px;top:6px;width:6px;height:6px;border-radius:50%;background:#1e3a26}
+.wt.rx .wt-led{background:#ff5a3c;box-shadow:0 0 8px #ff5a3c}
+.wt.ok .wt-led{background:#00FF5A;box-shadow:0 0 8px #00FF5A}
+.wt-lcd{margin-top:4px;background:#0a1f10;border:2px solid #050a06;border-radius:4px;padding:6px 7px;font:700 9px/1.45 Consolas,monospace;color:#00FF5A;text-shadow:0 0 4px rgba(0,255,90,.6);letter-spacing:.05em;box-shadow:inset 0 0 10px rgba(0,0,0,.7)}
+.wt-lcd .r{display:flex;justify-content:space-between}
+.wt-lcd .big{font:900 14px/1.25 Consolas,monospace;letter-spacing:.02em;white-space:nowrap;overflow:hidden;margin:2px 0}
+.wt-lcd .bars{letter-spacing:0}
+.wt-grill{margin:10px 2px 0;height:58px;border-radius:6px;background:radial-gradient(circle,#030503 0 1.6px,transparent 2px) 0 0/7px 7px,#0d150f;border:1px solid #1d2d21}
+.wt-brand{margin-top:7px;text-align:center;font:800 7px/1.3 Consolas,monospace;letter-spacing:.16em;color:#45614C}
+.wt-ptt{display:block;width:100%;margin-top:9px;background:#00FF5A;color:#031008;border:0;border-bottom:3px solid #00a83b;border-radius:6px;padding:9px 0 7px;font:900 13px/1 Arial;letter-spacing:.04em;cursor:pointer;text-align:center}
+.mg .wt-ptt,.mg .wt-ptt small,.mg .wt-brand{text-align:center}
+.wt-ptt small{display:block;font:800 7.5px/1.3 Consolas,monospace;letter-spacing:.12em;margin-top:3px}
+.wt-ptt:hover{background:#3dff80}
+.wt-ptt:active,.wt.rx .wt-ptt{transform:translateY(2px);border-bottom-width:1px}
+.wt-side{position:absolute;left:-5px;top:118px;width:5px;height:42px;background:#1d2d21;border:1px solid #31543B;border-right:0;border-radius:3px 0 0 3px}
+@media(max-width:860px){
+  .hero.has-wt{padding-right:4%;min-height:0}
+  .wt-wrap{position:relative;right:auto;top:auto;margin-top:22px;flex-direction:row-reverse;justify-content:flex-end}
+  .wt-say{margin-top:58px;flex:1;max-width:320px}
+  .wt-say::after{right:auto;left:-8px;border-left:0;border-right:7px solid #31543B}
+}
+
+/* compact overrides */
+.hud{display:inline-flex;margin:0}
+.hud[hidden]{display:none}
+.bchip{background:none;border:1px solid #31543B;color:#8BA392;font:800 10px/1.4 Consolas,monospace;letter-spacing:.1em;padding:2px 8px;cursor:pointer}
+.bchip b{color:#EDF4EE;font-weight:800}
+.bchip i{font-style:normal;color:#00FF5A}
+.bchip:hover{border-color:#00FF5A}
+.bchip.today{border-color:#00FF5A;background:#0B2412;color:#00FF5A;animation:blink 1.2s steps(1) infinite}
+.wt-wrap{position:fixed;right:14px;bottom:10px;top:auto;z-index:15;align-items:flex-end;transform:scale(.72);transform-origin:bottom right;font-family:Pretendard,'Apple SD Gothic Neo',Arial,sans-serif;color:#EDF4EE;pointer-events:none}
+.wt-wrap > *{pointer-events:auto}
+.wt-wrap,.wt-wrap *{text-align:left}
+.wt-say{margin:0 0 150px;box-shadow:0 10px 30px rgba(0,0,0,.7);width:230px}
+.wt-say:not(.on){pointer-events:none}
+.wt-say .line{font-size:15px}
+.wt-wrap .wt-ptt,.wt-wrap .wt-ptt small,.wt-wrap .wt-brand{text-align:center}
+@media(max-width:860px){
+  .wt-wrap{position:fixed;right:10px;bottom:8px;margin:0;flex-direction:row;transform:scale(.52)}
+  .wt-say{margin:0 0 150px;flex:0 0 260px;max-width:none}
+  .wt-say::after{left:auto;right:-8px;border-right:0;border-left:7px solid #31543B}
+}
+
+/* radio static */
+.wt-lcd{position:relative;overflow:hidden}
+.wt-lcd::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0 1px,rgba(0,0,0,.35) 1px 2px)}
+.wt-lcd::after{content:"";position:absolute;inset:-40%;pointer-events:none;opacity:.14;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 1 0 0 0  0 0 0 0 .3  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain .25s steps(3) infinite}
+.wt.rx .wt-lcd::after,.wt.blip .wt-lcd::after{opacity:.75}
+.wt.rx .wt-lcd,.wt.blip .wt-lcd{animation:lcdjit .09s steps(2) infinite}
+@keyframes lcdjit{0%{transform:translate(0,0);filter:brightness(1)}50%{transform:translate(1px,-1px);filter:brightness(1.6) contrast(1.4)}100%{transform:translate(-1px,0);filter:brightness(.8)}}
+.wt.rx .wt-grill{animation:buzz .07s steps(2) infinite}
+@keyframes buzz{50%{background-color:#16301d;transform:translateX(1px)}}
+.wt-say.tuning{background:#060B07 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='1'/><feColorMatrix values='0 0 0 0 0  0 .6 0 0 0  0 0 0 0 .2  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:lcdjit .09s steps(2) infinite}
+.wt-say.tuning .line{color:#4f7a5a;font-family:Consolas,monospace;word-break:break-all}
+.wt-say.tuning .who{color:#45614C}
+@media (prefers-reduced-motion: reduce){ .wt-lcd::after,.wt.rx .wt-lcd,.wt.rx .wt-grill,.wt-say.tuning{animation:none} }
+
+/* tuning panel */
+.wt-tune{margin:9px 1px 0;background:#050a06;border:1px solid #1d2d21;border-radius:5px;padding:5px 5px 4px;position:relative;overflow:hidden}
+.wt-tune canvas{display:block;width:100%;height:34px}
+.wt-scale{position:relative;height:20px;margin-top:3px;border-top:1px solid #1d2d21;
+  background:repeating-linear-gradient(to right,#31543B 0 1px,transparent 1px 8px) 0 0/100% 5px no-repeat,
+             repeating-linear-gradient(to right,#4b7a58 0 1px,transparent 1px 40px) 0 0/100% 8px no-repeat}
+.wt-scale span{position:absolute;bottom:0;font:700 6.5px/1 Consolas,monospace;color:#45614C;transform:translateX(-50%)}
+.wt-needle{position:absolute;top:-1px;bottom:0;width:2px;background:#ff5a3c;box-shadow:0 0 6px #ff5a3c;left:30%;transition:left .5s cubic-bezier(.3,1.4,.5,1)}
+.wt.ok .wt-needle{background:#00FF5A;box-shadow:0 0 6px #00FF5A}
+.wt.rx .wt-needle{transition:left .07s linear}
+.wt-grill{height:20px !important;margin-top:7px !important}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;gap:0;padding:0 4%;border-top:1px solid #263A2D}
+.tabs[hidden]{display:none}
+.tab{background:none;border:0;border-bottom:3px solid transparent;color:#45614C;cursor:pointer;padding:16px 18px 12px;display:flex;align-items:baseline;gap:9px}
+.tab:first-child{padding-left:0}
+.tab b{font:950 22px/1 Arial;letter-spacing:-.06em}
+.tab span{font:800 9px/1 Consolas,monospace;letter-spacing:.14em}
+.tab:hover{color:#97AC9B}
+.tab.on{color:#EDF4EE;border-bottom-color:#00FF5A}
+.tab.on span{color:#00FF5A}
+.mix[hidden],.grid[hidden],.bar[hidden]{display:none}
+.mix{border-top:1px solid #263A2D}
+
+/* ---------- CD / mixtape ---------- */
+.mix{padding:26px 4% 40px}
+.mix-h{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.mix-h h2{margin:0;font:950 clamp(30px,6vw,46px)/.9 Arial;letter-spacing:-.07em}
+.mix-h .k{font:800 10px/1.5 Consolas,monospace;letter-spacing:.14em;color:#97AC9B;padding-bottom:4px}
+.mix-h .sp{flex:1}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:26px 30px}
+.cdx{cursor:pointer;display:flex;flex-direction:column;gap:10px;outline:0}
+.cdx .stage{position:relative;padding-right:22%}
+.case{position:relative;aspect-ratio:1.1/1;background:#0B130D;border:1px solid #31543B;overflow:hidden;z-index:2;box-shadow:0 10px 24px rgba(0,0,0,.6)}
+.case img{position:absolute;inset:0 0 0 9%;width:91%;height:100%;object-fit:cover;object-position:center 14%;filter:saturate(.9) contrast(1.05)}
+.case .ph{position:absolute;inset:0 0 0 9%;display:flex;align-items:center;justify-content:center;font:950 46px/1 Arial;color:#102014;letter-spacing:-.08em}
+.case .spine{position:absolute;left:0;top:0;bottom:0;width:9%;background:repeating-linear-gradient(to bottom,#0f1a12 0 3px,#17271b 3px 4px);border-right:1px solid #31543B}
+.case .obi{position:absolute;left:9%;top:0;bottom:0;width:15%;background:#00FF5A;color:#031008;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font:900 11px/1 Arial;letter-spacing:.06em;white-space:nowrap;overflow:hidden}
+.case .gloss{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.04) 28%,rgba(255,255,255,0) 29%,rgba(255,255,255,0) 70%,rgba(255,255,255,.06) 100%);pointer-events:none}
+.case .tag{position:absolute;right:6px;bottom:6px;font:800 9px/1.3 Consolas,monospace;letter-spacing:.1em;background:rgba(3,5,3,.82);border:1px solid #366744;color:#00FF5A;padding:2px 6px}
+.case.sealed img{filter:grayscale(1) brightness(.45)}
+.case.sealed::after{content:"SEALED";position:absolute;left:50%;top:50%;transform:translate(-40%,-50%) rotate(-10deg);border:2px solid #00FF5A;color:#00FF5A;padding:4px 10px;font:900 13px/1 Consolas,monospace;letter-spacing:.2em;background:rgba(3,5,3,.6)}
+.disc{position:absolute;top:3.5%;right:0;width:64%;aspect-ratio:1;border-radius:50%;z-index:1;transition:right .45s cubic-bezier(.2,.8,.2,1);
+  background:
+    radial-gradient(circle,#030503 0 7%,#9fb3a5 7.5% 8.5%,rgba(0,0,0,0) 9%),
+    radial-gradient(circle,rgba(0,0,0,0) 0 22%,rgba(3,5,3,.0) 22%),
+    conic-gradient(from 20deg,#c7d3cb,#7f9487,#e8f0ea,#5f7466,#bfe8cf,#8aa093,#f2f6f3,#6f8577,#c7d3cb);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 6px 16px rgba(0,0,0,.5)}
+.disc::before{content:"";position:absolute;inset:23%;border-radius:50%;background:#00FF5A;
+  -webkit-mask:radial-gradient(circle,transparent 0 30%,#000 31%);mask:radial-gradient(circle,transparent 0 30%,#000 31%)}
+.disc::after{content:attr(data-cs);position:absolute;left:0;right:0;top:30%;text-align:center;font:900 8px/1 Arial;letter-spacing:.08em;color:#031008}
+.disc i{position:absolute;inset:0;border-radius:50%;background:repeating-radial-gradient(circle,rgba(255,255,255,0) 0 3px,rgba(255,255,255,.06) 3px 4px);
+  -webkit-mask:radial-gradient(circle,transparent 0 46%,#000 47%);mask:radial-gradient(circle,transparent 0 46%,#000 47%)}
+.cdx:hover .disc,.cdx:focus .disc{right:-8%}
+.cdx.playing .disc{right:-12%;animation:spin 1.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cdx .info{position:relative;z-index:3;font-size:12.5px;line-height:1.5;color:#AFC1B3}
+.cdx .info .t{font:900 15px/1.25 Arial;letter-spacing:-.03em;color:#EDF4EE;display:block}
+.cdx .info .n{font:800 10px/1.6 Consolas,monospace;letter-spacing:.12em;color:#00FF5A}
+.cdx:hover .t{color:#00FF5A}
+.cdx.playing .n::after{content:"  ● NOW PLAYING";color:#ff7a5a}
+
+/* profile track */
+.pf-track{display:flex;gap:16px;align-items:center;border:1px solid #263A2D;background:#060B07;padding:12px 14px}
+.pf-track .cdx{flex:0 0 150px;gap:0}
+.pf-track .meta2{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.pf-track .meta2 .k{font:800 10px/1.5 Consolas,monospace;letter-spacing:.13em;color:#00FF5A}
+.pf-track .meta2 .t{font:900 19px/1.2 Arial;letter-spacing:-.04em}
+.pf-track .meta2 .a{font-size:13px;color:#AFC1B3}
+.pf-track .meta2 .navlink{align-self:flex-start;margin-top:4px}
+
+/* mini player */
+.player{color:#EDF4EE;font-family:Pretendard,'Apple SD Gothic Neo',Arial,sans-serif;position:fixed;left:14px;bottom:14px;z-index:45;display:flex;align-items:center;gap:12px;background:#030503;border:1px solid #31543B;border-left:4px solid #00FF5A;padding:9px 12px 9px 10px;max-width:min(420px,calc(100vw - 28px));box-shadow:0 10px 30px rgba(0,0,0,.7);animation:pfin .3s steps(3) 1}
+.player[hidden]{display:none}
+.player .pd{flex:0 0 46px;height:46px;border-radius:50%;position:relative;animation:spin 1.8s linear infinite;
+  background:radial-gradient(circle,#030503 0 9%,rgba(0,0,0,0) 10%),conic-gradient(#c7d3cb,#6f8577,#e8f0ea,#5f7466,#bfe8cf,#c7d3cb)}
+.player .pd img{position:absolute;inset:26%;width:48%;height:48%;border-radius:50%;object-fit:cover;object-position:center 15%}
+.player .pd::after{content:"";position:absolute;inset:45%;border-radius:50%;background:#030503}
+.player .pt{min-width:0;flex:1}
+.player .pt .k{font:800 9px/1.5 Consolas,monospace;letter-spacing:.14em;color:#ff7a5a}
+.player .pt .t{font:900 14px/1.3 Arial;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player .pt .a{font-size:11.5px;color:#97AC9B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px}
+.player .eq b{width:3px;background:#00FF5A;animation:eq .8s ease-in-out infinite}
+.player .eq b:nth-child(2){animation-delay:-.3s}.player .eq b:nth-child(3){animation-delay:-.55s}.player .eq b:nth-child(4){animation-delay:-.15s}
+@keyframes eq{0%,100%{height:3px}50%{height:16px}}
+.player .x{border:1px solid #31543B;background:none;color:#C9DED0;font:800 10px/1 Consolas,monospace;letter-spacing:.08em;padding:7px 9px;cursor:pointer}
+.player .x:hover{color:#00FF5A;border-color:#00FF5A}
+.player .emb{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden;left:0;bottom:0}
+.player .emb.show{position:static;width:auto;height:auto;opacity:1;pointer-events:auto}
+.player.wide{flex-wrap:wrap}
+.player.wide .emb.show{flex:1 0 100%}
+.player .emb iframe{border:0;display:block}
+@media(max-width:640px){ .pf-track{flex-direction:column;align-items:stretch} .pf-track .cdx{flex:0 0 auto;max-width:180px} }
+@media(max-width:520px){ .shelf{grid-template-columns:repeat(2,1fr);gap:22px 12px} }
+@media (prefers-reduced-motion: reduce){ .cdx.playing .disc,.player .pd,.player .eq b{animation:none} }
+</style>
+<script src="config.js"></script>
+<script src="data/roster-data.js"></script>
 </head>
 <body>
+<div class="fx-scan"></div><div class="fx-noise"></div><div class="fx-roll"></div>
+<div class="boot" id="boot" hidden><pre id="bootTxt"></pre></div>
+<main class="mg">
 
-<details class="gov">
-  <summary><div class="wrap bar"><span class="flag" aria-hidden="true"></span><span>Meridian Solutions의 공식 웹사이트입니다.</span><span class="how">확인 방법</span></div></summary>
-  <div class="wrap body">
-    <div><span class="ico">MS</span><span><b>의뢰와 채용은 공식 창구로만 받습니다</b>당사는 메신저나 개인 연락처로 계약을 제안하거나 채용 연락을 하지 않습니다. 당사 명의의 다른 연락은 사칭일 수 있습니다.</span></div>
-    <div><span class="ico">ID</span><span><b>소속 인력의 신상을 확인해 드리지 않습니다</b>당사는 전화나 메일로 오퍼레이터의 실명, 출신, 거점 위치를 확인해 주지 않습니다. 이를 묻는 연락에 응하지 마십시오.</span></div>
-  </div>
-</details>
-
-<header class="mast">
-  <div class="wrap">
-    <button class="brand" data-go="home" aria-label="Meridian Solutions 홈">
-      <span class="lg" role="img" aria-label="Meridian Solutions"></span>
-      <span class="divider"></span>
-      <span class="txt"><b>Meridian Solutions</b><span>Private Military Company</span></span>
-    </button>
-    <div class="mast-act">
-      <button class="btn inv staff-login" id="headLogin">직원 로그인</button>
-      <span class="staff-chip"><i></i>STAFF</span>
-      <button class="btn inv admin-only" id="tokenDel">토큰 삭제</button>
-      <button class="btn inv admin-only" id="logout">로그아웃</button>
-    </div>
-  </div>
+<header class="top">
+  <span class="k">메리디안 솔루션스 / 인사 명단</span>
+  <b>MENAGERIE<span class="g">×</span></b>
 </header>
-<nav class="main" aria-label="주 메뉴"><div class="wrap">
-  <button data-go="home" data-sec="about" aria-current="page">회사소개</button>
-  <button data-go="home" data-sec="anomaly">인력 구성</button>
-  <button data-go="home" data-sec="org">조직</button>
-  <button data-go="roster">오퍼레이터 명부</button>
-  <button data-go="recruit">채용</button>
-  <button data-go="home" data-sec="news">공지</button>
-</div></nav>
 
-<main id="viewHome">
-  <div class="notice"><div class="wrap"><b>안내</b><span>당사는 거점 위치를 공개하지 않습니다. 거점으로 추정되는 장소에 접근하거나 촬영하지 마십시오.</span></div></div>
+<div class="meta">
+  <span class="g">FILE / ROSTER</span><span class="sl">/</span>PERSONNEL INDEX
+  <span style="margin-left:auto" class="hud" id="hud" hidden></span>
+  <span class="g"><span class="blink">●</span> LIVE FEED</span>
+</div>
+<div class="ticker"><div class="tk" id="ticker"></div></div>
 
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <div class="label">Meridian Solutions · Private Military Contractor</div>
-          <h1>다른 곳이 받지 않는 의뢰를<br><b>끝까지 수행합니다.</b></h1>
-          <p>Meridian Solutions는 분쟁 지역과 고위험 환경의 작전을 수행하는 민간군사기업입니다. 대형 PMC가 편성하지 않는 인외·개조인간·반인간 인력을 중심으로 운영됩니다.</p>
-          <div class="ctas"><button class="btn solid" data-go="home" data-sec="about">회사 소개</button><button class="btn inv" data-go="roster">오퍼레이터 명부</button></div>
-        </div>
-        <dl class="facts" aria-label="운영 현황">
-          <div><dt>Headquarters</dt><dd>비공개 · 단일 거점</dd></div>
-          <div><dt>Operations clock</dt><dd class="num" id="hqTime">--:--</dd></div>
-          <div><dt>Area of operations</dt><dd>전 세계 분쟁 지역</dd></div>
-          <div><dt>Deployment</dt><dd class="live"><span class="pulse"></span>파견 운영 중</dd></div>
-          <div><dt>Field operators</dt><dd class="num" id="heroCount">—</dd></div>
-        </dl>
-      </div>
-      <figure class="hero-fig" id="heroFig"></figure>
-    </div>
-  </section>
-
-  <div class="quick"><div class="wrap">
-    <button data-go="recruit"><small>CAREERS</small><b>오퍼레이터 채용</b><span>분류 · 국적 · 시민권 무관</span></button>
-    <button data-go="home" data-sec="anomaly"><small>CONTRACTS</small><b>주요 작전 영역</b><span>분쟁 지역 · 기업 간 분쟁 · 비공식 개입</span></button>
-    <button data-go="roster"><small>PERSONNEL</small><b>오퍼레이터 명부</b><span>인외 · 개조인간 · 반인간 · 인간</span></button>
-  </div></div>
-
-  <section class="blk" id="sec-about">
-    <div class="wrap sec-grid">
-      <div class="side"><span class="label">About</span><span class="sn">회사소개</span></div>
-      <div>
-        <h2 class="h2"><b>규격 밖의 위험</b>에는 규격 밖의 인력으로.</h2>
-        <p class="lead">Meridian Solutions는 정규군이 공식적으로 나설 수 없는 현장을 맡는 중견 민간군사기업입니다. 주요 PMC와의 협력 계약을 통해 작전에 참여하며, 표준 편제에 들어가지 않는 인력을 받아들여 왔습니다.</p>
-        <div class="timeline">
-          <div class="tl"><small>BACKGROUND</small><div><h3 class="h3">전면전 이후의 세계</h3><p>핵 억지력이 작동하면서 국가 간 전면전은 사라졌습니다. 그 자리를 대리전과 기업 간 무력 충돌, 자원 분쟁이 채웠고, 정규군이 직접 들어가기 어려운 현장은 민간군사기업이 맡게 되었습니다.</p></div></div>
-          <div class="tl"><small>DEMAND</small><div><h3 class="h3">사람에게로 옮겨간 군비 경쟁</h3><p>각국의 군사 투자는 인체 개조, 유전자 편집, 생체 강화로 옮겨갔습니다. 그 결과 태어난 비표준 인력은 군사적 가치를 인정받았지만, 대부분의 국가에서 법적 지위가 불안정합니다.</p></div></div>
-          <div class="tl on"><small>FOUNDING</small><div><h3 class="h3">Meridian Solutions</h3><p>당사는 서류상 위험지역 보안 컨설팅 업체로 등록되어 있습니다. 비표준 인력을 단일 거점에 두고, 계약에 따라 분쟁 지역으로 파견합니다.</p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="blk" id="sec-anomaly">
-    <div class="wrap two">
-      <div>
-        <span class="label">Our personnel</span>
-        <h2 class="h2">비표준 인력이란<br><b>무엇입니까</b></h2>
-        <p class="lead">인체 개조나 유전자 설계 등으로 인간 규격을 벗어난 사람을 국제적으로 비표준 인류(Non-Standard Humans)라 부릅니다. 군사적 가치가 입증된 뒤로 PMC가 이들의 최대 고용주가 되었고, 당사 현장 인력의 다수도 여기에 속합니다.</p>
-        <dl class="terms">
-          <dt>OFFICIAL</dt><dd><b>비표준 인류</b> · 국제 공식 분류</dd>
-          <dt>IN-HOUSE</dt><dd><b>오퍼레이터</b> · 당사 현장 인력의 통칭</dd>
-          <dt>CLASS</dt><dd>인외, 개조인간, 반인간, 인간</dd>
-          <dt>ORIGIN</dt><dd>개체마다 다르며, 채용 과정에서 확인하지 않습니다</dd>
-          <dt>STATUS</dt><dd>시민권과 법적 지위는 국가마다 다릅니다</dd>
-        </dl>
-      </div>
-      <div>
-        <span class="label">Contracts</span>
-        <h2 class="h2">주요 <b>작전 영역</b></h2>
-        <p class="lead">정규군이 공식적으로 개입할 수 없는 현장이 늘면서, 그 공백을 민간군사기업이 맡고 있습니다. 당사가 수행하는 계약은 주로 다음과 같습니다.</p>
-        <dl class="terms">
-          <dt>DISPUTED</dt><dd><b>분쟁 지역 작전</b> · 국경과 영유권이 다투어지는 지역</dd>
-          <dt>CORPORATE</dt><dd><b>기업 간 분쟁</b> · 자원 채굴지, 생산 시설, 물류 거점</dd>
-          <dt>UNOFFICIAL</dt><dd><b>비공식 개입</b> · 국가가 직접 나설 수 없는 분쟁</dd>
-          <dt>HIGH-VALUE</dt><dd><b>특정 표적 작전</b> · 세부 내용은 공개하지 않습니다</dd>
-        </dl>
-        <div id="levels" hidden></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="blk" id="sec-org">
-    <div class="wrap sec-grid">
-      <div class="side"><span class="label">Organization</span><span class="sn">운영 방식</span></div>
-      <div>
-        <h2 class="h2">Meridian Solutions의 <b>조직</b></h2>
-        <p class="lead">당사의 현장 인력은 모두 오퍼레이터로 불립니다. 모두가 서로의 얼굴을 아는 규모이며, 고정된 계급 없이 임무마다 팀을 꾸립니다.</p>
-
-        <div class="org-sru">
-          <div class="row">
-            <div><span class="label">Field Operators</span><h2 class="h2" style="margin-top:8px">Not an army. <b>A contract.</b></h2></div>
-            <span class="tag">오퍼레이터 · 현장 인력</span>
-          </div>
-          <p class="lead">오퍼레이터는 분류와 관계없이 같은 임무를 맡습니다. 계약은 본사에서 암호화된 브리핑으로 내려오며, 오퍼레이터는 수 주에서 수 개월 단위로 파견된 뒤 교대로 복귀합니다.</p>
-          <div class="team-row" id="teamTiles"></div>
-          <div class="facts-list">
-            <div><b>고정 계급이 없습니다</b>계급 대신 회사가 개인에게 지휘 자격을 부여합니다. 분류는 신체 특성에 따른 구분일 뿐, 업무나 보수 기준에는 차이가 없습니다.</div>
-            <div><b>임무별 팀 편성</b>계약마다 팀을 새로 꾸리고, 지휘 자격을 가진 오퍼레이터 한 명이 팀장을 맡습니다. 팀장의 권한은 임무 기간 동안 절대적이며, 거점 복귀와 함께 끝납니다.</div>
-            <div><b>파견과 교대</b>오퍼레이터는 수 주에서 수 개월 동안 파견되었다가 교대로 돌아옵니다. 거점이 전원으로 차는 일은 없습니다.</div>
-            <div><b>콜사인</b>오퍼레이터의 콜사인은 모두 동물 이름이며, 대개 팀에서 정해집니다. 임무 중에는 콜사인을, 거점에서는 이름을 씁니다.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="blk" id="sec-careers">
-    <div class="wrap two">
-      <div>
-        <span class="label">Careers</span>
-        <h2 class="h2">출신보다<br><b>현장 능력</b></h2>
-        <p class="lead">당사는 분류, 국적, 시민권과 관계없이 인력을 채용합니다. 출신과 이전 이력을 묻지 않으며, 면접과 실기 평가로만 판단합니다.</p>
-        <div class="paths"><span>상시채용</span><span>경력채용</span><span>특별채용</span><span>추천채용</span></div>
-        <p class="fine">거점 위치와 작전에 관한 정보는 계약 이후 안내됩니다.</p>
-        <div style="margin-top:24px"><button class="btn primary" data-go="recruit">채용 공고 보기</button></div>
-      </div>
-      <div>
-        <span class="label">For Operators</span>
-        <h2 class="h2">오퍼레이터 <b>처우</b></h2>
-        <div class="benefits">
-          <div class="bf"><i>01</i><div><b>건별 정산</b><span>파견 계약 건별로 보수를 정산합니다.</span></div></div>
-          <div class="bf"><i>02</i><div><b>거점 내 1인 트레일러</b><span>모든 오퍼레이터에게 거점 안 1인 트레일러 숙소를 제공합니다.</span></div></div>
-          <div class="bf"><i>03</i><div><b>유지 약물 지급</b><span>개조 인력에게 필요한 거부반응 억제제, 신경 안정제, 나노머신 유지제를 회사가 지급합니다.</span></div></div>
-          <div class="bf"><i>04</i><div><b>의무실 이용</b><span>부상 치료와 의체·개조 부위 정비를 거점 의무실에서 받을 수 있습니다.</span></div></div>
-          <div class="bf"><i>05</i><div><b>신상 보호</b><span>업무에는 콜사인만 사용하며, 실명과 출신은 업무상 필요한 인원에게만 공유됩니다.</span></div></div>
-          <div class="bf"><i>06</i><div><b>후생시설</b><span>식당, 훈련장, 실내 사격장을 이용할 수 있습니다.</span></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="blk" id="sec-news">
-    <div class="wrap sec-grid">
-      <div class="side"><span class="label">Notices</span><span class="sn">공지</span></div>
-      <div>
-        <h2 class="h2"><b>공지</b></h2>
-        <div class="news">
-          <div class="news-row"><span class="cat w">주의</span><b>Meridian Solutions 사칭 채용 연락 주의 안내</b><time class="num">2049.10.27</time></div>
-          <div class="news-row"><span class="cat">채용</span><b>2049년 하반기 오퍼레이터 상시채용 안내</b><time class="num">2049.10.02</time></div>
-          <div class="news-row"><span class="cat">안내</span><b>거점 위치와 소속 인력의 신상에 관한 문의에는 답변하지 않습니다</b><time class="num">2049.09.14</time></div>
-          <div class="news-row"><span class="cat">보도</span><b>당사 인력 관련 일부 언론 보도에 대한 입장</b><time class="num">2049.08.30</time></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<main id="viewRoster" hidden>
-  <section class="reg-top">
-    <div class="wrap">
-      <span class="label">Field Operators · Personnel Register</span>
-      <h1>오퍼레이터 <b>명부</b></h1>
-      <p>오퍼레이터는 콜사인으로 등재됩니다. 실명과 출신은 보호되며, 공개 범위는 당사의 판단에 따릅니다.</p>
-      <div class="tabs" role="tablist" id="tabs"></div>
-    </div>
-  </section>
-  <section class="reg-body">
-    <div class="wrap">
-      <div class="toolbar">
-        <label class="search"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#879092" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="#879092" stroke-width="1.6"/></svg><input id="q" type="search" placeholder="콜사인으로 찾기" autocomplete="off"></label>
-        <div class="filters">
-          <div class="chips" id="platChips" role="group" aria-label="플랫폼">
-            <button data-plat="all" aria-pressed="true">전체</button><button data-plat="케이브덕">케이브덕</button><button data-plat="티팟">티팟</button>
-          </div>
-          <select id="sortSel" class="inp sort" aria-label="정렬" hidden><option value="new" selected>최근 등재순</option></select>
-          <span class="count num" id="rCount"></span>
-        </div>
-      </div>
-      <p class="team-note" id="teamNote"></p>
-      <div class="badges" id="badges"></div>
-
-      <div class="assets">
-        <div class="as-head">
-          <div><span class="label">Equipment &amp; Non-Standard Assets</span><h2 class="h2" style="margin-top:8px">장비 및 <b>자산 등록부</b></h2></div>
-          <div class="as-act"><span class="count num" id="assetCount"></span><button class="btn sm" id="assetAdd" hidden>+ 자산 등록</button></div>
-        </div>
-        <div class="as-table">
-          <div class="as-row as-hd"><span></span><span>자산 번호</span><span>지정명</span><span>분류</span><span>취득 경위</span><span>상태</span><span></span></div>
-          <div id="assetRows"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<main id="viewBoard" hidden aria-hidden="true">
-  <section class="reg-top">
-    <div class="wrap">
-      <span class="label">Client &amp; Public Inquiries</span>
-      <h1>문의 <b>게시판</b></h1>
-      <p>의뢰, 채용, 그 밖의 문의를 남길 수 있습니다. 거점 위치와 소속 인력의 신상에 관한 질문에는 답변하지 않습니다.</p>
-      <div class="board-cta"><button class="btn solid" id="openTip">문의하기</button><button class="btn inv" id="addPost" hidden>게시물 작성</button></div>
-    </div>
-  </section>
-  <section class="reg-body">
-    <div class="wrap">
-      <div class="chips bcats" id="bCats" role="group" aria-label="분류"></div>
-      <div class="board-head"><span>번호</span><span>분류</span><span>제목</span><span>작성자</span><span>날짜</span><span>상태</span></div>
-      <div id="bList"></div>
-      
-    </div>
-  </section>
-</main>
-
-<main id="viewRecruit" hidden>
-  <section class="reg-top">
-    <div class="wrap">
-      <span class="label">Careers · 2049 Recruitment</span>
-      <h1>Meridian Solutions <b>오퍼레이터 채용</b></h1>
-      <p>출신은 묻지 않습니다. 다른 곳이 받지 않는 현장에서 함께 일할 인력을 찾습니다.</p>
-      <div class="board-cta"><button class="btn solid" id="openIdGen">ID 카드 발급</button></div>
-    </div>
-  </section>
-  <section class="reg-body">
-    <div class="wrap sec-grid">
-      <div class="side"><span class="label">Job Posting</span><span class="sn">모집 공고</span></div>
-      <div>
-        <dl class="terms" style="margin-top:0">
-          <dt>모집 분야</dt><dd><b>현장 오퍼레이터</b> · 분류 무관</dd>
-          <dt>근무지</dt><dd>당사 거점 상주. 위치는 계약 이후 개별 안내합니다. 의뢰에 따라 전 세계로 파견됩니다.</dd>
-          <dt>지원 자격</dt><dd>분류, 국적, 시민권 무관. 현장 경력 보유자를 우대합니다.</dd>
-          <dt>채용 경로</dt><dd>상시채용 · 경력채용 · 특별채용 · 추천채용</dd>
-          <dt>처우</dt><dd>건별 정산, 거점 내 1인 트레일러, 유지 약물 지급, 의무실 이용, 신상 보호, 후생시설</dd>
-          <dt>전형</dt><dd>면접과 실기 평가. 출신과 이전 이력을 증빙할 서류는 요구하지 않습니다.</dd>
-        </dl>
-        <p class="fine">작전과 배치에 관한 정보는 보안상 계약 이후 단계적으로 안내됩니다.</p>
-        <div class="idgen-cta">
-          <div><b>이미 계약하셨습니까?</b><span>사진과 정보를 넣어 오퍼레이터 ID 카드를 만들 수 있습니다.<br>입력한 내용은 저장되지 않고, 이미지로만 내려받습니다.</span></div>
-          <button class="btn primary" data-open-id>ID 카드 발급</button>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="f-top">
-      <span class="lg" role="img" aria-label="Meridian Solutions" style="width:150px"></span>
-      <p>Meridian Solutions, Private Military Company. 본 사이트의 의뢰·인력 정보는 공개 가능한 범위로 제한되며, 소속 인력의 신상과 거점 정보는 제공되지 않습니다.</p>
-    </div>
-    <div class="f-links"><button>개인정보처리방침</button><button>이용약관</button><button>윤리강령</button><button>협력사</button><button id="footLogin">직원 전용</button></div>
-    <div class="f-bot"><span>© 2049 MERIDIAN SOLUTIONS</span><span>OFFICIAL SITE</span></div>
+<section class="hero">
+  <div class="bg" aria-hidden="true">#</div>
+  <div class="ovl">MERIDIAN SOLUTIONS / FIELD PERSONNEL</div>
+  <h1><span class="glitch" id="ttl" data-text="ROSTER">ROSTER</span><span class="g">.</span></h1>
+  <div class="sb">
+    <b>메나제리 대원 명단</b>
+    <div>CALLSIGN / PROFILE / CHAT LINKS</div>
   </div>
+  <div class="links" id="globalLinks"></div>
+</section>
+
+<div class="adminbar" id="adminbar" hidden>
+  <span class="ab-k">● STAFF MODE</span>
+  <span class="ab-s" id="abStatus"></span>
+  <span class="sp"></span>
+  <button class="navlink" id="abAdd">+ 대원 추가</button>
+  <button class="navlink" id="abLinks">상단 링크</button>
+  <button class="navlink" id="abToken">저장소 연결</button>
+  <button class="navlink" id="abOut">로그아웃</button>
+</div>
+
+<nav class="tabs" id="tabs">
+  <button class="tab on" data-view="roster"><b>ROSTER</b><span>대원 명단</span></button>
+  <button class="tab" data-view="sideb"><b>SIDE B</b><span>MIXTAPE</span></button>
+</nav>
+
+<nav class="bar" id="filters"></nav>
+
+<section class="grid" id="grid"></section>
+
+<section class="mix" id="mix">
+  <div class="mix-h"><h2>SIDE B<span class="g">.</span></h2><span class="k">MIXTAPE / 대원별 테마곡</span><span class="sp"></span><span class="k" id="mixCnt"></span></div>
+  <div class="shelf" id="shelf"></div>
+</section>
+
+<footer>
+  <b>MENAGERIE.</b>
+  <span>MERIDIAN SOLUTIONS<br>FIELD ARCHIVE / 2049<br><a href="#staff" class="staff">STAFF ONLY</a></span>
 </footer>
 
-<div class="scrim" id="fileScrim" hidden><div class="modal" id="fileModal" role="dialog" aria-modal="true" aria-label="인사기록"></div></div>
-<div class="scrim" id="editScrim" hidden><div class="modal" id="editModal" role="dialog" aria-modal="true" aria-label="오퍼레이터 등록"></div></div>
-<div class="scrim" id="loginScrim" hidden>
-  <div class="modal narrow login" role="dialog" aria-modal="true" aria-label="직원 인증">
-    <button class="x" data-close="loginScrim" aria-label="닫기">×</button>
-    <div class="inner">
-      <span class="lg" aria-hidden="true"></span>
-      <div id="loginStep">
-        <h3>직원 인증</h3>
-        <p>Meridian Solutions 내부망은 인가된 계정으로만 접근할 수 있습니다.</p>
-        <form id="loginForm" autocomplete="off">
-          <label class="f">STAFF ID<input id="lgId" autocomplete="username" spellcheck="false"></label>
-          <label class="f">PASSCODE<input id="lgPw" type="password" autocomplete="current-password"></label>
-          <button class="btn go" type="submit">인증</button>
-        </form>
+</main>
+<div id="layer"></div>
+<div id="layer2"></div>
+<div class="toast" id="toast"></div>
+<div class="wt-wrap" id="wtWrap" hidden>
+  <div class="wt-say" id="wtSay"><div class="k" id="wtK"></div><div class="who" id="wtWho"></div><div class="line" id="wtLine"></div></div>
+  <div class="wt" id="wt">
+    <div class="wt-ant"></div><div class="wt-knob sm"></div><div class="wt-knob"></div>
+    <div class="wt-body"><span class="wt-side"></span><span class="wt-led"></span>
+      <div class="wt-lcd" id="wtLcd"></div>
+      <div class="wt-tune"><canvas id="wtWave" width="180" height="60"></canvas><div class="wt-scale"><span style="left:6%">88</span><span style="left:28%">93</span><span style="left:50%">98</span><span style="left:72%">103</span><span style="left:94%">108</span><i class="wt-needle" id="wtNeedle"></i></div></div><div class="wt-grill"></div>
+      <div class="wt-brand">MERIDIAN · RT-9</div>
+      <button class="wt-ptt" id="wtPtt">PUSH<small>무전 수신</small></button>
+    </div>
+  </div>
+</div>
+<div class="player" id="player" hidden>
+  <div class="pd" id="plDisc"></div>
+  <div class="pt"><div class="k" id="plK">NOW PLAYING</div><div class="t" id="plT"></div><div class="a" id="plA"></div></div>
+  <div class="eq" id="plEq"><b></b><b></b><b></b><b></b></div>
+  <button class="x" id="plStop">STOP</button>
+  <div class="emb" id="plEmb"></div>
+</div>
+
+<script>
+/* =========================================================
+   MENAGERIE ROSTER — 내용은 data/roster-data.js, 관리자 설정은 config.js
+   ========================================================= */
+const CFG = Object.assign({ adminId:"", passHash:"", repo:"", branch:"main", preview:false }, window.ROSTER_CONFIG || {});
+const PREVIEW_KEY = "mng-roster-preview";
+const TOKEN_KEY = "mng-roster-token";
+const ADMIN_KEY = "mng-roster-admin";
+const FIELDS = ["callsign","name","nameKo","type","position","age","height","birthday","origin","tenure","intro","personality","history","status","image","bgmTitle","bgmArtist","bgmUrl","radio"];
+
+const store = {
+  get(k, s){ try{ return (s?sessionStorage:localStorage).getItem(k); }catch(e){ return null; } },
+  set(k, v, s){ try{ (s?sessionStorage:localStorage).setItem(k, v); return true; }catch(e){ return false; } },
+  del(k, s){ try{ (s?sessionStorage:localStorage).removeItem(k); }catch(e){} },
+};
+
+function normalize(d){
+  d = JSON.parse(JSON.stringify(d || {}));
+  d.typeOrder = Array.isArray(d.typeOrder) && d.typeOrder.length ? d.typeOrder : ["인외","반인간","개조인간","인간"];
+  d.globalLinks = Array.isArray(d.globalLinks) ? d.globalLinks : [];
+  d.roster = (Array.isArray(d.roster) ? d.roster : []).map(r => {
+    const o = {}; FIELDS.forEach(k => o[k] = r[k] == null ? "" : String(r[k]));
+    o.links = (r.links || []).map(l => typeof l === "string" ? { url:l } : (l || {})).filter(l => l.url).map(l => ({ label: l.label || "", url: l.url }));
+    return o;
+  });
+  return d;
+}
+let DATA = normalize(window.ROSTER_DATA);
+if(CFG.preview){ const saved = store.get(PREVIEW_KEY); if(saved){ try{ DATA = normalize(JSON.parse(saved)); }catch(e){} } }
+
+let admin = store.get(ADMIN_KEY, true) === "1";
+let filter = "ALL";
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const dash = v => v ? esc(v) : "—";
+const isLocked = r => r.status !== "공개";
+const rank = t => { const i = DATA.typeOrder.indexOf(t); return i < 0 ? 99 : i; };
+const numOf = r => String(DATA.roster.indexOf(r) + 1).padStart(2, "0");
+const imgSrc = v => !v ? "" : (/^(data:|https?:|blob:)/.test(v) ? v : "images/" + v);
+const redact = w => `<span class="redact" style="width:${w}px"></span>`;
+function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("on"),2200); }
+
+function platformOf(url){
+  const h = String(url).toLowerCase();
+  if(h.includes("caveduck")) return "케이브덕";
+  if(h.includes("teapot") || h.includes("tpot")) return "티팟";
+  if(h.includes("unichat")) return "유니챗";
+  return "링크";
+}
+const linksOf = r => (r.links || []).filter(l => l.url).map(l => ({ label: l.label || platformOf(l.url), url: l.url }));
+
+/* ---------- render ---------- */
+function renderTop(){
+  const box = $("#globalLinks");
+  box.innerHTML = DATA.globalLinks.filter(l => l.url).map(l =>
+    `<a class="navlink" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label || platformOf(l.url))} ↗</a>`).join("");
+  box.hidden = !box.innerHTML;
+  $("#adminbar").hidden = !admin;
+  if(admin) $("#abStatus").textContent = CFG.preview ? "미리보기 — 이 브라우저에만 저장" : (store.get(TOKEN_KEY) ? `저장소 ${repoInfo().full || "?"} 연결됨` : "저장소 미연결 — 저장하려면 연결 필요");
+}
+function renderFilters(){
+  const types = DATA.roster.filter(r => !isLocked(r)).map(r => r.type).filter(Boolean)
+    .filter((t,i,a) => a.indexOf(t) === i).sort((a,b) => rank(a) - rank(b));
+  if(filter !== "ALL" && !types.includes(filter)) filter = "ALL";
+  $("#filters").innerHTML = ["ALL", ...types].map(t =>
+    `<button class="navlink ${t===filter?"on":""}" data-f="${esc(t)}">${esc(t)}</button>`).join("")
+    + `<span class="cnt">${DATA.roster.filter(r=>!isLocked(r)).length} ACTIVE / ${DATA.roster.filter(isLocked).length} CLASSIFIED</span>`;
+}
+function imgHTML(r, big){
+  return r.image
+    ? `<img src="${esc(imgSrc(r.image))}" alt="${esc(r.callsign)}" ${big?"":'loading="lazy"'}>`
+    : `<div class="ph">${esc((r.callsign||"?").slice(0,2))}</div>`;
+}
+function nameHTML(r){
+  return `${esc(r.name)}${r.nameKo?` · ${esc(r.nameKo)}`:""}`;
+}
+function renderGrid(){
+  const list = DATA.roster.filter(r => filter==="ALL" || (!isLocked(r) && r.type===filter));
+  const grid = $("#grid");
+  if(!list.length){ grid.innerHTML = `<div class="empty">${DATA.roster.length ? "해당하는 대원이 없습니다." : "등록된 대원이 없습니다."}</div>`; return; }
+  grid.innerHTML = list.map(r => {
+    const soon = isLocked(r);
+    const showName = !soon || admin;
+    return `
+    <article class="card ${soon?"soon":""}" data-open="${esc(r.callsign)}" tabindex="0">
+      <div class="img">
+        ${imgHTML(r)}
+        <span class="no">NO.${numOf(r)}</span>
+        <span class="st">${soon?"CLASSIFIED":"ACTIVE"}</span>
+        ${soon?`<span class="stamp">CLASSIFIED</span>`:""}
+        ${isBdayToday(r)?`<span class="bdtag">HAPPY B-DAY</span>`:""}
+        ${admin?`<button class="edit-btn" data-edit="${DATA.roster.indexOf(r)}" title="편집">EDIT</button>`:""}
       </div>
-      <div id="ghStep" hidden>
-        <h3>저장소 연결</h3>
-        <p>저장하려면 이 브라우저에 GitHub 토큰을 한 번 등록해야 합니다.</p>
-        <form id="ghForm" autocomplete="off">
-          <label class="f">GITHUB TOKEN<input id="ghTok" type="password" placeholder="github_pat_…" spellcheck="false"></label>
-          <button class="btn go" type="submit">연결</button>
-        </form>
-        <div class="gh">
-          <b>토큰 만드는 법</b>
-          <ol>
-            <li>GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b></li>
-            <li>Repository access: 이 사이트 저장소 하나만 선택</li>
-            <li>Permissions → Contents: <code>Read and write</code></li>
-          </ol>
-          <p style="text-align:left;margin-top:10px">토큰은 이 브라우저에만 저장되고 사이트 파일에는 들어가지 않습니다. 저장소 이름: <code id="repoName">—</code></p>
-          <button type="button" class="btn inv sm" id="ghSkip" style="margin-top:12px">나중에 연결 (보기만)</button>
+      <div class="bd">
+        <div class="cs">${esc(r.callsign)}</div>
+        <div class="nm">${showName ? nameHTML(r) : redact(110)}</div>
+        <div class="chips">
+          ${soon && !admin
+            ? `<span class="chip w">██████</span>`
+            : `${r.type?`<span class="chip">${esc(r.type)}</span>`:""}${r.position?`<span class="chip w">${esc(r.position)}</span>`:""}`}
+        </div>
+        <div class="more"><span>${soon?"ACCESS RESTRICTED":"PROFILE"}</span><span>→</span></div>
+      </div>
+    </article>`;
+  }).join("");
+}
+/* ---------- birthday ---------- */
+function parseBday(s){
+  const m = String(s||"").match(/(\d{1,2})\s*월\s*(\d{1,2})/) || String(s||"").match(/^\s*(\d{1,2})\s*[\/.\-]\s*(\d{1,2})/);
+  if(!m) return null;
+  const mo = +m[1], d = +m[2];
+  return (mo >= 1 && mo <= 12 && d >= 1 && d <= 31) ? { mo, d } : null;
+}
+function daysUntil(b){
+  const now = new Date(); const t0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  let n = new Date(now.getFullYear(), b.mo - 1, b.d);
+  if(n < t0) n = new Date(now.getFullYear() + 1, b.mo - 1, b.d);
+  return Math.round((n - t0) / 864e5);
+}
+function bdayInfo(){
+  const list = DATA.roster.filter(r => !isLocked(r)).map(r => ({ r, b: parseBday(r.birthday) })).filter(x => x.b)
+    .map(x => ({ ...x, dd: daysUntil(x.b) })).sort((a,b) => a.dd - b.dd);
+  if(!list.length) return null;
+  return list.filter(x => x.dd === list[0].dd);
+}
+const isBdayToday = r => !isLocked(r) && (() => { const b = parseBday(r.birthday); return b && daysUntil(b) === 0; })();
+
+/* ---------- radio ---------- */
+const radioLines = r => String(r.radio || "").split("\n").map(s => s.trim()).filter(Boolean);
+function radioPool(){ return DATA.roster.filter(r => radioLines(r).length); }
+function renderHud(){
+  const box = $("#hud"); let h = "";
+  const bd = bdayInfo();
+  if(bd){
+    const today = bd[0].dd === 0, r = bd[0].r;
+    const names = bd.map(x => x.r.callsign).join(" / ");
+    h += `<button class="bchip ${today?"today":""}" data-open-cs="${esc(r.callsign)}">${today?"HAPPY BIRTHDAY":"NEXT B-DAY"} <b>${esc(names)}</b> <i>${today?"D-DAY":"D-"+bd[0].dd}</i></button>`;
+  }
+  box.innerHTML = h; box.hidden = !h;
+}
+/* ---------- walkie-talkie radio ---------- */
+function renderRadio(){
+  const has = radioPool().length > 0;
+  $("#wtWrap").hidden = !has;
+  if(has && !$("#wtLcd").innerHTML) lcd("--.--", "STANDBY", "▂");
+}
+let lastSig = "";
+function scramble(n){ const c = "█▓▒░#@%&*/\\<>?!01"; return Array.from({length:n}, () => c[Math.floor(Math.random()*c.length)]).join(""); }
+function staticBurst(ms){
+  try{
+    const AC = window.AudioContext || window.webkitAudioContext; if(!AC) return;
+    const ac = staticBurst.ac || (staticBurst.ac = new AC());
+    const len = Math.floor(ac.sampleRate * ms / 1000), buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    for(let i = 0; i < len; i++){ const env = i > len*.85 ? (len - i)/(len*.15) : 1; const pop = Math.random() < .002 ? (Math.random()*2-1)*3 : 0; d[i] = ((Math.random()*2 - 1) * (.6 + .4*Math.sin(i/900)) + pop) * env; }
+    const src = ac.createBufferSource(); src.buffer = buf;
+    const f = ac.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 1800; f.Q.value = .7;
+    const g = ac.createGain(); g.gain.value = .14;
+    src.connect(f).connect(g).connect(ac.destination); src.start();
+  }catch(e){}
+}
+function lcd(fq, big, bars){ $("#wtLcd").innerHTML = `<div class="r"><span>${fq}</span><span>${bars}</span></div><div class="big">${big}</div><div class="r"><span>FIELD NET</span><span class="blink">${big==="STANDBY"?"":"RX"}</span></div>`; }
+function tune(){
+  const pool = radioPool(); if(!pool.length) return;
+  const wt = $("#wt"), say = $("#wtSay"), line = $("#wtLine");
+  if(wt.classList.contains("rx")) return;
+  const total = pool.reduce((n, r) => n + radioLines(r).length, 0);
+  const rnd = a => a[Math.floor(Math.random()*a.length)];
+  let pick, guard = 0;
+  do{ const r = rnd(pool); pick = { r, l: rnd(radioLines(r)) }; } while(total > 1 && pick.r.callsign + pick.l === lastSig && guard++ < 10);
+  lastSig = pick.r.callsign + pick.l;
+  const sealed = isLocked(pick.r) && !admin;
+  const fq = (88 + Math.random()*20).toFixed(2);
+  wt.classList.remove("ok"); wt.classList.add("rx");
+  clearInterval(tune.iv); clearInterval(tune.tp); clearTimeout(tune.hide);
+  say.classList.add("on", "tuning");
+  $("#wtK").textContent = "SCANNING…"; $("#wtWho").textContent = "· · ·"; line.className = "line";
+  if(!REDUCED){ staticBurst(1250); wt.classList.remove("shake"); void wt.offsetWidth; wt.classList.add("shake"); }
+  let t = 0;
+  WAVE.mode = "rx";
+  tune.iv = setInterval(() => { const f = 88 + Math.random()*20; lcd(f.toFixed(2), scramble(9), ["▂","▂▄","▂▄▆"][t++ % 3]); setNeedle(f); line.textContent = scramble(34); }, 70);
+  setTimeout(() => {
+    clearInterval(tune.iv);
+    wt.classList.remove("rx"); wt.classList.add("ok"); say.classList.remove("tuning");
+    WAVE.mode = "lock"; WAVE.lockAt = performance.now(); setNeedle(+fq);
+    clearTimeout(tune.idle); tune.idle = setTimeout(() => { WAVE.mode = "idle"; }, 6000);
+    lcd(fq, sealed ? "UNKNOWN" : esc(pick.r.callsign), sealed ? "▂▄" : "▂▄▆█");
+    $("#wtK").textContent = `RX ‹ CH.${numOf(pick.r)} / ${fq} MHz`;
+    $("#wtWho").textContent = sealed ? "UNKNOWN" : pick.r.callsign;
+    line.className = "line typing" + (sealed ? " enc" : ""); line.textContent = "";
+    say.classList.add("on");
+    clearTimeout(tune.hide); tune.hide = setTimeout(() => say.classList.remove("on"), 10000);
+    const text = sealed ? scramble(Math.min(40, Math.max(14, pick.l.length))) + " [ENCRYPTED]" : pick.l;
+    if(REDUCED){ line.textContent = text; line.classList.remove("typing"); return; }
+    let i = 0; tune.tp = setInterval(() => { line.textContent = text.slice(0, ++i); if(i >= text.length){ clearInterval(tune.tp); line.classList.remove("typing"); } }, 30);
+  }, REDUCED ? 0 : 1300);
+}
+/* waveform + needle */
+const WAVE = { mode:"idle", t:0, lockAt:0 };
+const fqToPct = f => 6 + (f - 88) / 20 * 88;
+function setNeedle(f){ const n = $("#wtNeedle"); if(n) n.style.left = fqToPct(f) + "%"; }
+function waveLoop(){
+  const cv = $("#wtWave");
+  if(cv && !$("#wtWrap").hidden){
+    const cx = cv.getContext("2d"), W = cv.width, H = cv.height, mid = H/2;
+    cx.fillStyle = "rgba(5,10,6,.55)"; cx.fillRect(0,0,W,H);
+    cx.strokeStyle = "rgba(49,84,59,.6)"; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(0,mid); cx.lineTo(W,mid); cx.stroke();
+    WAVE.t += 1;
+    const since = (performance.now() - WAVE.lockAt) / 1000;
+    let amp, noise, freq;
+    if(WAVE.mode === "rx"){ amp = 6; noise = 22; freq = .3; }
+    else if(WAVE.mode === "lock" && since < 6){ amp = 16 * Math.max(.25, 1 - since/6) + 3; noise = 2.5; freq = .16; }
+    else { amp = 2; noise = 4 + (Math.random() < .04 ? 14 : 0); freq = .1; }
+    cx.strokeStyle = WAVE.mode === "rx" ? "#ff7a5a" : "#00FF5A"; cx.lineWidth = 1.6;
+    cx.shadowColor = cx.strokeStyle; cx.shadowBlur = 4;
+    cx.beginPath();
+    for(let x = 0; x <= W; x += 2){
+      const y = mid + Math.sin((x + WAVE.t*6) * freq) * amp * Math.sin(x / W * Math.PI) + (Math.random()*2 - 1) * noise;
+      x ? cx.lineTo(x, y) : cx.moveTo(x, y);
+    }
+    cx.stroke(); cx.shadowBlur = 0;
+    if(WAVE.mode === "idle" && WAVE.t % 40 === 0) setNeedle(88 + Math.random()*20);
+  }
+  REDUCED ? null : requestAnimationFrame(waveLoop);
+}
+requestAnimationFrame(waveLoop);
+
+/* idle blips: LCD crackles now and then */
+function idleBlip(){
+  const wt = $("#wt");
+  if(!REDUCED && wt && !$("#wtWrap").hidden && !wt.classList.contains("rx")){
+    const lcdEl = $("#wtLcd"), keep = lcdEl.innerHTML, big = lcdEl.querySelector(".big");
+    wt.classList.add("blip");
+    if(big){ const orig = big.textContent; big.textContent = scramble(Math.max(5, orig.length)); }
+    setTimeout(() => { wt.classList.remove("blip"); if($("#wtLcd").querySelector(".big")) $("#wtLcd").innerHTML = keep; }, 160 + Math.random()*180);
+  }
+  setTimeout(idleBlip, 2500 + Math.random()*4500);
+}
+
+/* ---------- CD / BGM ---------- */
+const hasTrack = r => !!(r.bgmTitle || r.bgmUrl);
+let nowPlaying = null;  // callsign
+function cdHTML(r, extra=""){
+  const sealed = isLocked(r) && !admin;
+  return `<div class="cdx ${nowPlaying===r.callsign?"playing":""}" data-cd="${esc(r.callsign)}" tabindex="0" ${extra}>
+    <div class="stage">
+      <div class="disc" data-cs="${esc(r.callsign)}"><i></i></div>
+      <div class="case ${sealed?"sealed":""}">
+        ${r.image ? `<img src="${esc(imgSrc(r.image))}" alt="" loading="lazy">` : `<div class="ph">${esc((r.callsign||"?").slice(0,2))}</div>`}
+        <div class="spine"></div><div class="obi">${esc(r.callsign)}</div><div class="gloss"></div>
+        <span class="tag">NO.${numOf(r)}</span>
+      </div>
+    </div>
+  </div>`;
+}
+function renderShelf(){
+  const list = DATA.roster.filter(r => hasTrack(r) || admin);
+  if(!list.length){ $("#shelf").innerHTML = ""; return; }
+  $("#mixCnt").textContent = `${DATA.roster.filter(r => hasTrack(r) && !isLocked(r)).length} TRACKS`;
+  $("#shelf").innerHTML = list.map(r => {
+    const sealed = isLocked(r) && !admin;
+    const info = sealed
+      ? `<span class="n">NO.${numOf(r)} / ${esc(r.callsign)}</span><span class="t">${redact(120)}</span>${redact(70)}`
+      : `<span class="n">NO.${numOf(r)} / ${esc(r.callsign)}</span><span class="t">${r.bgmTitle?esc(r.bgmTitle):"NO TRACK"}</span>${esc(r.bgmArtist||(hasTrack(r)?"":"편집에서 곡을 넣어 주세요"))}`;
+    return cdHTML(r).replace(/<\/div>\s*$/, `<div class="info">${info}</div></div>`);
+  }).join("");
+}
+function embedFor(url){
+  const u = String(url||"").trim(); if(!u) return null;
+  let m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/i);
+  if(m) return { kind:"yt", html:`<iframe width="200" height="113" src="https://www.youtube.com/embed/${m[1]}?autoplay=1&loop=1&playlist=${m[1]}&playsinline=1" allow="autoplay; encrypted-media" title="BGM"></iframe>` };
+  m = u.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(track|album|playlist)\/([A-Za-z0-9]+)/i);
+  if(m) return { kind:"sp", html:`<iframe width="100%" height="80" src="https://open.spotify.com/embed/${m[1]}/${m[2]}?theme=0" allow="autoplay; clipboard-write; encrypted-media" title="BGM"></iframe>` };
+  m = u.match(/soundcloud\.com\//i);
+  if(m) return { kind:"sc", html:`<iframe width="100%" height="20" src="https://w.soundcloud.com/player/?url=${encodeURIComponent(u)}&auto_play=true&color=%2300ff5a&inverse=true&show_user=true" allow="autoplay" title="BGM"></iframe>` };
+  if(/\.(mp3|ogg|m4a|wav|aac)(\?|#|$)/i.test(u)) return { kind:"au", html:`<audio src="${esc(u)}" autoplay loop></audio>` };
+  return { kind:"ext" };
+}
+function playTrack(cs){
+  const r = DATA.roster.find(x => x.callsign === cs); if(!r) return;
+  if(isLocked(r) && !admin){ toast("RECORD SEALED — 공개 전입니다"); return; }
+  if(nowPlaying === cs){ stopTrack(); return; }
+  const e = embedFor(r.bgmUrl);
+  if(!e){ toast(r.bgmTitle ? "아직 링크가 없습니다" : "등록된 곡이 없습니다"); return; }
+  if(e.kind === "ext"){ window.open(r.bgmUrl, "_blank", "noopener"); return; }
+  nowPlaying = cs;
+  const p = $("#player");
+  $("#plDisc").innerHTML = r.image ? `<img src="${esc(imgSrc(r.image))}" alt="">` : "";
+  $("#plK").textContent = `NOW PLAYING — ${r.callsign}`;
+  $("#plT").textContent = r.bgmTitle || "UNTITLED";
+  $("#plA").textContent = r.bgmArtist || "";
+  const emb = $("#plEmb"); emb.innerHTML = e.html;
+  const vis = e.kind === "sp" || e.kind === "sc";
+  emb.classList.toggle("show", vis); p.classList.toggle("wide", vis);
+  $("#plEq").hidden = vis;
+  p.hidden = false;
+  syncPlaying();
+}
+function stopTrack(){
+  nowPlaying = null;
+  $("#plEmb").innerHTML = ""; $("#player").hidden = true;
+  syncPlaying();
+}
+function syncPlaying(){
+  document.querySelectorAll("[data-cd]").forEach(el => el.classList.toggle("playing", el.dataset.cd === nowPlaying));
+  const b = document.querySelector("#pfPlay"); if(b) b.textContent = nowPlaying === b.dataset.play ? "■ STOP" : "▶ PLAY";
+}
+function trackHTML(r, soon){
+  if(!hasTrack(r) && !admin) return "";
+  if(soon) return `<div class="pf-track">${cdHTML(r)}<div class="meta2"><span class="k">THEME / 테마곡</span><span class="t">${redact(150)}</span>${redact(80)}</div></div>`;
+  return `<div class="pf-track">${cdHTML(r)}<div class="meta2"><span class="k">THEME / 테마곡</span>
+    <span class="t">${r.bgmTitle?esc(r.bgmTitle):"NO TRACK"}</span><span class="a">${esc(r.bgmArtist||"")}</span>
+    ${r.bgmUrl?`<button class="navlink on" id="pfPlay" data-play="${esc(r.callsign)}">${nowPlaying===r.callsign?"■ STOP":"▶ PLAY"}</button>`:`<span class="a" style="color:#45614C">링크 없음</span>`}</div></div>`;
+}
+let view = "roster";
+function renderView(){
+  const mixAvail = DATA.roster.some(r => hasTrack(r)) || admin;
+  $("#tabs").hidden = !mixAvail;
+  if(!mixAvail) view = "roster";
+  const sb = view === "sideb";
+  $("#filters").hidden = sb; $("#grid").hidden = sb; $("#mix").hidden = !sb;
+  document.querySelectorAll("#tabs [data-view]").forEach(b => b.classList.toggle("on", b.dataset.view === view));
+}
+function setView(v, push){
+  view = v; renderView();
+  if(push !== false) history.replaceState(null, "", v === "sideb" ? "#sideb" : location.pathname + location.search);
+}
+function render(){ renderTop(); renderHud(); renderRadio(); renderFilters(); renderGrid(); renderShelf(); renderView(); }
+
+/* ---------- profile ---------- */
+function openProfile(cs){
+  const r = DATA.roster.find(x => x.callsign === cs);
+  if(!r) return;
+  const soon = isLocked(r) && !admin;
+  const links = soon ? [] : linksOf(r);
+  const rows = [["CLASS", r.type], ["POSITION", r.position], ["AGE", r.age], ["HEIGHT", r.height ? r.height + "cm" : ""],
+    ["BIRTHDAY", r.birthday], ["ORIGIN", r.origin], ["SERVICE", r.tenure]];
+  const widths = [64,88,40,56,72,96,52];
+  const nm = soon ? redact(140) : nameHTML(r);
+  $("#layer").innerHTML = `
+  <div class="ov" data-close>
+    <div class="pf ${isLocked(r)?"soon":""}" role="dialog" aria-label="${esc(r.callsign)}">
+      <div class="pf-h"><span class="g">NO.${numOf(r)}</span><span>/ PERSONNEL FILE</span><span class="sp"></span>
+        <span class="g">● ${isLocked(r)?"CLASSIFIED":"ACTIVE"}</span>
+        ${admin?`<button class="pf-x" data-edit="${DATA.roster.indexOf(r)}">EDIT</button>`:""}
+        <button class="pf-x" data-close aria-label="닫기">×</button></div>
+      <div class="pf-b">
+        <div class="pf-side">
+          <div class="pf-mhead"><div class="pf-cs">${esc(r.callsign)}</div><div class="pf-nm" style="margin-top:6px">${nm}</div></div>
+          <div class="pf-img">${imgHTML(r, true)}${isLocked(r)?`<span class="stamp">CLASSIFIED</span>`:""}</div>
+          <div class="rows">${rows.map(([k,v],i) => `<div class="row"><span>${k}</span><b>${soon ? redact(widths[i]) : dash(v)}</b></div>`).join("")}</div>
+        </div>
+        <div class="pf-m">
+          <div class="pf-cs">${esc(r.callsign)}</div>
+          <div class="pf-nm">${nm}</div>
+          ${soon ? `<div class="pf-lock"><b>ACCESS RESTRICTED</b>공개 전 인사 기록입니다. 배치가 확정되면 열람할 수 있습니다.</div>` : ""}
+          ${!soon && r.intro?`<div class="pf-intro">${esc(r.intro)}</div>`:""}
+          ${!soon && r.personality?`<div class="pf-sec"><h3>PERSONALITY / 성격</h3><p>${esc(r.personality)}</p></div>`:""}
+          ${!soon && r.history?`<div class="pf-sec"><h3>HISTORY / 과거</h3><p>${esc(r.history)}</p></div>`:""}
+          ${trackHTML(r, soon)}
+          <div class="pf-l">${links.length
+            ? links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("")
+            : `<span class="none">${soon?"CLASSIFIED":"LINK —"}</span>`}</div>
         </div>
       </div>
-      <div class="result" id="lgResult"></div>
     </div>
-  </div>
-</div>
-<div class="scrim" id="postScrim" hidden><div class="modal" id="postModal" role="dialog" aria-modal="true" aria-label="게시물"></div></div>
-<div class="scrim" id="tipScrim" hidden>
-  <div class="modal narrow" role="dialog" aria-modal="true" aria-label="문의하기">
-    <button class="x" data-close="tipScrim" aria-label="닫기">×</button>
-    <div class="m-head"><span>CONTRACT DESK · 문의 접수</span></div>
-    <form id="tipForm" class="tip"><div class="fgrid" style="grid-template-columns:1fr">
-      <label class="f">분류<select id="tCat"><option>의뢰 문의</option><option>채용 문의</option><option>기타 문의</option></select></label>
-      <label class="f">작전 지역<input id="tPlace" maxlength="80" placeholder="국가·도시 단위로"></label>
-      <label class="f">희망 일정<input id="tWhen" maxlength="40" placeholder="예: 다음 달 초, 2주간"></label>
-      <label class="f">내용<textarea id="tBody" maxlength="1500" placeholder="대상 인원, 목표, 예상되는 위협"></textarea></label>
-      <button class="btn primary" type="submit">접수</button>
-      <p class="hint" style="margin:0">창작 세계관 사이트입니다. 입력한 내용은 어디에도 저장되거나 전송되지 않습니다.</p>
-    </div></form>
-    <div id="tipDone" class="tip-done" hidden>
-      <small>RECEIPT</small>
-      <b class="num" id="tipNo"></b>
-      <p>문의가 접수되었습니다. 검토 후 회신드립니다.</p>
-      <p class="hint">접수번호는 상담 시 본인 확인에 사용됩니다.</p>
-      <button class="btn" data-close="tipScrim">닫기</button>
-    </div>
-  </div>
-</div>
-<div class="scrim" id="idScrim" hidden>
-  <div class="modal" role="dialog" aria-modal="true" aria-label="ID 카드 발급" style="max-width:760px">
-    <button class="x" data-close="idScrim" aria-label="닫기">×</button>
-    <div class="m-head"><span>MERIDIAN SOLUTIONS · ID 카드 발급 · OPERATOR ID</span></div>
-    <div class="form" style="padding-bottom:28px">
-      <div class="photo-pick"><div id="idPv"></div></div>
-      <div class="fgrid inside" style="align-content:start">
-        <div class="full" style="display:flex;gap:6px;flex-wrap:wrap"><label class="btn sm" for="idPhoto">사진 올리기</label><input type="file" id="idPhoto" accept="image/*" hidden>
-          <select id="idPos" class="inp" style="width:auto;padding:6px 10px;font-size:12.5px" aria-label="사진 위치"><option value="0%">사진 위</option><option value="30%" selected>사진 위쪽</option><option value="50%">사진 가운데</option><option value="100%">사진 아래</option></select></div>
-        <label class="f">이름<input id="idName" maxlength="40"></label>
-        <label class="f">콜사인<input id="idCs" maxlength="30" placeholder="없으면 비워두기"></label>
-        <label class="f">분류·소속<select id="idUnit"><option value="c1">인외</option><option value="c2">개조인간</option><option value="c3">반인간</option><option value="c4">인간</option><option value="nw" selected>배치 대기</option></select></label>
-        <input type="hidden" id="idNo" value="">
-        <label class="f">생일<input id="idBlood" maxlength="16" placeholder="예: 3월 14일"></label>
-        <label class="check full"><input type="checkbox" id="idHide"> 이름 가리기</label>
-        <p class="hint full" style="margin:0">입력한 내용과 사진은 저장되지 않습니다. 창을 닫으면 사라지니 먼저 이미지로 저장하세요.</p>
-        <div class="full"><button class="btn primary" id="idSave" type="button">이미지로 저장</button></div>
+  </div>`;
+  if(decodeURIComponent(location.hash.slice(1)) !== r.callsign) history.replaceState(null, "", "#" + encodeURIComponent(r.callsign));
+  document.body.style.overflow = "hidden";
+}
+function closeLayer(){
+  $("#layer").innerHTML = "";
+  document.body.style.overflow = "";
+  if(location.hash) history.replaceState(null, "", view === "sideb" ? "#sideb" : location.pathname + location.search);
+}
+
+/* ---------- auth ---------- */
+async function sha256(text){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,"0")).join("");
+}
+function modal(html, cls=""){
+  $("#layer2").innerHTML = `<div class="ov ov2" data-close2><div class="dlg ${cls}">${html}</div></div>`;
+  return $("#layer2 .dlg");
+}
+function closeModal(){ $("#layer2").innerHTML = ""; }
+
+function openLogin(){
+  if(admin){ toast("이미 관리자 모드입니다"); return; }
+  if(!CFG.adminId || !CFG.passHash){
+    modal(`<div class="dlg-h">STAFF ONLY</div>
+      <p class="dlg-p">관리자 계정이 아직 설정되지 않았습니다.<br>저장소의 <b>setup.html</b>을 열어 아이디·비밀번호를 만든 뒤, 나온 두 줄을 <b>config.js</b>에 붙여 넣으세요.</p>
+      <div class="dlg-f"><button class="navlink" data-close2>닫기</button></div>`);
+    return;
+  }
+  const d = modal(`<div class="dlg-h">STAFF ONLY / 인증</div>
+    <label class="fl">ID<input id="lgId" autocomplete="username"></label>
+    <label class="fl">PASSWORD<input id="lgPw" type="password" autocomplete="current-password"></label>
+    <div class="dlg-err" id="lgErr"></div>
+    <div class="dlg-f"><button class="navlink" data-close2>취소</button><button class="navlink on" id="lgGo">인증</button></div>`);
+  const go = async () => {
+    const id = $("#lgId").value.trim(), pw = $("#lgPw").value;
+    let h = "";
+    try{ h = await sha256(id + ":" + pw); }catch(e){ $("#lgErr").textContent = "이 브라우저에서는 인증할 수 없습니다 (https 주소에서 열어 주세요)."; return; }
+    if(id === CFG.adminId && h === CFG.passHash){
+      admin = true; store.set(ADMIN_KEY, "1", true); closeModal(); render(); toast("관리자 모드");
+      if(!CFG.preview && !store.get(TOKEN_KEY)) openToken();
+    } else $("#lgErr").textContent = "아이디 또는 비밀번호가 맞지 않습니다.";
+  };
+  $("#lgGo").onclick = go;
+  d.addEventListener("keydown", e => { if(e.key === "Enter") go(); });
+  $("#lgId").focus();
+}
+function logout(){ admin = false; store.del(ADMIN_KEY, true); closeLayer(); render(); toast("로그아웃했습니다"); }
+
+/* ---------- GitHub ---------- */
+function repoInfo(){
+  let full = (CFG.repo || "").trim();
+  if(!full){
+    const host = location.hostname, m = host.match(/^([^.]+)\.github\.io$/i);
+    if(m){
+      const seg = location.pathname.split("/").filter(Boolean)[0];
+      full = m[1] + "/" + (seg && !seg.includes(".") ? seg : host);
+    }
+  }
+  return { full, branch: CFG.branch || "main" };
+}
+function openToken(){
+  if(CFG.preview){ toast("미리보기에서는 저장소 연결이 필요 없습니다"); return; }
+  const has = !!store.get(TOKEN_KEY);
+  modal(`<div class="dlg-h">저장소 연결</div>
+    <p class="dlg-p">저장하려면 GitHub 토큰이 필요합니다. 토큰은 이 브라우저에만 보관되고 사이트 파일에는 들어가지 않습니다.</p>
+    <ol class="dlg-ol">
+      <li>GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> → Generate new token</li>
+      <li>Repository access: <b>Only select repositories</b> → 이 사이트 저장소 선택</li>
+      <li>Permissions → Repository permissions → <b>Contents: Read and write</b></li>
+      <li>만들어진 <code>github_pat_…</code>를 아래에 붙여 넣기</li>
+    </ol>
+    <label class="fl">저장소 ${repoInfo().full ? `<em>${esc(repoInfo().full)}</em>` : `<em class="warn">자동 인식 실패 — config.js의 repo에 "아이디/저장소" 입력 필요</em>`}</label>
+    <label class="fl">TOKEN<input id="tkIn" type="password" placeholder="${has?"연결됨 — 바꾸려면 새 토큰 입력":"github_pat_..."}"></label>
+    <div class="dlg-err" id="tkErr"></div>
+    <div class="dlg-f">${has?`<button class="navlink" id="tkDel">연결 해제</button>`:""}<span class="sp"></span><button class="navlink" data-close2>닫기</button><button class="navlink on" id="tkGo">확인</button></div>`);
+  $("#tkGo").onclick = async () => {
+    const t = $("#tkIn").value.trim();
+    if(!t){ closeModal(); return; }
+    const { full } = repoInfo();
+    if(!full){ $("#tkErr").textContent = "저장소를 알 수 없습니다. config.js의 repo를 채워 주세요."; return; }
+    $("#tkErr").textContent = "확인 중…";
+    try{
+      const res = await fetch(`https://api.github.com/repos/${full}`, { headers: ghHeaders(t) });
+      if(!res.ok) throw new Error(res.status);
+      store.set(TOKEN_KEY, t); closeModal(); renderTop(); toast("저장소가 연결됐습니다");
+    }catch(e){ $("#tkErr").textContent = "연결 실패 — 토큰이나 저장소 이름을 확인해 주세요."; }
+  };
+  const del = $("#tkDel"); if(del) del.onclick = () => { store.del(TOKEN_KEY); closeModal(); renderTop(); toast("연결을 해제했습니다"); };
+}
+const ghHeaders = t => ({ "Authorization": "Bearer " + t, "Accept": "application/vnd.github+json" });
+const b64utf8 = s => btoa(unescape(encodeURIComponent(s)));
+async function ghPut(path, base64, message){
+  const t = store.get(TOKEN_KEY); const { full, branch } = repoInfo();
+  if(!t || !full) throw new Error("저장소가 연결되지 않았습니다");
+  const url = `https://api.github.com/repos/${full}/contents/${path}`;
+  let sha;
+  const g = await fetch(`${url}?ref=${encodeURIComponent(branch)}&t=${Date.now()}`, { headers: ghHeaders(t) });
+  if(g.ok){ sha = (await g.json()).sha; } else if(g.status !== 404){ throw new Error("파일 확인 실패 (" + g.status + ")"); }
+  const p = await fetch(url, { method:"PUT", headers: Object.assign({ "Content-Type":"application/json" }, ghHeaders(t)),
+    body: JSON.stringify({ message, content: base64, branch, ...(sha ? { sha } : {}) }) });
+  if(!p.ok){ const j = await p.json().catch(()=>({})); throw new Error(j.message || ("저장 실패 (" + p.status + ")")); }
+}
+function serialize(){
+  return "/* 대원 명단 데이터 — 사이트의 관리자 화면에서 저장하면 이 파일이 자동으로 바뀝니다.\n   직접 고쳐도 됩니다. 목록 순서가 곧 번호(NO.01, 02…)입니다. */\nwindow.ROSTER_DATA = "
+    + JSON.stringify(DATA, null, 2) + ";\n";
+}
+async function saveData(message){
+  if(CFG.preview){
+    if(!store.set(PREVIEW_KEY, JSON.stringify(DATA))) throw new Error("브라우저 저장 공간이 부족합니다 (사진이 너무 많거나 큽니다)");
+    return;
+  }
+  await ghPut("data/roster-data.js", b64utf8(serialize()), message);
+}
+function resizeImage(file, max=900){
+  return new Promise((res, rej) => {
+    const img = new Image(), u = URL.createObjectURL(file);
+    img.onload = () => {
+      const sc = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas"); c.width = Math.round(img.width*sc); c.height = Math.round(img.height*sc);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(u);
+      res(c.toDataURL("image/jpeg", .86));
+    };
+    img.onerror = () => { URL.revokeObjectURL(u); rej(new Error("이미지를 읽을 수 없습니다")); };
+    img.src = u;
+  });
+}
+async function storeImage(dataUrl, callsign){
+  if(CFG.preview) return dataUrl;
+  const name = (callsign || "img").toLowerCase().replace(/[^a-z0-9_-]/g, "") + "-" + Date.now().toString(36) + ".jpg";
+  await ghPut("images/" + name, dataUrl.split(",")[1], `사진 업로드: ${callsign}`);
+  return name;
+}
+
+/* ---------- editor ---------- */
+let edit = null;  // { index, r, newImage }
+function field(k, label, opt={}){
+  const v = esc(edit.r[k]);
+  if(opt.area) return `<label class="fl ${opt.cls||""}">${label}<textarea data-k="${k}" rows="${opt.rows||4}">${v}</textarea></label>`;
+  if(opt.select) return `<label class="fl ${opt.cls||""}">${label}<select data-k="${k}">${opt.select.map(o => `<option ${edit.r[k]===o?"selected":""}>${esc(o)}</option>`).join("")}</select></label>`;
+  return `<label class="fl ${opt.cls||""}">${label}<input data-k="${k}" value="${v}" placeholder="${esc(opt.ph||"")}"></label>`;
+}
+function openEdit(index){
+  const isNew = index == null;
+  const base = isNew ? normalize({ roster:[{ status:"준비 중", type: DATA.typeOrder[0] }] }).roster[0] : DATA.roster[index];
+  edit = { index: isNew ? null : index, r: JSON.parse(JSON.stringify(base)), newImage: null };
+  const types = [...new Set([...DATA.typeOrder, edit.r.type].filter(Boolean))];
+  const total = DATA.roster.length + (isNew ? 1 : 0), pos = isNew ? total : index + 1;
+  modal(`<div class="dlg-h">${isNew ? "NEW RECRUIT" : "EDIT / " + esc(edit.r.callsign)}</div>
+    <div class="ed">
+      <div class="ed-img">
+        <div class="ed-th" id="edTh">${edit.r.image ? `<img src="${esc(imgSrc(edit.r.image))}" alt="">` : `<span>NO IMAGE</span>`}</div>
+        <label class="navlink file">사진 선택<input type="file" accept="image/*" id="edFile" hidden></label>
+        <button class="navlink" id="edNoImg" type="button">사진 빼기</button>
+        <label class="fl">번호(순서)<select id="edPos">${Array.from({length: total}, (_, i) => `<option value="${i+1}" ${i+1===pos?"selected":""}>NO.${String(i+1).padStart(2,"0")}</option>`).join("")}</select></label>
+      </div>
+      <div class="ed-f">
+        <div class="ed-row">${field("callsign","CALLSIGN *",{ph:"KAKAPO"})}${field("status","공개 상태",{select:["공개","준비 중"]})}</div>
+        <div class="ed-row">${field("name","이름",{ph:"Joaquín Ramón"})}${field("nameKo","애칭/한글",{ph:"키노"})}</div>
+        <div class="ed-row">${field("type","분류",{select:types})}${field("position","포지션",{ph:"브리처"})}</div>
+        <div class="ed-row three">${field("age","나이",{ph:"32"})}${field("height","키(cm)",{ph:"196"})}${field("birthday","생일",{ph:"6월 3일"})}</div>
+        <div class="ed-row">${field("origin","출신",{ph:"스페인 카디스"})}${field("tenure","근속",{ph:"4년차"})}</div>
+        ${field("intro","한 줄 소개",{area:true,rows:2})}
+        ${field("personality","성격",{area:true,rows:4})}
+        ${field("history","과거",{area:true,rows:4})}
+        ${field("radio","무전 한마디",{area:true,rows:4})}
+        <div class="fl" style="margin-top:-6px"><em>한 줄에 하나씩. 메인 화면 '무전 수신'에서 랜덤으로 나옵니다. 공개 전 캐릭터는 암호화돼서 보입니다.</em></div>
+        <div class="fl">테마곡 <em>유튜브·스포티파이·사운드클라우드 주소나 mp3 주소를 넣으면 사이트 안에서 재생됩니다</em></div>
+        <div class="ed-row">${field("bgmTitle","곡 제목",{ph:"Volando Voy"})}${field("bgmArtist","아티스트",{ph:"Camarón de la Isla"})}</div>
+        ${field("bgmUrl","곡 링크",{ph:"https://youtu.be/..."})}
+        <div class="fl">링크 <em>주소만 넣으면 케이브덕·티팟·유니챗 이름이 자동으로 붙습니다</em></div>
+        <div id="edLinks"></div>
+        <button class="navlink" id="edAddLink" type="button">+ 링크 추가</button>
       </div>
     </div>
-  </div>
-</div>
-<datalist id="relTypes"><option value="같은 분대"><option value="파트너"><option value="라이벌"><option value="악연"><option value="선임"><option value="후임"><option value="은인"><option value="빚진 사이"><option value="전 동료"></datalist>
-<input type="file" id="heroFile" accept="image/*" hidden>
-<datalist id="platforms"><option value="케이브덕"><option value="티팟"><option value="기타"></datalist>
-<div class="sync warn" id="sync"><i></i><span id="syncText">저장소 미연결 · 보기 전용</span></div>
-<div class="toast" id="toast" hidden></div>
+    <div class="dlg-err" id="edErr"></div>
+    <div class="dlg-f">${isNew ? "" : `<button class="navlink danger" id="edDel">삭제</button>`}<span class="sp"></span>
+      <button class="navlink" data-close2>취소</button><button class="navlink on" id="edSave">저장</button></div>`, "wide");
+  renderLinkRows();
+  $("#edFile").onchange = async e => {
+    const f = e.target.files[0]; if(!f) return;
+    try{ edit.newImage = await resizeImage(f); $("#edTh").innerHTML = `<img src="${edit.newImage}" alt="">`; }
+    catch(err){ $("#edErr").textContent = err.message; }
+  };
+  $("#edNoImg").onclick = () => { edit.newImage = null; edit.r.image = ""; $("#edTh").innerHTML = `<span>NO IMAGE</span>`; };
+  $("#edAddLink").onclick = () => { collectLinks(); edit.r.links.push({ label:"", url:"" }); renderLinkRows(); };
+  $("#edSave").onclick = saveEdit;
+  const del = $("#edDel"); if(del) del.onclick = confirmDelete;
+}
+function renderLinkRows(){
+  $("#edLinks").innerHTML = edit.r.links.map((l, i) => `
+    <div class="ed-link"><input data-lu="${i}" value="${esc(l.url)}" placeholder="https://...">
+    <input data-ll="${i}" value="${esc(l.label)}" placeholder="${esc(l.url ? platformOf(l.url) : "이름(선택)")}">
+    <button class="navlink" data-lr="${i}" type="button">×</button></div>`).join("") || `<div class="ed-none">링크 없음</div>`;
+  $("#edLinks").querySelectorAll("[data-lr]").forEach(b => b.onclick = () => { collectLinks(); edit.r.links.splice(+b.dataset.lr, 1); renderLinkRows(); });
+}
+function collectLinks(){
+  edit.r.links = [...$("#edLinks").querySelectorAll("[data-lu]")].map((u, i) => ({ url: u.value.trim(), label: $(`[data-ll="${i}"]`).value.trim() }));
+}
+async function saveEdit(){
+  const err = $("#edErr"), btn = $("#edSave");
+  document.querySelectorAll("#layer2 [data-k]").forEach(el => edit.r[el.dataset.k] = el.value.trim());
+  collectLinks();
+  edit.r.callsign = edit.r.callsign.toUpperCase();
+  edit.r.links = edit.r.links.filter(l => l.url);
+  if(!edit.r.callsign){ err.textContent = "콜사인은 꼭 넣어 주세요."; return; }
+  if(DATA.roster.some((x, i) => x.callsign === edit.r.callsign && i !== edit.index)){ err.textContent = "같은 콜사인이 이미 있습니다."; return; }
+  if(!CFG.preview && !store.get(TOKEN_KEY)){ err.textContent = "저장소가 연결되지 않았습니다. 위쪽 '저장소 연결'을 먼저 해 주세요."; return; }
+  btn.disabled = true; btn.textContent = "저장 중…"; err.textContent = "";
+  const backup = JSON.stringify(DATA);
+  try{
+    if(edit.newImage){ err.textContent = "사진 올리는 중…"; edit.r.image = await storeImage(edit.newImage, edit.r.callsign); }
+    if(edit.index == null) DATA.roster.push(edit.r); else DATA.roster[edit.index] = edit.r;
+    const from = edit.index == null ? DATA.roster.length - 1 : edit.index;
+    const to = Math.min(DATA.roster.length, Math.max(1, +$("#edPos").value)) - 1;
+    if(from !== to){ const [it] = DATA.roster.splice(from, 1); DATA.roster.splice(to, 0, it); }
+    err.textContent = "명단 저장 중…";
+    await saveData(`${edit.index == null ? "대원 추가" : "대원 수정"}: ${edit.r.callsign}`);
+    closeModal(); closeLayer(); render();
+    toast(CFG.preview ? "저장했습니다" : "저장했습니다 — 공개 사이트에는 1~2분 뒤 반영됩니다");
+  }catch(e){
+    DATA = normalize(JSON.parse(backup));
+    err.textContent = "저장하지 못했습니다: " + e.message;
+    btn.disabled = false; btn.textContent = "저장";
+  }
+}
+function confirmDelete(){
+  const r = DATA.roster[edit.index];
+  const box = document.createElement("div"); box.className = "ov ov3";
+  box.innerHTML = `<div class="dlg small"><div class="dlg-h">DELETE</div><p class="dlg-p"><b>${esc(r.callsign)}</b> 기록을 삭제할까요? 되돌릴 수 없습니다.</p>
+    <div class="dlg-err" id="dlErr"></div>
+    <div class="dlg-f"><span class="sp"></span><button class="navlink" data-n>취소</button><button class="navlink danger" data-y>삭제</button></div></div>`;
+  document.body.appendChild(box);
+  box.onclick = async e => {
+    if(e.target === box || e.target.closest("[data-n]")){ box.remove(); return; }
+    if(e.target.closest("[data-y]")){
+      const backup = JSON.stringify(DATA);
+      try{ DATA.roster.splice(edit.index, 1); await saveData(`대원 삭제: ${r.callsign}`); box.remove(); closeModal(); closeLayer(); render(); toast("삭제했습니다"); }
+      catch(err){ DATA = normalize(JSON.parse(backup)); box.querySelector("#dlErr").textContent = "삭제하지 못했습니다: " + err.message; }
+    }
+  };
+}
+function openGlobalLinks(){
+  const rows = () => DATA.globalLinks.map((l,i) => `<div class="ed-link"><input data-gu="${i}" value="${esc(l.url)}" placeholder="https://..."><input data-gl="${i}" value="${esc(l.label||"")}" placeholder="버튼 이름 (예: WORLD GUIDE)"><button class="navlink" data-gr="${i}" type="button">×</button></div>`).join("") || `<div class="ed-none">링크 없음</div>`;
+  modal(`<div class="dlg-h">상단 링크</div><p class="dlg-p">제목 아래에 버튼으로 보이는 링크입니다. 세계관 가이드 등을 넣으세요.</p>
+    <div id="glRows">${rows()}</div><button class="navlink" id="glAdd" type="button">+ 링크 추가</button>
+    <div class="dlg-err" id="glErr"></div>
+    <div class="dlg-f"><span class="sp"></span><button class="navlink" data-close2>취소</button><button class="navlink on" id="glSave">저장</button></div>`);
+  const collect = () => DATA.globalLinks = [...document.querySelectorAll("[data-gu]")].map((u,i) => ({ url:u.value.trim(), label: document.querySelector(`[data-gl="${i}"]`).value.trim() }));
+  const bind = () => document.querySelectorAll("[data-gr]").forEach(b => b.onclick = () => { collect(); DATA.globalLinks.splice(+b.dataset.gr,1); $("#glRows").innerHTML = rows(); bind(); });
+  bind();
+  const backup = JSON.stringify(DATA);
+  $("#glAdd").onclick = () => { collect(); DATA.globalLinks.push({ url:"", label:"" }); $("#glRows").innerHTML = rows(); bind(); };
+  $("#glSave").onclick = async () => {
+    collect(); DATA.globalLinks = DATA.globalLinks.filter(l => l.url);
+    try{ $("#glErr").textContent = "저장 중…"; await saveData("상단 링크 수정"); closeModal(); render(); toast("저장했습니다"); }
+    catch(e){ DATA = normalize(JSON.parse(backup)); $("#glErr").textContent = "저장하지 못했습니다: " + e.message; }
+  };
+  $("#layer2 [data-close2]").addEventListener("click", () => { DATA = normalize(JSON.parse(backup)); });
+}
 
-<script src="config.js?v=20261101c"></script>
-<script src="js/hash.js?v=20261101c"></script>
-<script src="js/app.js?v=20261101c"></script>
+/* ---------- events ---------- */
+$("#filters").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if(!b) return; filter = b.dataset.f; renderFilters(); renderGrid(); });
+$("#grid").addEventListener("click", e => {
+  const ed = e.target.closest("[data-edit]"); if(ed){ e.stopPropagation(); openEdit(+ed.dataset.edit); return; }
+  const c = e.target.closest("[data-open]"); if(c) openProfile(c.dataset.open);
+});
+$("#grid").addEventListener("keydown", e => { if(e.key !== "Enter") return; const c = e.target.closest("[data-open]"); if(c) openProfile(c.dataset.open); });
+$("#layer").addEventListener("click", e => {
+  const ed = e.target.closest("[data-edit]"); if(ed){ openEdit(+ed.dataset.edit); return; }
+  if(e.target.matches("[data-close]") || e.target.closest(".pf-x[data-close]")) closeLayer();
+});
+$("#layer2").addEventListener("click", e => { if(e.target.matches("[data-close2]") || e.target.closest("button[data-close2]")) closeModal(); });
+document.addEventListener("keydown", e => {
+  if(e.key !== "Escape") return;
+  if($("#layer2").innerHTML) return;  // 편집 중에는 Esc로 닫지 않음
+  closeLayer();
+});
+$("#shelf").addEventListener("click", e => { const c = e.target.closest("[data-cd]"); if(c) playTrack(c.dataset.cd); });
+$("#shelf").addEventListener("keydown", e => { if(e.key !== "Enter") return; const c = e.target.closest("[data-cd]"); if(c) playTrack(c.dataset.cd); });
+$("#layer").addEventListener("click", e => { const b = e.target.closest("#pfPlay,.pf-track [data-cd]"); if(b) playTrack(b.dataset.play || b.dataset.cd); });
+$("#plStop").onclick = stopTrack;
+$("#wtPtt").onclick = tune;
+$("#hud").addEventListener("click", e => {
+  const b = e.target.closest("[data-open-cs]"); if(b) openProfile(b.dataset.openCs);
+});
+$("#tabs").addEventListener("click", e => { const b = e.target.closest("[data-view]"); if(b) setView(b.dataset.view); });
+$("#abAdd").onclick = () => openEdit(null);
+$("#abLinks").onclick = openGlobalLinks;
+$("#abToken").onclick = openToken;
+$("#abOut").onclick = logout;
+function route(){
+  const h = decodeURIComponent(location.hash.slice(1));
+  if(h === "sideb"){ setView("sideb", false); return; }
+  if(h === "staff"){ history.replaceState(null, "", location.pathname + location.search); openLogin(); return; }
+  if(h) openProfile(h);
+}
+window.addEventListener("hashchange", route);
+
+/* ---------- fx ---------- */
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function buildTicker(){
+  const act = DATA.roster.filter(r => !isLocked(r)).map(r => r.callsign);
+  const lock = DATA.roster.filter(isLocked).map(r => r.callsign);
+  const pick = a => a[Math.floor(Math.random()*a.length)];
+  const lines = [
+    `<b>MERIDIAN SOLUTIONS</b> / FIELD ARCHIVE 2049`,
+    `ENCRYPTED BRIEF RECEIVED — SOURCE UNVERIFIED`,
+    ...act.map(c => `RADIO CHECK — <b>${esc(c)}</b> OK`),
+    `TRAILER LOT — POWER UNSTABLE`,
+    act.length ? `BREAK ROOM — CARD TABLE OCCUPIED` : "",
+    ...lock.map(c => `<b>${esc(c)}</b> — <i>RECORD SEALED</i>`),
+    `SIGNAL LOSS DETECTED — REROUTING`,
+    ...(() => { const b = bdayInfo(); if(!b) return []; return b[0].dd === 0 ? b.map(x => `<i>HAPPY BIRTHDAY</i> — <b>${esc(x.r.callsign)}</b> — CAKE IN THE BREAK ROOM`) : [`NEXT BIRTHDAY — <b>${esc(b.map(x=>x.r.callsign).join(" / "))}</b> D-${b[0].dd}`]; })(),
+    `WHOEVER COMES BACK BUYS THE DRINKS`,
+    act.length ? `LAST CONTACT: <b>${esc(pick(act))}</b> / ${String(Math.floor(Math.random()*24)).padStart(2,"0")}:${String(Math.floor(Math.random()*60)).padStart(2,"0")}` : "",
+  ].filter(Boolean);
+  const one = lines.map(l => `<span>${l}</span>`).join("");
+  $("#ticker").innerHTML = one + one;
+}
+function glitchTitle(){
+  const t = $("#ttl"); if(!t) return;
+  t.classList.remove("on"); void t.offsetWidth; t.classList.add("on");
+}
+function randomFx(){
+  if(REDUCED) return;
+  const r = Math.random();
+  if(r < .45) glitchTitle();
+  else if(r < .85){
+    const imgs = document.querySelectorAll(".card .img"); if(!imgs.length) return;
+    const el = imgs[Math.floor(Math.random()*imgs.length)];
+    el.classList.remove("glx"); void el.offsetWidth; el.classList.add("glx");
+  } else {
+    document.body.classList.remove("zap"); void document.body.offsetWidth; document.body.classList.add("zap");
+  }
+}
+setTimeout(idleBlip, 3000);
+function loop(){ randomFx(); setTimeout(loop, 2200 + Math.random()*3800); }
+function boot(){
+  const el = $("#boot");
+  if(REDUCED || store.get("mng-booted", true)){ return; }
+  store.set("mng-booted", "1", true);
+  el.hidden = false;
+  const L = [
+    ["> ESTABLISHING SECURE LINK", 260],
+    ["> HANDSHAKE ........ <span class='d'>OK</span>", 260],
+    ["> DECRYPTING PERSONNEL INDEX", 300],
+    [`> ${DATA.roster.length} RECORDS FOUND / ${DATA.roster.filter(isLocked).length} SEALED`, 300],
+    ["> ACCESS GRANTED_", 380],
+  ];
+  let i = 0, html = "", done = false;
+  const end = () => { if(done) return; done = true; el.classList.add("out"); setTimeout(() => { el.hidden = true; el.classList.remove("out"); glitchTitle(); }, 360); };
+  el.onclick = end;
+  const step = () => { if(done) return; if(i >= L.length){ setTimeout(end, 300); return; } html += L[i][0] + "\n"; $("#bootTxt").innerHTML = html; setTimeout(step, L[i++][1]); };
+  step();
+}
+const _render = render;
+render = function(){ _render(); buildTicker(); };
+
+render();
+boot();
+route();
+setTimeout(loop, 2500);
+</script>
 </body>
 </html>

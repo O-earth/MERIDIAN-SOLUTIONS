@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>관리자 계정 만들기 — Meridian Solutions</title>
-<style>@font-face{font-family:"Pretendard Variable";src:url(assets/fonts/PretendardVariable.woff2) format("woff2");font-weight:45 920}</style>
-<link rel="stylesheet" href="css/style.css">
-<style>body{display:grid;place-items:center;min-height:100vh;padding:24px;background:#0B0C08}.card{background:#1C1F16;border-top:4px solid #E4F020;max-width:480px;width:100%;padding:32px 28px}pre{background:#0B0C08;border:1px solid #30342A;padding:14px;font-size:13px;white-space:pre-wrap;word-break:break-all}label.f{margin-top:12px}</style>
-</head><body>
-<div class="card">
-  <span class="label">Staff setup</span>
-  <h2 class="h2" style="font-size:26px">관리자 계정 <b>만들기</b></h2>
-  <p class="lead" style="font-size:14px">아이디와 비밀번호를 정하면 config.js에 붙여 넣을 두 줄이 나옵니다. 비밀번호 원문은 어디에도 저장되지 않습니다.</p>
-  <form id="f">
-    <label class="f">아이디<input id="id" required autocomplete="off"></label>
-    <label class="f">비밀번호<input id="pw" type="password" required autocomplete="new-password"></label>
-    <label class="f">비밀번호 확인<input id="pw2" type="password" required autocomplete="new-password"></label>
-    <p id="err" style="color:#E5533F;font-size:13px;min-height:1.2em"></p>
-    <button class="btn primary" style="width:100%">만들기</button>
-  </form>
-  <div id="out" hidden>
-    <p style="margin-top:20px;font-size:14px">아래 두 줄을 <b>config.js</b>의 같은 줄과 바꿔 넣고 저장소에 올리세요.</p>
-    <pre id="code"></pre>
-  </div>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>관리자 계정 만들기</title>
+<style>
+body{margin:0;background:#030503;color:#EDF4EE;font-family:Pretendard,'Apple SD Gothic Neo',Arial,sans-serif;display:flex;justify-content:center;padding:40px 16px}
+.box{max-width:520px;width:100%;border:1px solid #31543B;border-top:4px solid #00FF5A;padding:22px}
+h1{margin:0 0 10px;font:900 24px Arial;letter-spacing:-.05em}
+p{font-size:13.5px;line-height:1.75;color:#AFC1B3}
+label{display:block;font:800 10px Consolas,monospace;letter-spacing:.12em;color:#00FF5A;margin:12px 0 5px}
+input{width:100%;box-sizing:border-box;background:#080D09;border:1px solid #31543B;color:#EDF4EE;padding:9px 10px;font-size:14px}
+button{margin-top:16px;background:#00FF5A;border:0;color:#031008;font:800 12px Consolas,monospace;letter-spacing:.08em;padding:10px 16px;cursor:pointer}
+pre{background:#0B130D;border-left:3px solid #00FF5A;padding:12px;font:13px/1.7 Consolas,monospace;white-space:pre-wrap;word-break:break-all;margin-top:16px}
+.err{color:#ff7a5a;font-size:12px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>관리자 계정 만들기</h1>
+  <p>쓸 아이디와 비밀번호를 넣고 만들기를 누르면 두 줄이 나옵니다. 그 두 줄을 <b>config.js</b>의 adminId, passHash 자리에 붙여 넣으세요. 비밀번호는 해시값으로만 저장돼서 코드를 봐도 알 수 없습니다. 이 페이지는 아무 데도 전송하지 않습니다.</p>
+  <label>ID</label><input id="id">
+  <label>PASSWORD</label><input id="pw" type="password">
+  <button id="go">만들기</button>
+  <div class="err" id="err"></div>
+  <pre id="out" hidden></pre>
 </div>
-<script src="js/hash.js"></script>
 <script>
-document.getElementById('f').onsubmit=async function(e){
-  e.preventDefault();
-  var id=document.getElementById('id').value.trim(), pw=document.getElementById('pw').value, pw2=document.getElementById('pw2').value, err=document.getElementById('err');
-  if(pw!==pw2){err.textContent='비밀번호가 서로 다릅니다.';return;}
-  if(pw.length<6){err.textContent='비밀번호는 6자 이상으로 정해 주세요.';return;}
-  err.textContent='';
-  var h=await window.MNG_hash('menagerie::'+id+'::'+pw);
-  document.getElementById('code').textContent='  adminId: '+JSON.stringify(id)+',\n  passHash: "'+h+'",';
-  document.getElementById('out').hidden=false;
+async function sha256(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
+document.getElementById("go").onclick=async()=>{
+  const id=document.getElementById("id").value.trim(),pw=document.getElementById("pw").value;
+  const err=document.getElementById("err"),out=document.getElementById("out");
+  if(!id||!pw){err.textContent="아이디와 비밀번호를 둘 다 넣어 주세요.";return;}
+  try{const h=await sha256(id+":"+pw);err.textContent="";out.hidden=false;out.textContent='  adminId: "'+id.replace(/"/g,'\\"')+'",\n  passHash: "'+h+'",';}
+  catch(e){err.textContent="이 브라우저에서는 만들 수 없습니다. https 주소(GitHub Pages)에서 열어 주세요.";}
 };
 </script>
-</body></html>
+</body>
+</html>
