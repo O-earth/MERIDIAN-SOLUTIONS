@@ -425,14 +425,11 @@ body.zap .mg{animation:zap .18s steps(2) 1}
 .player.wide{flex-wrap:wrap}
 .player.wide .emb.show{flex:1 0 100%}
 .player .emb iframe{border:0;display:block}
-.player.yt .pd{display:none}
-.player.yt .emb.show{order:-1;flex:0 0 128px;width:128px;height:72px;border:1px solid #31543B;background:#000;overflow:hidden;position:relative}
-.plcov{position:absolute;inset:0;z-index:2;background:#0B130D center 15%/cover no-repeat}
-.plcov::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,5,3,.15),rgba(3,5,3,.75) 60%);}
-.plcov i{position:absolute;right:8px;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;animation:spin 1.8s linear infinite;
-  background:radial-gradient(circle,#030503 0 9%,#00FF5A 10% 30%,rgba(0,0,0,0) 31%),conic-gradient(#c7d3cb,#6f8577,#e8f0ea,#5f7466,#bfe8cf,#c7d3cb);box-shadow:0 0 0 1px rgba(255,255,255,.2)}
-.plcov span{position:absolute;left:6px;bottom:4px;font:800 9px/1 Consolas,monospace;letter-spacing:.1em;color:#00FF5A;text-shadow:0 0 4px #000}
-@media (prefers-reduced-motion: reduce){ .plcov i{animation:none} }
+.player.yt{overflow:hidden}
+.player.yt .emb.show{position:absolute;left:0;top:0;width:128px;height:72px;z-index:0;border:0;overflow:hidden}
+.player.yt .emb.show iframe,.player.yt .emb.show #plYT{width:128px;height:72px}
+.player.yt::after{content:"";position:absolute;inset:0;background:#030503;z-index:1}
+.player.yt > :not(.emb){position:relative;z-index:2}
 .player.yt .emb.show iframe,.player.yt .emb.show #plYT{width:128px;height:72px}
 @media(max-width:640px){ .pf-track{flex-direction:column;align-items:stretch} .pf-track .cdx{flex:0 0 auto;max-width:180px} }
 @media(max-width:520px){ .shelf{grid-template-columns:repeat(2,1fr);gap:22px 12px} }
@@ -815,8 +812,7 @@ function playTrack(cs){
   const emb = $("#plEmb");
   if(ytPlayer){ try{ ytPlayer.destroy(); }catch(_){} ytPlayer = null; }
   if(e.kind === "yt"){
-    const cov = r.image ? `background-image:url('${esc(imgSrc(r.image))}')` : "";
-    emb.innerHTML = `<div id="plYT"></div><div class="plcov" style="${cov}"><i></i><span>${esc(r.callsign)}</span></div>`;
+    emb.innerHTML = `<div id="plYT"></div>`;
     startYT(e.id, r);
   }
   else emb.innerHTML = e.html;
