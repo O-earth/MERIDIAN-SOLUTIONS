@@ -321,7 +321,7 @@ window.ROSTER_DATA = {
       "personality": "",
       "history": "",
       "status": "준비 중",
-      "image": "caracal-mwxo66gr.jpg",
+      "image": "caracal-mwxo71hj.jpg",
       "bgmTitle": "",
       "bgmArtist": "",
       "bgmUrl": "",
