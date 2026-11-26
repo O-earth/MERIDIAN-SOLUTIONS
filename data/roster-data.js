@@ -27,12 +27,12 @@ window.ROSTER_DATA = {
       "image": "kakapo.jpg",
       "bgmTitle": "Gap Tooth Smile",
       "bgmArtist": "Djo",
-      "bgmUrl": "https://youtu.be/rKmxcOCHsCk?si=sZcZE5wXivxB6kM-",
+      "bgmUrl": "https://youtu.be/-I-ahx4lGuM?si=YRas8rLOa30L6LmY",
       "radio": "폭약 붙였다. 3초 뒤에 귀 막아, 예쁜이들아.\n여기 카카포. 길 열렸으니까 내 궁둥이만 따라와.\n1층 클리어. 누가 내 껌 가져갔냐? 아, 찾았다.\n내 쪽으로 쏘지 마라, 새 팬티 안 챙겨 왔으니까.\n카카포 수신. 방금 벽 뚫었는데 안쪽이 아주 개판이야.\n아직 살아있냐, 자기야? 대답 없으면 뽀뽀하러 간다.\n목표 확보. 이제 집에 가서 맥주나 까자고, 오버.\n여기 카카포. 문 열었어. 문짝은 좀 많이 열렸고. 수리비는 슬로스 앞으로 달아 둬.\n¿Me oyes? 들리면 대답해. 안 하면 지금부터 노래한다.\n브리칭 완료. 참고로 거긴 문이 아니라 벽이었어.",
       "links": [
         {
-          "label": "",
-          "url": "https://caveduck.io/ko/share/characters/09b61a01-1756-4067-94d1-7237cc3914a4?rc=OaeOwRhsdp&_share_hash="
+          "url": "https://caveduck.io/ko/share/characters/09b61a01-1756-4067-94d1-7237cc3914a4?rc=OaeOwRhsdp&_share_hash=",
+          "label": ""
         }
       ]
     },
