@@ -143,12 +143,12 @@ window.ROSTER_DATA = {
       "image": "magpie.jpg",
       "bgmTitle": "Lust for Life",
       "bgmArtist": "Iggy Pop",
-      "bgmUrl": "https://youtu.be/HuBU3pzy7is?si=5DwjrAkCW5Kj8NlN",
+      "bgmUrl": "https://youtu.be/vYZ-n8L0AaI?si=MDaISZwXnZaWSUwM",
       "radio": "너 씨발 무전기 껐냐? 대답해.\n네 작전 존나 지루해. 난 창문으로 들어간다.\n들려? 안 들려도 상관없어, 할 말만 하고 끊을 거니까.\n26일에 파티 한다. 안 오면 니 트레일러 문짝 떼다가 장식한다.\n휴게실에 내 푸딩 누가 처먹었냐. 자수해라.\n거기 쏘지 마, 그 새끼 내 거야.\n어디냐. 나 심심해. 나 좀 봐.\n야, 이 새끼 재킷 내가 가져도 되냐?\n돌아오는 길에 단것 좀 사 와.\n대기하라고 지랄하지 마, 이 씹새끼야.\n야, 이 노래 들리냐? 존나 좋지.\n내 파티 전에 뒤지기만 해봐, 죽여버릴 거야.",
       "links": [
         {
-          "label": "",
-          "url": "https://caveduck.io/ko/share/characters/ad858f3a-8bc9-4897-a66e-d984b6cc4e2d?rc=OaeOwRhsdp&_share_hash="
+          "url": "https://caveduck.io/ko/share/characters/ad858f3a-8bc9-4897-a66e-d984b6cc4e2d?rc=OaeOwRhsdp&_share_hash=",
+          "label": ""
         }
       ]
     },
