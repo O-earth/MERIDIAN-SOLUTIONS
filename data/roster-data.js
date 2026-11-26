@@ -116,12 +116,12 @@ window.ROSTER_DATA = {
       "image": "ocelot-mwwhkpxb.jpg",
       "bgmTitle": "Orion",
       "bgmArtist": "Metallica",
-      "bgmUrl": "https://youtu.be/uPfmlpiBEk8?si=xnVdUFZ9DRwH3Tod",
+      "bgmUrl": "https://youtu.be/uPfmlpiBEk8?si=2pj6d0Xb3czDJ4yz",
       "radio": "내 왼쪽 빈다. 거기 메워.\n다들 입 다물어. 숨소리까지 다 들린다, 이 새끼들아.\n내 밀크티 마신 새끼 무전으로 자백해. 지금.\n바람 동쪽 3. 한마디만 더 하면 너부터 맞춘다.\n표적 사살. 소리 좀 그만 질러.\n정보가 개판이네. 내가 들어간다.\n씨발, 섬광탄 누가 던졌냐?\n재장전 중. 5초만 벌어.\n브리핑 개소리네. 난 빠진다.\n문 두드리지 마라. 자는 중이니까.\n공용 채널에서 징징대지 마.\n차 출발한다. 뛰어라, 굼벵아.",
       "links": [
         {
-          "label": "",
-          "url": "https://caveduck.io/ko/share/characters/98c6f1a5-dfed-41a3-b0f9-d122fc4696e5?rc=OaeOwRhsdp&_share_hash="
+          "url": "https://caveduck.io/ko/share/characters/98c6f1a5-dfed-41a3-b0f9-d122fc4696e5?rc=OaeOwRhsdp&_share_hash=",
+          "label": ""
         }
       ]
     },
