@@ -425,6 +425,15 @@ body.zap .mg{animation:zap .18s steps(2) 1}
 .player.wide{flex-wrap:wrap}
 .player.wide .emb.show{flex:1 0 100%}
 .player .emb iframe{border:0;display:block}
+.player.yt .pd{display:none}
+.player.yt .emb.show{order:-1;flex:0 0 128px;width:128px;height:72px;border:1px solid #31543B;background:#000;overflow:hidden;position:relative}
+.plcov{position:absolute;inset:0;z-index:2;background:#0B130D center 15%/cover no-repeat}
+.plcov::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,5,3,.15),rgba(3,5,3,.75) 60%);}
+.plcov i{position:absolute;right:8px;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;animation:spin 1.8s linear infinite;
+  background:radial-gradient(circle,#030503 0 9%,#00FF5A 10% 30%,rgba(0,0,0,0) 31%),conic-gradient(#c7d3cb,#6f8577,#e8f0ea,#5f7466,#bfe8cf,#c7d3cb);box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.plcov span{position:absolute;left:6px;bottom:4px;font:800 9px/1 Consolas,monospace;letter-spacing:.1em;color:#00FF5A;text-shadow:0 0 4px #000}
+@media (prefers-reduced-motion: reduce){ .plcov i{animation:none} }
+.player.yt .emb.show iframe,.player.yt .emb.show #plYT{width:128px;height:72px}
 @media(max-width:640px){ .pf-track{flex-direction:column;align-items:stretch} .pf-track .cdx{flex:0 0 auto;max-width:180px} }
 @media(max-width:520px){ .shelf{grid-template-columns:repeat(2,1fr);gap:22px 12px} }
 @media (prefers-reduced-motion: reduce){ .cdx.playing .disc,.player .pd,.player .eq b{animation:none} }
@@ -782,7 +791,7 @@ function renderShelf(){
 function embedFor(url){
   const u = String(url||"").trim(); if(!u) return null;
   let m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/i);
-  if(m) return { kind:"yt", id:m[1], html:`<iframe width="200" height="113" src="https://www.youtube.com/embed/${m[1]}?autoplay=1&loop=1&playlist=${m[1]}&playsinline=1" allow="autoplay; encrypted-media" title="BGM"></iframe>` };
+  if(m) return { kind:"yt", id:m[1], html:`<iframe width="128" height="72" src="https://www.youtube.com/embed/${m[1]}?autoplay=1&loop=1&playlist=${m[1]}&playsinline=1" allow="autoplay; encrypted-media" title="BGM"></iframe>` };
   m = u.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(track|album|playlist)\/([A-Za-z0-9]+)/i);
   if(m) return { kind:"sp", html:`<iframe width="100%" height="80" src="https://open.spotify.com/embed/${m[1]}/${m[2]}?theme=0" allow="autoplay; clipboard-write; encrypted-media" title="BGM"></iframe>` };
   m = u.match(/soundcloud\.com\//i);
@@ -805,10 +814,14 @@ function playTrack(cs){
   $("#plA").textContent = r.bgmArtist || "";
   const emb = $("#plEmb");
   if(ytPlayer){ try{ ytPlayer.destroy(); }catch(_){} ytPlayer = null; }
-  if(e.kind === "yt"){ emb.innerHTML = `<div id="plYT"></div>`; startYT(e.id, r); }
+  if(e.kind === "yt"){
+    const cov = r.image ? `background-image:url('${esc(imgSrc(r.image))}')` : "";
+    emb.innerHTML = `<div id="plYT"></div><div class="plcov" style="${cov}"><i></i><span>${esc(r.callsign)}</span></div>`;
+    startYT(e.id, r);
+  }
   else emb.innerHTML = e.html;
   const vis = e.kind === "sp" || e.kind === "sc" || e.kind === "yt";
-  emb.classList.toggle("show", vis); p.classList.toggle("wide", vis);
+  emb.classList.toggle("show", vis); p.classList.toggle("wide", vis && e.kind !== "yt"); p.classList.toggle("yt", e.kind === "yt");
   $("#plEq").hidden = vis;
   p.hidden = false;
   syncPlaying();
@@ -831,7 +844,7 @@ function startYT(id, r){
   loadYTApi().then(() => {
     if(nowPlaying !== cs || !$("#plYT")) return;
     ytPlayer = new YT.Player("plYT", {
-      width: 200, height: 113, videoId: id,
+      width: 128, height: 72, videoId: id,
       playerVars: { autoplay: 1, playsinline: 1, loop: 1, playlist: id, rel: 0 },
       events: {
         onReady: ev => { try{ ev.target.unMute(); ev.target.setVolume(80); ev.target.playVideo(); }catch(_){} },
