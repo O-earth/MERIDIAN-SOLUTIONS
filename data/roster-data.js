@@ -371,6 +371,28 @@ window.ROSTER_DATA = {
       "bgmUrl": "",
       "radio": "",
       "links": []
+    },
+    {
+      "callsign": "BONGO",
+      "name": "",
+      "nameKo": "",
+      "type": "인외",
+      "position": "",
+      "age": "",
+      "height": "",
+      "birthday": "",
+      "origin": "",
+      "tenure": "",
+      "intro": "",
+      "personality": "",
+      "history": "",
+      "status": "준비 중",
+      "image": "bongo-mwxp6uz9.jpg",
+      "bgmTitle": "",
+      "bgmArtist": "",
+      "bgmUrl": "",
+      "radio": "",
+      "links": []
     }
   ]
 };
