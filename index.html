@@ -430,6 +430,10 @@ body.zap .mg{animation:zap .18s steps(2) 1}
 .player.yt .emb.show iframe,.player.yt .emb.show #plYT{width:128px;height:72px}
 .player.yt::after{content:"";position:absolute;inset:0;background:#030503;z-index:1}
 .player.yt > :not(.emb){position:relative;z-index:2}
+.player.yt.reveal{overflow:visible}
+.player.yt.reveal::after{display:none}
+.player.yt.reveal .pd{display:none}
+.player.yt.reveal .emb.show{position:relative;order:-1;flex:0 0 128px;z-index:3;border:1px solid #31543B}
 .player.yt .emb.show iframe,.player.yt .emb.show #plYT{width:128px;height:72px}
 @media(max-width:640px){ .pf-track{flex-direction:column;align-items:stretch} .pf-track .cdx{flex:0 0 auto;max-width:180px} }
 @media(max-width:520px){ .shelf{grid-template-columns:repeat(2,1fr);gap:22px 12px} }
@@ -843,18 +847,37 @@ function startYT(id, r){
       width: 128, height: 72, videoId: id,
       playerVars: { autoplay: 1, playsinline: 1, loop: 1, playlist: id, rel: 0 },
       events: {
-        onReady: ev => { try{ ev.target.unMute(); ev.target.setVolume(80); ev.target.playVideo(); }catch(_){} },
+        onReady: ev => { try{ ev.target.unMute(); ev.target.setVolume(80); ev.target.playVideo(); }catch(_){} ytWatch(cs); },
         onError: ev => {
           const blocked = ev.data === 101 || ev.data === 150 || ev.data === 100;
-          toast(blocked ? "이 영상은 다른 사이트에서 재생이 막혀 있습니다. 유튜브에서 엽니다" : "재생할 수 없는 링크입니다");
-          if(blocked) window.open(r.bgmUrl, "_blank", "noopener");
+          toast(blocked ? "이 영상은 다른 사이트에서 재생이 막혀 있습니다" : "재생할 수 없는 링크입니다");
           stopTrack();
         }
       }
     });
   }).catch(() => { if(nowPlaying === cs && $("#plYT")) $("#plYT").outerHTML = embedFor(r.bgmUrl).html; });
 }
+/* if the song doesn't actually progress (ad waiting to be seen, buffering), show the small video so it can play / be skipped */
+let ytWatchIv = null;
+function ytReveal(on){
+  const p = $("#player"); if(!p) return;
+  if(p.classList.contains("reveal") === on) return;
+  p.classList.toggle("reveal", on);
+  const k = $("#plK"); if(k && nowPlaying) k.textContent = on ? "AD / LOADING — 영상에서 확인해 주세요" : `NOW PLAYING — ${nowPlaying}`;
+}
+function ytWatch(cs){
+  clearInterval(ytWatchIv);
+  let last = -1, stuck = 0, ok = 0;
+  ytWatchIv = setInterval(() => {
+    if(nowPlaying !== cs || !ytPlayer || !ytPlayer.getPlayerState){ clearInterval(ytWatchIv); return; }
+    let st, t; try{ st = ytPlayer.getPlayerState(); t = ytPlayer.getCurrentTime(); }catch(_){ return; }
+    if(st === 1 && t > last + 0.2){ stuck = 0; ok++; }
+    else if(st !== 2){ ok = 0; stuck += .7; if(stuck >= 7){ clearInterval(ytWatchIv); toast("광고가 붙어 재생이 끊겼어요. 다시 눌러 주세요"); stopTrack(); } }
+    last = t;
+  }, 700);
+}
 function stopTrack(){
+  clearInterval(ytWatchIv); ytReveal(false);
   if(ytPlayer){ try{ ytPlayer.destroy(); }catch(_){} ytPlayer = null; }
   nowPlaying = null;
   $("#plEmb").innerHTML = ""; $("#player").hidden = true;
