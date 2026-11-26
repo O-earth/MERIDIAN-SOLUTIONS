@@ -255,7 +255,7 @@ window.ROSTER_DATA = {
       "personality": "",
       "history": "",
       "status": "준비 중",
-      "image": "quoll-mwxnwo6b.jpg",
+      "image": "quoll-mwxnx1x6.jpg",
       "bgmTitle": "",
       "bgmArtist": "",
       "bgmUrl": "",
