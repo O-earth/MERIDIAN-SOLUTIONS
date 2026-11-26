@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MENAGERIE — PERSONNEL</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="MENAGERIE">
+<meta name="theme-color" content="#030503">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 *{box-sizing:border-box}
@@ -778,7 +782,7 @@ function renderShelf(){
 function embedFor(url){
   const u = String(url||"").trim(); if(!u) return null;
   let m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/i);
-  if(m) return { kind:"yt", html:`<iframe width="200" height="113" src="https://www.youtube.com/embed/${m[1]}?autoplay=1&loop=1&playlist=${m[1]}&playsinline=1" allow="autoplay; encrypted-media" title="BGM"></iframe>` };
+  if(m) return { kind:"yt", id:m[1], html:`<iframe width="200" height="113" src="https://www.youtube.com/embed/${m[1]}?autoplay=1&loop=1&playlist=${m[1]}&playsinline=1" allow="autoplay; encrypted-media" title="BGM"></iframe>` };
   m = u.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(track|album|playlist)\/([A-Za-z0-9]+)/i);
   if(m) return { kind:"sp", html:`<iframe width="100%" height="80" src="https://open.spotify.com/embed/${m[1]}/${m[2]}?theme=0" allow="autoplay; clipboard-write; encrypted-media" title="BGM"></iframe>` };
   m = u.match(/soundcloud\.com\//i);
@@ -799,14 +803,50 @@ function playTrack(cs){
   $("#plK").textContent = `NOW PLAYING — ${r.callsign}`;
   $("#plT").textContent = r.bgmTitle || "UNTITLED";
   $("#plA").textContent = r.bgmArtist || "";
-  const emb = $("#plEmb"); emb.innerHTML = e.html;
-  const vis = e.kind === "sp" || e.kind === "sc";
+  const emb = $("#plEmb");
+  if(ytPlayer){ try{ ytPlayer.destroy(); }catch(_){} ytPlayer = null; }
+  if(e.kind === "yt"){ emb.innerHTML = `<div id="plYT"></div>`; startYT(e.id, r); }
+  else emb.innerHTML = e.html;
+  const vis = e.kind === "sp" || e.kind === "sc" || e.kind === "yt";
   emb.classList.toggle("show", vis); p.classList.toggle("wide", vis);
   $("#plEq").hidden = vis;
   p.hidden = false;
   syncPlaying();
 }
+/* YouTube: visible mini player via IFrame API (tiny/hidden players get paused by YouTube) */
+let ytPlayer = null, ytReady = null;
+function loadYTApi(){
+  if(ytReady) return ytReady;
+  ytReady = new Promise((res, rej) => {
+    if(window.YT && window.YT.Player) return res();
+    window.onYouTubeIframeAPIReady = () => res();
+    const sc = document.createElement("script"); sc.src = "https://www.youtube.com/iframe_api"; sc.onerror = rej;
+    document.head.appendChild(sc);
+    setTimeout(() => rej(new Error("timeout")), 8000);
+  });
+  return ytReady;
+}
+function startYT(id, r){
+  const cs = r.callsign;
+  loadYTApi().then(() => {
+    if(nowPlaying !== cs || !$("#plYT")) return;
+    ytPlayer = new YT.Player("plYT", {
+      width: 200, height: 113, videoId: id,
+      playerVars: { autoplay: 1, playsinline: 1, loop: 1, playlist: id, rel: 0 },
+      events: {
+        onReady: ev => { try{ ev.target.unMute(); ev.target.setVolume(80); ev.target.playVideo(); }catch(_){} },
+        onError: ev => {
+          const blocked = ev.data === 101 || ev.data === 150 || ev.data === 100;
+          toast(blocked ? "이 영상은 다른 사이트에서 재생이 막혀 있습니다. 유튜브에서 엽니다" : "재생할 수 없는 링크입니다");
+          if(blocked) window.open(r.bgmUrl, "_blank", "noopener");
+          stopTrack();
+        }
+      }
+    });
+  }).catch(() => { if(nowPlaying === cs && $("#plYT")) $("#plYT").outerHTML = embedFor(r.bgmUrl).html; });
+}
 function stopTrack(){
+  if(ytPlayer){ try{ ytPlayer.destroy(); }catch(_){} ytPlayer = null; }
   nowPlaying = null;
   $("#plEmb").innerHTML = ""; $("#player").hidden = true;
   syncPlaying();
